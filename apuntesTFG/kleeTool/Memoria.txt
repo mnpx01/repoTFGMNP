@@ -1,0 +1,74 @@
+ORDEN: LLVM_VERSION=13 BASE=/home/martin/klee-uclibc ENABLE_OPTIMIZED=1 DISABLE_ASSERTIONS=1 ENABLE_DEBUG=0 REQUIRES_RTTI=1 klee/scripts/build/build.sh libcxx
+IMGS_ERROR:
+ARREGLO_BUGS:
+	* Cambiar "uintptr_t" por "__intptr_t" en "sudo nano /home/martin/klee-uclibc/llvm-130/llvm/include/llvm/Support/Signals.h"
+	* Cambiar "void sys::CleanupOnSignal(uintptr_t Context)" por "void llvm::sys::CleanupOnSignal(__intptr_t Context)" en 
+	  "sudo nano /home/martin/klee-uclibc/llvm-130/llvm/lib/Support/Unix/Signals.inc"
+
+
+ORDEN:
+cmake \
+-DENABLE_SOLVER_STP=OFF -DENABLE_SOLVER_Z3=ON -DENABLE_POSIX_RUNTIME=ON \
+-DLLVMCC=/usr/bin/clang-13 -DLLVMCXX=/usr/bin/clang++-13 \
+-DLLVM_DIR=/usr/lib/llvm-13/cmake -DKLEE_UCLIBC_PATH=/home/martin/klee-uclibc \
+-DENABLE_UNIT_TESTS=ON -DGTEST_SRC_DIR=/home/martin/googletests/googletest-release-1.11.0/ \
+-DENABLE_KLEE_LIBCXX=ON -DKLEE_LIBCXX_DIR=/home/martin/klee-uclibc/libc++-install-130/ \
+-DKLEE_LIBCXX_INCLUDE_DIR=/home/martin/klee-uclibc/libc++-install-130/include/c++/v1/ \
+-DENABLE_KLEE_EH_CXX=ON -DKLEE_LIBCXXABI_SRC_DIR=/home/martin/klee-uclibc/llvm-130/libcxxabi/ ..
+
+ORDEN:
+IMGS_ERROR:
+ARREGLO BUGS:
+	* Mover el archivo "__config_site" a la ruta adecuada:
+	  mv /home/martin/klee-uclibc/libc++-install-130/include/x86_64-unknown-linux-gnu/c++/v1/__config_site  \
+	  /home/martin/klee-uclibc/libc++-install-130/include/c++/v1/__config_site 
+	  
+export PATH=/home/martin/klee/build/bin:$PATH
+/////////////////////////////////////
+
+
+export LD_LIBRARY_PATH=/home/martin/klee/build/lib/:$LD_LIBRARY_PATH
+gcc -I ../../include -L /home/martin/klee/build/lib/ get_sign.c -lkleeRuntest
+	  
+	 
+	 
+/////////////////////////////////////
+TEST 4
+
+ORDEN: ... coreutils-6.11/obj-gcov$ make
+IMGS_ERROR:
+ARREGLO BUGS:
+	* Instalar la última versión de coreutils con el comando: git clone git://git.sv.gnu.org/coreutils
+	  y seguir las instrucciones referidas en "https://git.savannah.gnu.org/cgit/coreutils.git/plain/README-hacking".
+	  
+	  
+///////
+En Kcachegrind no se muestra el código fuente, todo lo demás si
+
+src$ rm -f *.gcda # Get rid of any stale gcov files
+src$ klee-replay ./echo ../../obj-llvm/src/klee-last/*.ktest
+klee-replay: TEST CASE: ../../obj-llvm/src/klee-last/test000001.ktest
+klee-replay: ARGS: "./echo"
+
+...
+
+src$ gcov echo <- No me muestra nada, OBSOLETO???
+File '../../src/echo.c'
+Lines executed:97.09% of 103
+Creating 'echo.c.gcov'
+
+File '../../src/system.h'
+Lines executed:100.00% of 3
+Creating 'system.h.gcov'
+
+cd /home/martin/libcxx/libc++-install-130/lib
+llvm-ar x libc++.a
+for file in *.o; do
+    extract-bc $file
+done
+llvm-link -o libc++.bca *.bc
+llvm-extract libc++.bca -o libc++.so.bc
+llvm-extract libc++.bca -o libc++.dylib.bc
+
+rm *.o*
+

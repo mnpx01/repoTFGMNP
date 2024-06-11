@@ -1,0 +1,32 @@
+LIBARCHIVE (/home/martin/libarchive) ADAPTACION LLVM
+
+git clone https://github.com/libarchive/libarchive.git
+
+cd libarchive
+cd build
+
+pip install --break-system-packages --upgrade wllvm
+export CC=wllvm && export CXX=wllvm++ && export LLVM_COMPILER=clang
+cmake ..
+make
+sudo make install
+
+cd bin
+extract-bc
+extract-bc
+-------------------------------------------------------------------------------------------------------------
+
+
+LIBARCHIVE (/home/martin/libarchive),  ADAPTACION GCOV   PENDIENTE
+
+
+-------------------------------------------------------------------------------------------------------------
+
+
+PRUEBAS Klee:
+
+    
+Los tamaños (en bits) para el argumento -sym-files han sido elegidos en función de lo considerado respecto a las limitaciones de memoria del equipo actual. Al no tener suficientes recursos computacionales, el aumento de tamaño carece de sentido pues los resultados no son suficientementes eficientes y óptimos.
+      
+    
+    

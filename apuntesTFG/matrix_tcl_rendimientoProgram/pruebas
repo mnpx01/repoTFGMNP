@@ -1,0 +1,30 @@
+MATRIX_TCL_RENDIMIENTO (/home/martin/matrix_tcl_rendimiento), ADAPTACION LLVM
+
+git clone https://github.com/leethomason/tinyxml2.git
+
+cd tinyxml2
+mkdir build
+cd build
+
+pip install --break-system-packages --upgrade wllvm
+export CC=wllvm && export CXX=wllvm++ && export LLVM_COMPILER=clang
+cmake ..
+make
+
+cp -r ../resources/ ./resources
+extract-bc xmltest
+-------------------------------------------------------------------------------------------------------------
+
+
+MATRIX_TCL_RENDIMIENTO (/home/martin/matrix_tcl_rendimiento) ADAPTACION GCOV PENDIENTE
+
+
+-------------------------------------------------------------------------------------------------------------
+
+
+PRUEBAS Klee: 
+
+
+Los tamaños (en bits) para el argumento -sym-files han sido elegidos en función de lo considerado respecto a las limitaciones de memoria del equipo actual. Al no tener suficientes recursos computacionales, el aumento de tamaño carece de sentido pues los resultados no son suficientementes eficientes y óptimos.
+      
+    

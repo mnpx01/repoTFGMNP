@@ -1,0 +1,14 @@
+KLEE: NOTE: Using POSIX model: /home/martin/klee/build/runtime/lib/libkleeRuntimePOSIX64_Debug+Asserts.bca
+KLEE: NOTE: Using klee-uclibc : /home/martin/klee/build/runtime/lib/klee-uclibc.bca
+KLEE: output directory is "/home/martin/Escritorio/tinyxml2/build/./klee-out-6"
+KLEE: Using Z3 solver backend
+KLEE: Deterministic allocator: Using quarantine queue size 8
+KLEE: Deterministic allocator: globals (start-address=0x74c9f1e00000 size=10 GiB)
+KLEE: Deterministic allocator: constants (start-address=0x74c771e00000 size=10 GiB)
+KLEE: Deterministic allocator: heap (start-address=0x73c771e00000 size=1024 GiB)
+KLEE: Deterministic allocator: stack (start-address=0x73a771e00000 size=128 GiB)
+
+KLEE: done: total instructions = 584132590
+KLEE: done: completed paths = 1708
+KLEE: done: partially completed paths = 12189
+KLEE: done: generated tests = 43

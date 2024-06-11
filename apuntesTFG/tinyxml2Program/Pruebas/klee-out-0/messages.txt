@@ -1,0 +1,6 @@
+KLEE: Using Z3 solver backend
+KLEE: Deterministic allocator: Using quarantine queue size 8
+KLEE: Deterministic allocator: globals (start-address=0x7792e3000000 size=10 GiB)
+KLEE: Deterministic allocator: constants (start-address=0x779063000000 size=10 GiB)
+KLEE: Deterministic allocator: heap (start-address=0x769063000000 size=1024 GiB)
+KLEE: Deterministic allocator: stack (start-address=0x767063000000 size=128 GiB)

@@ -1,0 +1,23 @@
+klee --warnings-only-to-file --only-output-states-covering-new --write-kqueries --optimize --libc=uclibc --posix-runtime ./xmltest.bc --sym-args 0 5 10 --sym-files 1 8 --sym-stdout
+PID: 3926
+Using monotonic steady clock with 1/1000000000s resolution
+Started: 2024-06-10 13:05:45
+BEGIN searcher description
+<InterleavedSearcher> containing 2 searchers:
+RandomPathSearcher
+WeightedRandomSearcher::CoveringNew
+</InterleavedSearcher>
+END searcher description
+Finished: 2024-06-10 13:41:23
+Elapsed: 00:35:38
+KLEE: done: explored paths = 13904
+KLEE: done: avg. constructs per query = 220
+KLEE: done: total queries = 45601
+KLEE: done: valid queries = 17232
+KLEE: done: invalid queries = 28369
+KLEE: done: query cex = 45601
+
+KLEE: done: total instructions = 583988987
+KLEE: done: completed paths = 1742
+KLEE: done: partially completed paths = 12162
+KLEE: done: generated tests = 45

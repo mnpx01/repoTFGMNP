@@ -1,0 +1,53 @@
+TINIXML2 (/home/martin/tinyxml2), ADAPTACION LLVM
+
+git clone https://github.com/leethomason/tinyxml2.git
+
+cd tinyxml2 && mkdir build && cd build
+
+pip install --break-system-packages --upgrade wllvm && export CC=wllvm && export CXX=wllvm++ && export LLVM_COMPILER=clang
+cmake ..
+make
+
+cp -r ../resources/ ./resources
+extract-bc xmltest
+-------------------------------------------------------------------------------------------------------------
+
+
+TINIXML2 (/home/martin/tinyxml2) ADAPTACION GCOV
+
+git clone https://github.com/leethomason/tinyxml2.git
+
+mkdir gcovbuild && cp -R ./!(gcovbuild|build) ./gcovbuild/ && cd gcovbuild
+
+rm -f *.gcda && rm -f *.gcno && rm -f *.gcov
+g++ --coverage -o xmltest xmltest.cpp tinyxml2.cpp tinyxml2.h
+--coverage = MIRAR EN IMAGEN MOVIL
+./xmltest
+mv xmltest-xmltest.gcno xmltest.gcno && mv xmltest-xmltest.gcda xmltest.gcda
+gcov -abcfHlm xmltest.cpp
+
+GCOV considera solo las líneas de los archivos usados, no de la aplicación entera, OPCIONES: abcfHlm, para Latex excluimos la f,
+redactar con info de la página oficial
+-------------------------------------------------------------------------------------------------------------
+
+
+PRUEBAS Klee:  tests de 0 a 5 prametros, posibilidad de archivos, no stdin, si stdout 
+klee --warnings-only-to-file --only-output-states-covering-new --write-kqueries --optimize --libc=uclibc --posix-runtime ./xmltest.bc
+
+1. --sym-args 0 5 5
+2. --sym-args 0 5 10
+3. --sym-args 0 5 20
+4. --sym-args 0 5 40
+5. --sym-args 0 5 5 --sym-files 1 8
+6. --sym-args 0 5 10 --sym-files 1 8
+7. --sym-args 0 5 20 --sym-files 1 8
+8. --sym-args 0 5 40 --sym-files 1 8
+9. --sym-args 0 5 5 --sym-files 1 8 --sym-stdout
+10. --sym-args 0 5 10 --sym-files 1 8 --sym-stdout
+11. --sym-args 0 5 20 --sym-files 1 8 --sym-stdout
+12. --sym-args 0 5 40 --sym-files 1 8 --sym-stdout
+
+    
+Los tamaños (en bits) para el argumento -sym-files han sido elegidos en función de lo considerado respecto a las limitaciones de memoria del equipo actual. Al no tener suficientes recursos computacionales, el aumento de tamaño carece de sentido pues los resultados no son suficientementes eficientes y óptimos.
+      
+    

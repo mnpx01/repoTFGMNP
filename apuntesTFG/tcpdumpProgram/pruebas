@@ -1,0 +1,33 @@
+TCPDUMP (/home/martin/tcpdump) ADAPTACION LLVM
+
+git clone https://github.com/the-tcpdump-group/libpcap.git
+cd libpcap && mkdir build && cd build
+pip install --break-system-packages --upgrade wllvm && export CC=wllvm && export CXX=wllvm++ && export LLVM_COMPILER=clang
+sudo apt-get install flex
+cmake ..
+make
+sudo make install
+cd ../..
+
+git clone https://github.com/the-tcpdump-group/tcpdump.git
+cd tcpdump && mkdir build && cd build
+pip install --break-system-packages --upgrade wllvm && export CC=wllvm && export CXX=wllvm++ && export LLVM_COMPILER=clang
+cmake ..
+make
+sudo make install
+-------------------------------------------------------------------------------------------------------------
+
+
+TCPDUMP (/home/martin/tcpdump),  ADAPTACION GCOV   PENDIENTE
+
+
+-------------------------------------------------------------------------------------------------------------
+
+
+PRUEBAS Klee:
+
+    
+Los tamaños (en bits) para el argumento -sym-files han sido elegidos en función de lo considerado respecto a las limitaciones de memoria del equipo actual. Al no tener suficientes recursos computacionales, el aumento de tamaño carece de sentido pues los resultados no son suficientementes eficientes y óptimos.
+      
+    
+    
