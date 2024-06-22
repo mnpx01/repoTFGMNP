@@ -12,8 +12,7 @@ make
 sudo make install
 
 cd bin
-extract-bc
-extract-bc
+extract-bc bsdcat
 -------------------------------------------------------------------------------------------------------------
 
 
@@ -23,8 +22,21 @@ LIBARCHIVE (/home/martin/libarchive),  ADAPTACION GCOV   PENDIENTE
 -------------------------------------------------------------------------------------------------------------
 
 
-PRUEBAS Klee:
+PRUEBAS Klee:  tests de 0 a 5 prametros, posibilidad de archivos, no stdin, si stdout 
+klee --warnings-only-to-file --only-output-states-covering-new --write-kqueries --optimize --libc=uclibc --posix-runtime ./bsdcat.bc
 
+1. --sym-args 0 2 5
+2. --sym-args 0 2 10
+3. --sym-args 0 2 20
+4. --sym-args 0 2 40
+5. --sym-args 0 2 5 --sym-files 1 8
+6. --sym-args 0 2 10 --sym-files 1 8
+7. --sym-args 0 2 20 --sym-files 1 8
+8. --sym-args 0 2 40 --sym-files 1 8
+9. --sym-args 0 2 5 --sym-files 1 8 --sym-stdout
+10. --sym-args 0 2 10 --sym-files 1 8 --sym-stdout
+11. --sym-args 0 2 20 --sym-files 1 8 --sym-stdout
+12. --sym-args 0 2 40 --sym-files 1 8 --sym-stdout
     
 Los tamaños (en bits) para el argumento -sym-files han sido elegidos en función de lo considerado respecto a las limitaciones de memoria del equipo actual. Al no tener suficientes recursos computacionales, el aumento de tamaño carece de sentido pues los resultados no son suficientementes eficientes y óptimos.
       
