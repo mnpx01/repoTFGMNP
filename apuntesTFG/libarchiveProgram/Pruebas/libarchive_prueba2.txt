@@ -1,0 +1,11 @@
+KLEE: NOTE: Using POSIX model: /home/martin/klee/build/runtime/lib/libkleeRuntimePOSIX64_Debug+Asserts.bca
+KLEE: NOTE: Using klee-uclibc : /home/martin/klee/build/runtime/lib/klee-uclibc.bca
+KLEE: output directory is "/home/martin/Escritorio/libarchive/build/bin/./klee-out-1"
+KLEE: Using Z3 solver backend
+KLEE: Deterministic allocator: Using quarantine queue size 8
+KLEE: Deterministic allocator: globals (start-address=0x7c1d2f200000 size=10 GiB)
+KLEE: Deterministic allocator: constants (start-address=0x7c1aaf200000 size=10 GiB)
+KLEE: Deterministic allocator: heap (start-address=0x7b1aaf200000 size=1024 GiB)
+KLEE: Deterministic allocator: stack (start-address=0x7afaaf200000 size=128 GiB)
+KLEE: ctrl-c detected, requesting interpreter to halt.
+KLEE: ctrl-c detected, exiting.

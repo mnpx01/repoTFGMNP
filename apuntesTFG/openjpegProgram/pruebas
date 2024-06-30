@@ -4,25 +4,18 @@ git clone https://github.com/uclouvain/openjpeg.git
 
 cd openjpeg && mkdir build && cd build
 
-pip install --break-system-packages --upgrade wllvm && export CC=wllvm && export CXX=wllvm++ && export LLVM_COMPILER=clang
+pip install --break-system-packages --upgrade wllvm && export CC=wllvm && export CXX=wllvm++ && export LLVM_COMPILER=clang && export CMAKE_C_FLAGS="-emit-llvm" && export CMAKE_CXX_FLAGS="-emit-llvm"
 cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_THIRDPARTY:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON
 make
 sudo make install
 
+export CFLAGS="-g" && export CXXFLAGS="-g"
+
 cd bin
+extract-bc libopenjp2.a
 extract-bc opj_compress
-extract-bc opj_decompress
 
-
-###GENERAMOS TESTS
-###mkdir tests && cd tests
-###git clone https://github.com/uclouvain/openjpeg-data.git
-###sudo apt-get install liblcms2-dev  libtiff-dev libpng-dev libz-dev
-###cmake . -DBUILD_TESTING:BOOL=ON -DOPJ_DATA_ROOT:PATH='/home/martin/Escritorio/openjpeg/build/tests/openjpeg-data' -DBUILD_THIRDPARTY:BOOL=ON -###DBUILD_SHARED_LIBS:BOOL=ON -DBUILDNAME:STRING='testsOpenjpeg'  
-#####Modificar ruta anterior como si estuviese en ruta raiz, quitar /Escritorio para Latex
-###make Experimental
-
-###gcc -o opj_compress opj_compress.c openjpeg.c openjpeg.h convert.c convert.h index.c index.h opj_apps_config.h opj_config.h ###opj_config_private.h opj_getopt.c opj_getopt.h format_defs.h opj_clock.c opj_clock.h opj_includes.c opj_malloc.c opj_malloc.h event.c event.h ###function_list.c function_list.h bio.c bio.h cio.c cio.h thread.c thread.h tls_keys.h image.c image.h invert.c invert.h j2k.c j2k.h jp2.c jp2.h ###mqc.c mqc.h pi.c pi.h tgt.c tgt.h tcd.c tcd.h t1.c t1.h dwt.c dwt.h t2.c t2.h opj_common.h mct.c mct.h opj_intmath.h sparse_array.c ###sparse_array.h opj_string.h mqc_inl.h opj_codec.h
+PASAR A KEVIN, MIRAR DAEMON --max-solver-time=30s --max-time=60min
 -------------------------------------------------------------------------------------------------------------
 
 
@@ -32,41 +25,30 @@ OPENJPEG (/home/martin/openjpeg),  ADAPTACION GCOV   PENDIENTE
 -------------------------------------------------------------------------------------------------------------
 
 PENDIENTES DE EJECUCION
-PRUEBAS1 Klee: tests de 0 a 13 prametros, posibilidad de archivos, no stdin, si stdout
-klee --warnings-only-to-file --only-output-states-covering-new --write-kqueries --optimize --libc=uclibc --posix-runtime ./opj_compress.bc
+PRUEBAS Klee: tests de 0 a 13 prametros, posibilidad de archivos, no stdin, si stdout
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libopenjp2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./opj_compress.bc
 
-1. --sym-args 0 13 5
-2. --sym-args 0 13 10
-3. --sym-args 0 13 20
-4. --sym-args 0 13 40
-5. --sym-args 0 13 5 --sym-files 1 8
-6. --sym-args 0 13 10 --sym-files 1 8
-7. --sym-args 0 13 20 --sym-files 1 8
-8. --sym-args 0 13 40 --sym-files 1 8
-9. --sym-args 0 13 5 --sym-files 1 8 --sym-stdout
-10. --sym-args 0 13 10 --sym-files 1 8 --sym-stdout
-11. --sym-args 0 13 20 --sym-files 1 8 --sym-stdout
-12. --sym-args 0 13 40 --sym-files 1 8 --sym-stdout
-
-
-PRUEBAS2 Klee: tests de 0 a 5 prametros, posibilidad de archivos, no stdin, si stdout
-klee --warnings-only-to-file --only-output-states-covering-new --write-kqueries --optimize --libc=uclibc --posix-runtime ./opj_decompress.bc
-
-1. --sym-args 0 5 5
-2. --sym-args 0 5 10
-3. --sym-args 0 5 20
-4. --sym-args 0 5 40
-5. --sym-args 0 5 5 --sym-files 1 8
-6. --sym-args 0 5 10 --sym-files 1 8
-7. --sym-args 0 5 20 --sym-files 1 8
-8. --sym-args 0 5 40 --sym-files 1 8
-9. --sym-args 0 5 5 --sym-files 1 8 --sym-stdout
-10. --sym-args 0 5 10 --sym-files 1 8 --sym-stdout
-11. --sym-args 0 5 20 --sym-files 1 8 --sym-stdout
-12. --sym-args 0 5 40 --sym-files 1 8 --sym-stdout
+1. --sym-args 0 13 2
+2. --sym-args 0 13 4
+3. --sym-args 0 13 8
+4. --sym-args 0 13 16
+5. --sym-args 0 13 2 --sym-files 1 64
+6. --sym-args 0 13 4 --sym-files 1 64
+7. --sym-args 0 13 8 --sym-files 1 64
+8. --sym-args 0 13 16 --sym-files 1 64
+9. --sym-args 0 13 2 --sym-files 1 64 --sym-stdout
+10. --sym-args 0 13 4 --sym-files 1 64 --sym-stdout
+11. --sym-args 0 13 8 --sym-files 1 64 --sym-stdout
+12. --sym-args 0 13 16 --sym-files 1 64 --sym-stdout
 
     
 Los tamaños (en bits) para el argumento -sym-files han sido elegidos en función de lo considerado respecto a las limitaciones de memoria del equipo actual. Al no tener suficientes recursos computacionales, el aumento de tamaño carece de sentido pues los resultados no son suficientementes eficientes y óptimos.
+
+
+
+
+
+###gcc -o opj_compress opj_compress.c openjpeg.c openjpeg.h convert.c convert.h index.c index.h opj_apps_config.h opj_config.h ###opj_config_private.h opj_getopt.c opj_getopt.h format_defs.h opj_clock.c opj_clock.h opj_includes.c opj_malloc.c opj_malloc.h event.c event.h ###function_list.c function_list.h bio.c bio.h cio.c cio.h thread.c thread.h tls_keys.h image.c image.h invert.c invert.h j2k.c j2k.h jp2.c jp2.h ###mqc.c mqc.h pi.c pi.h tgt.c tgt.h tcd.c tcd.h t1.c t1.h dwt.c dwt.h t2.c t2.h opj_common.h mct.c mct.h opj_intmath.h sparse_array.c ###sparse_array.h opj_string.h mqc_inl.h opj_codec.h
       
     
     

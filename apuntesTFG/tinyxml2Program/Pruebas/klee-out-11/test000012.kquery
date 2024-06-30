@@ -54,5 +54,6 @@ array stdout_stat[144] : w32 -> w8 = symbolic
          (Eq 105 (Read w8 35 arg00))
          (Eq 108 (Read w8 36 arg00))
          (Eq 100 (Read w8 37 arg00))
-         (Eq 0 (Read w8 38 arg00))]
+         (Eq 0 (Read w8 38 arg00))
+         (Eq 0 (Read w8 39 arg00))]
         false)

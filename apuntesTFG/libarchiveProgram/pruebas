@@ -2,17 +2,16 @@ LIBARCHIVE (/home/martin/libarchive) ADAPTACION LLVM
 
 git clone https://github.com/libarchive/libarchive.git
 
-cd libarchive
-cd build
+cd libarchive && cd build
 
-pip install --break-system-packages --upgrade wllvm
-export CC=wllvm && export CXX=wllvm++ && export LLVM_COMPILER=clang
+pip install --break-system-packages --upgrade wllvm && export CC=wllvm && export CXX=wllvm++ && export LLVM_COMPILER=clang && export CMAKE_C_FLAGS="-emit-llvm" && export CMAKE_CXX_FLAGS="-emit-llvm"
 cmake ..
 make
 sudo make install
 
 cd bin
 extract-bc bsdcat
+extract-bc ../libarchive/libarchive.a
 -------------------------------------------------------------------------------------------------------------
 
 
@@ -21,24 +20,32 @@ LIBARCHIVE (/home/martin/libarchive),  ADAPTACION GCOV   PENDIENTE
 
 -------------------------------------------------------------------------------------------------------------
 
+PRUEBAS Klee:  tests de 0 a 3 prametros, posibilidad de archivos nooo, no stdin, si stdout 
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=../libarchive/libarchive.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./bsdcat.bc --sym-stdout
 
-PRUEBAS Klee:  tests de 0 a 5 prametros, posibilidad de archivos, no stdin, si stdout 
-klee --warnings-only-to-file --only-output-states-covering-new --write-kqueries --optimize --libc=uclibc --posix-runtime ./bsdcat.bc
+bsdcat.bc
+1. --sym-args 0 3 10  CTRL + C
+2. --sym-stdout CTRL + C
+3. --sym-files 1 64
+4. --sym-stdin 1024
+5. --sym-stdin 2048
+6. --sym-stdin 4096
+7. --sym-stdin 8192
+8. -- noexiste
+9. -- prueba.zip
+10. -- prueba.sh
+11. -- prueba.png
+12. -- prueba
 
-1. --sym-args 0 2 5
-2. --sym-args 0 2 10
-3. --sym-args 0 2 20
-4. --sym-args 0 2 40
-5. --sym-args 0 2 5 --sym-files 1 8
-6. --sym-args 0 2 10 --sym-files 1 8
-7. --sym-args 0 2 20 --sym-files 1 8
-8. --sym-args 0 2 40 --sym-files 1 8
-9. --sym-args 0 2 5 --sym-files 1 8 --sym-stdout
-10. --sym-args 0 2 10 --sym-files 1 8 --sym-stdout
-11. --sym-args 0 2 20 --sym-files 1 8 --sym-stdout
-12. --sym-args 0 2 40 --sym-files 1 8 --sym-stdout
-    
+cambir datos de klee 4 y 5, por 3 y 4, respectivamente!!!!!!!!!!!! MIRAR ARCHIVOS SOLVER.ERR MODEL.ERR .EARLY
+
 Los tamaños (en bits) para el argumento -sym-files han sido elegidos en función de lo considerado respecto a las limitaciones de memoria del equipo actual. Al no tener suficientes recursos computacionales, el aumento de tamaño carece de sentido pues los resultados no son suficientementes eficientes y óptimos.
+
+
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=../libarchive/libarchive.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./bsdcat.bc --sym-args 0 3 10 2> Pruebas/libarchive_prueba1.txt;
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=../libarchive/libarchive.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./bsdcat.bc --sym-stdout 2> Pruebas/libarchive_prueba2.txt;
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=../libarchive/libarchive.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./bsdcat.bc --sym-files 1 64 2> Pruebas/libarchive_prueba3.txt;
+
       
     
     

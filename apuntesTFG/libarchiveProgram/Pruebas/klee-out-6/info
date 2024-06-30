@@ -1,0 +1,23 @@
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=../libarchive/libarchive.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./bsdcat.bc --sym-stdin 8192
+PID: 3387
+Using monotonic steady clock with 1/1000000000s resolution
+Started: 2024-07-01 00:29:39
+BEGIN searcher description
+<InterleavedSearcher> containing 2 searchers:
+RandomPathSearcher
+WeightedRandomSearcher::CoveringNew
+</InterleavedSearcher>
+END searcher description
+Finished: 2024-07-01 00:31:57
+Elapsed: 00:02:18
+KLEE: done: explored paths = 922
+KLEE: done: avg. constructs per query = 198
+KLEE: done: total queries = 1540
+KLEE: done: valid queries = 762
+KLEE: done: invalid queries = 776
+KLEE: done: query cex = 1540
+
+KLEE: done: total instructions = 786432
+KLEE: done: completed paths = 1
+KLEE: done: partially completed paths = 921
+KLEE: done: generated tests = 50

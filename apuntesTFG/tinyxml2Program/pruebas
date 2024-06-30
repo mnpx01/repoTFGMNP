@@ -4,7 +4,7 @@ git clone https://github.com/leethomason/tinyxml2.git
 
 cd tinyxml2 && mkdir build && cd build
 
-pip install --break-system-packages --upgrade wllvm && export CC=wllvm && export CXX=wllvm++ && export LLVM_COMPILER=clang
+pip install --break-system-packages --upgrade wllvm && export CC=wllvm && export CXX=wllvm++ && export LLVM_COMPILER=clang && export CMAKE_C_FLAGS="-emit-llvm" && export CMAKE_CXX_FLAGS="-emit-llvm"
 cmake ..
 make
 
@@ -30,9 +30,11 @@ GCOV considera solo las líneas de los archivos usados, no de la aplicación ent
 redactar con info de la página oficial
 -------------------------------------------------------------------------------------------------------------
 
+HACIENDO USO DE --max-solver-time=30, se ve una mínima mejora en los resultados!!!
+
 
 PRUEBAS Klee:  tests de 0 a 5 prametros, posibilidad de archivos, no stdin, si stdout 
-klee --warnings-only-to-file --only-output-states-covering-new --write-kqueries --optimize --libc=uclibc --posix-runtime ./xmltest.bc
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libtinyxml2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./xmltest.bc
 
 1. --sym-args 0 5 5
 2. --sym-args 0 5 10

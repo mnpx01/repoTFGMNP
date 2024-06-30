@@ -3,11 +3,12 @@ KLEE: WARNING: undefined reference to function: __cxa_begin_catch
 KLEE: WARNING: undefined reference to function: __cxa_pure_virtual
 KLEE: WARNING: undefined reference to function: __gxx_personality_v0
 KLEE: WARNING: undefined reference to function: __isoc23_sscanf
-KLEE: WARNING ONCE: calling external: syscall(16, 0, 21505, 131419154153472) at runtime/POSIX/fd.c:997 10
+KLEE: WARNING ONCE: calling external: syscall(16, 0, 21505, 129364905689088) at runtime/POSIX/fd.c:997 10
 KLEE: WARNING ONCE: Alignment of memory from call "malloc" is not modelled. Using alignment of 8.
 KLEE: WARNING ONCE: Alignment of memory from call "_Znwm" is not modelled. Using alignment of 8.
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
+KLEE: WARNING ONCE: silently concretizing (reason: external call) expression (Read w8 1 arg00) to value 0 (runtime/POSIX/fd.c:180)
 KLEE: WARNING ONCE: Alignment of memory from call "_Znam" is not modelled. Using alignment of 8.
 KLEE: WARNING ONCE: ioctl: (TCGETS) symbolic file, incomplete model
 KLEE: WARNING: times: setting all times to 0 and returning 0
@@ -22,7 +23,7 @@ KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
-KLEE: WARNING ONCE: calling external: printf(132617416474624, 131752014118912, 3) at [no debug info]
+KLEE: WARNING ONCE: calling external: printf(130563168010240, 129697765654528, 3) at [no debug info]
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
@@ -365,42 +366,7 @@ KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
+KLEE: WARNING ONCE: silently concretizing (reason: external call) expression (Read w8 2 arg00) to value 0 (:0)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
@@ -470,28 +436,27 @@ KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
-KLEE: WARNING: killing 847 states (over memory cap: 2130MB)
-KLEE: WARNING: killing 668 states (over memory cap: 2108MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
-KLEE: WARNING: killing 678 states (over memory cap: 2116MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
-KLEE: WARNING: killing 572 states (over memory cap: 2103MB)
+KLEE: WARNING: killing 727 states (over memory cap: 2113MB)
+KLEE: WARNING: killing 768 states (over memory cap: 2127MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
-KLEE: WARNING: killing 534 states (over memory cap: 2101MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
+KLEE: WARNING: killing 679 states (over memory cap: 2119MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
+KLEE: WARNING: killing 549 states (over memory cap: 2101MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
-KLEE: WARNING: killing 509 states (over memory cap: 2101MB)
+KLEE: WARNING: killing 552 states (over memory cap: 2107MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
@@ -500,9 +465,10 @@ KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
+KLEE: WARNING: killing 542 states (over memory cap: 2111MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
-KLEE: WARNING: killing 511 states (over memory cap: 2107MB)
+KLEE: WARNING: killing 474 states (over memory cap: 2102MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
@@ -525,7 +491,6 @@ KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
-KLEE: WARNING: killing 468 states (over memory cap: 2103MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
@@ -552,13 +517,13 @@ KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
+KLEE: WARNING: killing 447 states (over memory cap: 2101MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
-KLEE: WARNING: killing 436 states (over memory cap: 2101MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
@@ -633,51 +598,35 @@ KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
-KLEE: WARNING: killing 865 states (over memory cap: 2223MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
-KLEE: WARNING: killing 663 states (over memory cap: 2187MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
-KLEE: WARNING: killing 633 states (over memory cap: 2196MB)
-KLEE: WARNING: killing 700 states (over memory cap: 2243MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
-KLEE: WARNING: killing 575 states (over memory cap: 2222MB)
-KLEE: WARNING: killing 490 states (over memory cap: 2209MB)
-KLEE: WARNING: killing 493 states (over memory cap: 2235MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
-KLEE: WARNING: killing 485 states (over memory cap: 2261MB)
-KLEE: WARNING: killing 379 states (over memory cap: 2227MB)
-KLEE: WARNING: killing 295 states (over memory cap: 2194MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
-KLEE: WARNING: killing 241 states (over memory cap: 2172MB)
-KLEE: WARNING: killing 200 states (over memory cap: 2154MB)
-KLEE: WARNING: killing 173 states (over memory cap: 2142MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
-KLEE: WARNING: killing 147 states (over memory cap: 2129MB)
-KLEE: WARNING: killing 124 states (over memory cap: 2115MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
-KLEE: WARNING: killing 112 states (over memory cap: 2109MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
-KLEE: WARNING: killing 99 states (over memory cap: 2102MB)
+KLEE: WARNING: killing 428 states (over memory cap: 2102MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
@@ -742,7 +691,6 @@ KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
-KLEE: WARNING: killing 94 states (over memory cap: 2102MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
@@ -761,20 +709,27 @@ KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
+KLEE: WARNING: killing 617 states (over memory cap: 2159MB)
+KLEE: WARNING: killing 415 states (over memory cap: 2113MB)
+KLEE: WARNING: killing 389 states (over memory cap: 2112MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
+KLEE: WARNING: killing 375 states (over memory cap: 2114MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
+KLEE: WARNING: killing 349 states (over memory cap: 2112MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
+KLEE: WARNING: killing 517 states (over memory cap: 2181MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
+KLEE: WARNING: killing 538 states (over memory cap: 2208MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
@@ -783,32 +738,46 @@ KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
+KLEE: WARNING: killing 457 states (over memory cap: 2194MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
+KLEE: WARNING: killing 343 states (over memory cap: 2157MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
+KLEE: WARNING: killing 386 states (over memory cap: 2194MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
+KLEE: WARNING: killing 414 states (over memory cap: 2232MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
+KLEE: WARNING: killing 323 states (over memory cap: 2199MB)
+KLEE: WARNING: killing 254 states (over memory cap: 2170MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
+KLEE: WARNING: killing 212 states (over memory cap: 2153MB)
+KLEE: WARNING: killing 177 states (over memory cap: 2136MB)
+KLEE: WARNING: killing 146 states (over memory cap: 2119MB)
+KLEE: WARNING: killing 129 states (over memory cap: 2111MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
+KLEE: WARNING: killing 143 states (over memory cap: 2131MB)
+KLEE: WARNING: killing 123 states (over memory cap: 2119MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
+KLEE: WARNING: killing 106 states (over memory cap: 2109MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
+KLEE: WARNING: killing 97 states (over memory cap: 2104MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
@@ -889,6 +858,7 @@ KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
+KLEE: WARNING: killing 90 states (over memory cap: 2102MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
@@ -903,7 +873,6 @@ KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
-KLEE: WARNING: killing 89 states (over memory cap: 2103MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
@@ -962,6 +931,7 @@ KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
+KLEE: WARNING: killing 84 states (over memory cap: 2101MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
@@ -986,7 +956,6 @@ KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
-KLEE: WARNING: killing 82 states (over memory cap: 2101MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
@@ -1029,6 +998,7 @@ KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
+KLEE: WARNING: killing 79 states (over memory cap: 2101MB)
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
@@ -7147,191 +7117,7 @@ KLEE: WARNING: times: setting all times to 0 and returning 0
 
 KLEE: WARNING: times: setting all times to 0 and returning 0
 
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING: times: setting all times to 0 and returning 0
-
-KLEE: WARNING ONCE: calling external: __isoc23_sscanf(131928107778084, 132612853071872, 131384056217600) at [no debug info]
+KLEE: WARNING ONCE: calling external: __isoc23_sscanf(129873859313700, 130558604607488, 129329807753216) at [no debug info]
 KLEE: WARNING: write: write() ignores bytes.
 
 KLEE: WARNING: write: write() ignores bytes.

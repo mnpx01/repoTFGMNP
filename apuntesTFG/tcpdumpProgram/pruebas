@@ -2,7 +2,7 @@ TCPDUMP (/home/martin/tcpdump) ADAPTACION LLVM
 
 git clone https://github.com/the-tcpdump-group/libpcap.git
 cd libpcap && mkdir build && cd build
-pip install --break-system-packages --upgrade wllvm && export CC=wllvm && export CXX=wllvm++ && export LLVM_COMPILER=clang
+pip install --break-system-packages --upgrade wllvm && export CC=wllvm && export CXX=wllvm++ && export LLVM_COMPILER=clang && export CMAKE_C_FLAGS="-emit-llvm" && export CMAKE_CXX_FLAGS="-emit-llvm"
 sudo apt-get install flex
 cmake ..
 make
@@ -11,13 +11,11 @@ cd ../..
 
 git clone https://github.com/the-tcpdump-group/tcpdump.git
 cd tcpdump && mkdir build && cd build
-pip install --break-system-packages --upgrade wllvm && export CC=wllvm && export CXX=wllvm++ && export LLVM_COMPILER=clang
+pip install --break-system-packages --upgrade wllvm && export CC=wllvm && export CXX=wllvm++ && export LLVM_COMPILER=clang && export CMAKE_C_FLAGS="-emit-llvm" && export CMAKE_CXX_FLAGS="-emit-llvm"
 cmake .. && make && sudo make install
 
 
-PROBLEMA:
-El problema no radica en la compilación, sino en la ejecución de klee, que es quien no encuentra las bibliotecas
-Sí incluye, por defecto, la biblio dinámica libpcap.so, pero no se encuentran las funciones, undefined reference
+
 
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH en bashrc OK
 Problema persistente tras usar 
@@ -25,22 +23,20 @@ Problema persistente tras usar
 		klee: error: symbol lookup error: undefined symbol: pcap_findalldevs (fatal)
 		
 tcpdump (ejecutable) si contiene a libpcap.so.1, y esta si contiene por ejemplo, a pcap_findalldevs
-RECOMPILAR KLEE -> Posible solución
-
-
-#list(APPEND CMAKE_LIBRARY_PATH /usr/local/lib) # Durante configuración del proyecto
-set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_RPATH}:/usr/local/lib")  # Durante instalación del proyecto
-message(STATUS "PATHHHHHH ${CMAKE_INSTALL_RPATH}")
-target_link_libraries(klee
-    libarchive.so.20
-    libpcap.so.1
-    libopenjp2.so.7
-)
 
 
 make VERBOSE=1 para ver traza de compilaciones+enlaces
 permisos previos bibliotecas chmod 644 (rw-r--r--)
 permisos posteriores bibliotecas chmod 755 (rwxr-xr-x)
+
+#Generamos biblioteca tinyxml2
+clang++-13 -fPIC -emit-llvm -c -o tinyxml2.o tinyxml2.cpp
+ar cr libtinyxml2.a tinyxml2.o
+ranlib libtinyxml2.a
+
+#Compilacion y vinculacion para KLEE (xmltest_klee.cpp incluye las llamadas a KLEE) PARA MATRIX
+clang++-13 -fPIC -I/home/kevus/klee-3/include/ -I libtinyxml2.a -c -g -O0 -Xclang -disable-O0-optnone -emit-llvm  xmltest_klee.cpp  -o xmltest_klee.bc
+klee --external-calls=all -libc=uclibc -posix-runtime --link-llvm-lib=libtinyxml2.a xmltest_klee.bc
 -------------------------------------------------------------------------------------------------------------
 
 
@@ -51,60 +47,16 @@ TCPDUMP (/home/martin/tcpdump),  ADAPTACION GCOV   PENDIENTE
 
 
 PRUEBAS Klee:
-klee --warnings-only-to-file --only-output-states-covering-new --write-kqueries --optimize --libc=uclibc --posix-runtime ./tcpdump.bc -- -i wlp2s0 --sym-args 0 2 5
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --write-kqueries --optimize --libc=uclibc --posix-runtime -link-llvm-lib=/home/martin/Escritorio/libpcap/build/libpcap.bca -link-llvm-lib=libnetdissect.bca ./tcpdump.bc -- -i wlp2s0 --sym-args 0 2 5
+
+clang++ -fPIC -emit-llvm -c matrix.cc -o matrix.bc
+
+clang++ -I/home/martin/klee/include/ -emit-llvm -c main.cpp -o main.bc
 
 LD_DEBUG=all klee --optimize --libc=uclibc --posix-runtime ./tcpdump.bc -- -i wlp2s0 
 
     
 Los tamaños (en bits) para el argumento -sym-files han sido elegidos en función de lo considerado respecto a las limitaciones de memoria del equipo actual. Al no tener suficientes recursos computacionales, el aumento de tamaño carece de sentido pues los resultados no son suficientementes eficientes y óptimos.
-
-
-#Para archivos klee/tools/TOOL/CMakeLists.txt, TOOL € {klee, kleaver, klee-exec-tree, ...)
-add_executable(klee
-  main.cpp
-)
-
-
-target_include_directories(klee PRIVATE /usr/include)
-
-set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_RPATH}:/usr/local/lib")
-
-find_library(LIB_ARCHIVE NAMES libarchive.so.20 PATHS /usr/local/lib)
-find_library(LIB_PCAP NAMES libpcap.so.1 PATHS /usr/local/lib)
-find_library(LIB_OPENJP2 NAMES libopenjp2.so.7 PATHS /usr/local/lib)
-
-if(LIB_ARCHIVE)
-    message(STATUS "Found klee_libarchive: ${LIB_ARCHIVE}")
-else()
-    message(FATAL_ERROR "klee_libarchive not found")
-endif()
-
-if(LIB_PCAP)
-    message(STATUS "Found klee_libpcap: ${LIB_PCAP}")
-else()
-    message(FATAL_ERROR "klee_libpcap not found")
-endif()
-
-if(LIB_OPENJP2)
-    message(STATUS "Found klee_libopenjp2: ${LIB_OPENJP2}")
-else()
-    message(FATAL_ERROR "klee_libopenjp2 not found")
-endif()
-
-set(KLEE_LIBS
-  kleeCore
-  ${LIB_ARCHIVE}
-  ${LIB_PCAP}
-  ${LIB_OPENJP2}
-)
-
-target_link_libraries(klee PRIVATE ${KLEE_LIBS})
-target_include_directories(klee PRIVATE ${KLEE_INCLUDE_DIRS} ${LLVM_INCLUDE_DIRS})
-target_compile_options(klee PRIVATE ${KLEE_COMPONENT_CXX_FLAGS})
-target_compile_definitions(klee PRIVATE ${KLEE_COMPONENT_CXX_DEFINES})
-
-install(TARGETS klee RUNTIME DESTINATION bin)
-add_dependencies(klee BuildKLEERuntimes)
 
       
     

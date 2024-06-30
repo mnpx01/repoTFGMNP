@@ -1,0 +1,47 @@
+KLEE: WARNING: undefined reference to function: ZSTD_DStreamOutSize
+KLEE: WARNING: undefined reference to function: ZSTD_createDStream
+KLEE: WARNING: undefined reference to function: ZSTD_decompressStream
+KLEE: WARNING: undefined reference to function: ZSTD_freeDStream
+KLEE: WARNING: undefined reference to function: ZSTD_getErrorName
+KLEE: WARNING: undefined reference to function: ZSTD_initDStream
+KLEE: WARNING: undefined reference to function: ZSTD_isError
+KLEE: WARNING: undefined reference to function: __ctype_get_mb_cur_max
+KLEE: WARNING: undefined reference to function: crc32
+KLEE: WARNING: undefined reference to function: inflate
+KLEE: WARNING: undefined reference to function: inflateEnd
+KLEE: WARNING: undefined reference to function: inflateInit2_
+KLEE: WARNING: undefined reference to function: lzma_alone_decoder
+KLEE: WARNING: undefined reference to function: lzma_code
+KLEE: WARNING: undefined reference to function: lzma_crc32
+KLEE: WARNING: undefined reference to function: lzma_end
+KLEE: WARNING: undefined reference to function: lzma_properties_decode
+KLEE: WARNING: undefined reference to function: lzma_raw_decoder
+KLEE: WARNING: undefined reference to function: lzma_stream_decoder
+KLEE: WARNING: undefined reference to function: poll
+KLEE: WARNING ONCE: calling external: syscall(16, 0, 21505, 121988106420224) at runtime/POSIX/fd.c:997 10
+KLEE: WARNING ONCE: Alignment of memory from call "malloc" is not modelled. Using alignment of 8.
+KLEE: WARNING ONCE: Alignment of memory from call "calloc" is not modelled. Using alignment of 8.
+KLEE: WARNING ONCE: Alignment of memory from call "realloc" is not modelled. Using alignment of 8.
+KLEE: WARNING ONCE: Symbolic memory access will send the following array of 65536 bytes to the constraint solver -- large symbolic arrays may cause significant performance issues: MO32899[65536] allocated at file_open():  %114 = call noalias align 16 i8* @malloc(i64 %113) #28, !dbg !6875
+KLEE: WARNING ONCE: calling external: lzma_alone_decoder(122501355012096, 18446744073709551615) at libarchive/archive_read_support_filter_xz.c:517 7
+KLEE: WARNING ONCE: calling external: lzma_code(122501355012096, 0) at libarchive/archive_read_support_filter_xz.c:690 7
+KLEE: WARNING: killing 708 states (over memory cap: 5806MB)
+KLEE: WARNING ONCE: skipping fork (memory cap exceeded)
+KLEE: WARNING: killing 244 states (over memory cap: 5797MB)
+KLEE: WARNING: killing 84 states (over memory cap: 5801MB)
+KLEE: WARNING ONCE: silently concretizing (reason: external call) expression (Extract w8 0 (And w32 (Shl w32 1
+                                 (And w32 (ZExt w32 (Read w8 5 stdin))
+                                          31))
+                        255)) to value 0 (libarchive/archive_read_support_filter_xz.c:574)
+KLEE: WARNING ONCE: calling external: lzma_properties_decode(121977905872896, 0, 121964886753280, 5) at libarchive/archive_read_support_filter_xz.c:574 6
+KLEE: WARNING ONCE: calling external: lzma_raw_decoder(122501355012096, 121977905872896) at libarchive/archive_read_support_filter_xz.c:579 6
+KLEE: WARNING ONCE: calling external: vprintf(123182390444032, 121978979614720) at libc/stdio/fprintf.c:35 14
+KLEE: WARNING ONCE: calling external: lzma_stream_decoder(122501355012096, 18446744073709551615, 8) at libarchive/archive_read_support_filter_xz.c:513 7
+KLEE: WARNING: killing 29 states (over memory cap: 5798MB)
+KLEE: WARNING ONCE: calling external: crc32(0, 0, 0) at libarchive/archive_read_support_filter_gzip.c:347 2
+KLEE: WARNING ONCE: calling external: inflateInit2_(122501355012096, 4294967281, 123182847623168, 112) at libarchive/archive_read_support_filter_gzip.c:353 6
+KLEE: WARNING ONCE: calling external: inflate(122501355012096, 0) at libarchive/archive_read_support_filter_gzip.c:469 7
+KLEE: WARNING: killing 9 states (over memory cap: 5796MB)
+KLEE: WARNING ONCE: calling external: lzma_end(122501355012096) at libarchive/archive_read_support_filter_xz.c:747 7
+KLEE: WARNING ONCE: calling external: inflateEnd(122501355012096) at libarchive/archive_read_support_filter_gzip.c:516 3
+KLEE: WARNING: killing 3 states (over memory cap: 5792MB)

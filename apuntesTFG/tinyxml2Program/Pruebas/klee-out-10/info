@@ -1,23 +1,23 @@
-klee --warnings-only-to-file --only-output-states-covering-new --write-kqueries --optimize --libc=uclibc --posix-runtime ./xmltest.bc --sym-args 0 5 20 --sym-files 1 8 --sym-stdout
-PID: 4006
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libtinyxml2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./xmltest.bc --sym-args 0 5 20 --sym-files 1 8 --sym-stdout
+PID: 12365
 Using monotonic steady clock with 1/1000000000s resolution
-Started: 2024-06-10 13:41:25
+Started: 2024-06-29 13:55:39
 BEGIN searcher description
 <InterleavedSearcher> containing 2 searchers:
 RandomPathSearcher
 WeightedRandomSearcher::CoveringNew
 </InterleavedSearcher>
 END searcher description
-Finished: 2024-06-10 14:16:44
-Elapsed: 00:35:19
-KLEE: done: explored paths = 13940
-KLEE: done: avg. constructs per query = 220
-KLEE: done: total queries = 45133
-KLEE: done: valid queries = 16891
-KLEE: done: invalid queries = 28242
-KLEE: done: query cex = 45133
+Finished: 2024-06-29 14:32:04
+Elapsed: 00:36:25
+KLEE: done: explored paths = 13439
+KLEE: done: avg. constructs per query = 218
+KLEE: done: total queries = 46253
+KLEE: done: valid queries = 17471
+KLEE: done: invalid queries = 28782
+KLEE: done: query cex = 46253
 
-KLEE: done: total instructions = 583578576
-KLEE: done: completed paths = 1724
-KLEE: done: partially completed paths = 12216
-KLEE: done: generated tests = 43
+KLEE: done: total instructions = 591994752
+KLEE: done: completed paths = 1789
+KLEE: done: partially completed paths = 11650
+KLEE: done: generated tests = 46
