@@ -17,27 +17,41 @@ extract-bc ../libarchive/libarchive.a
 
 LIBARCHIVE (/home/martin/libarchive),  ADAPTACION GCOV   PENDIENTE
 
+git clone https://github.com/libarchive/libarchive.git
 
+mkdir gcovbuild && cp -R ./!(gcovbuild|build) ./gcovbuild/ && cd gcovbuild
+
+rm -f *.gcda && rm -f *.gcno && rm -f *.gcov
+g++ --coverage -o xmltest xmltest.cpp tinyxml2.cpp tinyxml2.h
+--coverage = MIRAR EN IMAGEN MOVIL
+./xmltest
+mv xmltest-xmltest.gcno xmltest.gcno && mv xmltest-xmltest.gcda xmltest.gcda
+gcov -abcfHlm xmltest.cpp
+
+GCOV considera solo las líneas de los archivos usados, no de la aplicación entera, OPCIONES: abcfHlm, para Latex excluimos la f,
+redactar con info de la página oficial
 -------------------------------------------------------------------------------------------------------------
 
 PRUEBAS Klee:  tests de 0 a 3 prametros, posibilidad de archivos nooo, no stdin, si stdout 
-klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=../libarchive/libarchive.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./bsdcat.bc --sym-stdout
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=../libarchive/libarchive.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./bsdcat.bc
 
 bsdcat.bc
-1. --sym-args 0 3 10  CTRL + C
-2. --sym-stdout CTRL + C
-3. --sym-files 1 64
-4. --sym-stdin 1024
-5. --sym-stdin 2048
-6. --sym-stdin 4096
-7. --sym-stdin 8192
-8. -- noexiste
-9. -- prueba.zip
-10. -- prueba.sh
-11. -- prueba.png
-12. -- prueba
+1. --sym-stdin 1024
+2. --sym-stdin 2048
+3. --sym-stdin 4096
+4. --sym-stdin 8192
+5. -- noexiste
+6. -- prueba.zip
+7. -- prueba.sh
+8. -- prueba.png
+9. -- noexiste --sym-stdin 2048 
+10. -- prueba.zip --sym-stdin 2048
+11. -- prueba.sh --sym-stdin 2048
+12. -- prueba.png --sym-stdin 2048
 
-cambir datos de klee 4 y 5, por 3 y 4, respectivamente!!!!!!!!!!!! MIRAR ARCHIVOS SOLVER.ERR MODEL.ERR .EARLY
+
+MIRAR ARCHIVOS SOLVER.ERR MODEL.ERR .EARLY
+
 
 Los tamaños (en bits) para el argumento -sym-files han sido elegidos en función de lo considerado respecto a las limitaciones de memoria del equipo actual. Al no tener suficientes recursos computacionales, el aumento de tamaño carece de sentido pues los resultados no son suficientementes eficientes y óptimos.
 
@@ -46,6 +60,6 @@ klee --warnings-only-to-file --only-output-states-covering-new --external-calls=
 klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=../libarchive/libarchive.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./bsdcat.bc --sym-stdout 2> Pruebas/libarchive_prueba2.txt;
 klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=../libarchive/libarchive.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./bsdcat.bc --sym-files 1 64 2> Pruebas/libarchive_prueba3.txt;
 
-      
+klee-stats klee-out-0 klee-out-1 klee-out-2 klee-out-3 klee-out-4 klee-out-5 klee-out-6 klee-out-7 klee-out-8 klee-out-9 klee-out-10 klee-out-11
     
     

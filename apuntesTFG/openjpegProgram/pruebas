@@ -28,18 +28,18 @@ PENDIENTES DE EJECUCION
 PRUEBAS Klee: tests de 0 a 13 prametros, posibilidad de archivos, no stdin, si stdout
 klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libopenjp2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./opj_compress.bc
 
-1. --sym-args 0 13 2
-2. --sym-args 0 13 4
-3. --sym-args 0 13 8
-4. --sym-args 0 13 16
-5. --sym-args 0 13 2 --sym-files 1 64
-6. --sym-args 0 13 4 --sym-files 1 64
-7. --sym-args 0 13 8 --sym-files 1 64
-8. --sym-args 0 13 16 --sym-files 1 64
-9. --sym-args 0 13 2 --sym-files 1 64 --sym-stdout
-10. --sym-args 0 13 4 --sym-files 1 64 --sym-stdout
-11. --sym-args 0 13 8 --sym-files 1 64 --sym-stdout
-12. --sym-args 0 13 16 --sym-files 1 64 --sym-stdout
+1. --sym-args 0 13 8
+2. --sym-args 0 13 8 --sym-files 1 64
+3. --sym-args 0 13 8 --sym-files 1 64 --sym-stdout
+4. --sym-args 0 13 8 --sym-files 1 64 --sym-stdout --sym-stdin 1024
+5. --sym-args 0 13 8 --sym-files 1 64 --sym-stdout --sym-stdin 2048
+6. -- -i prueba.png -o outputprueba1.jp2
+7. -- -i prueba.png -o outputprueba2.jp2 -r 40
+8. -- -i prueba.png -o outputprueba3.jp2 -t 1024,1024
+9. -- -i prueba.png -o outputprueba4.jp2 -n 6   
+10. -- -i prueba.png -o outputprueba5.jp2 -q 40,60,80
+11. -- -i prueba.png -o outputprueba6.jp2 -r 40 -n 6 -t 1024,1024 -q 40,60,80
+12. -- -i prueba.png -o outputprueba7.jp2 -r 40 -n 6 -t 1024,1024 -q 40,60,80 --sym-args 0 13 8 --sym-files 1 64 --sym-stdout --sym-stdin 2048
 
     
 Los tamaños (en bits) para el argumento -sym-files han sido elegidos en función de lo considerado respecto a las limitaciones de memoria del equipo actual. Al no tener suficientes recursos computacionales, el aumento de tamaño carece de sentido pues los resultados no son suficientementes eficientes y óptimos.

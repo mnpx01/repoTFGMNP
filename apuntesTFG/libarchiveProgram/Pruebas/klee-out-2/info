@@ -1,4 +1,0 @@
-klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=../libarchive/libarchive.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./bsdcat.bc --sym-files 1 64
-PID: 6674
-Using monotonic steady clock with 1/1000000000s resolution
-Started: 2024-06-30 20:50:04
