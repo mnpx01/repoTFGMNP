@@ -1,0 +1,45 @@
+KLEE: WARNING: undefined reference to function: ZSTD_DStreamOutSize
+KLEE: WARNING: undefined reference to function: ZSTD_createDStream
+KLEE: WARNING: undefined reference to function: ZSTD_decompressStream
+KLEE: WARNING: undefined reference to function: ZSTD_freeDStream
+KLEE: WARNING: undefined reference to function: ZSTD_getErrorName
+KLEE: WARNING: undefined reference to function: ZSTD_initDStream
+KLEE: WARNING: undefined reference to function: ZSTD_isError
+KLEE: WARNING: undefined reference to function: __ctype_get_mb_cur_max
+KLEE: WARNING: undefined reference to function: crc32
+KLEE: WARNING: undefined reference to function: inflate
+KLEE: WARNING: undefined reference to function: inflateEnd
+KLEE: WARNING: undefined reference to function: inflateInit2_
+KLEE: WARNING: undefined reference to function: lzma_alone_decoder
+KLEE: WARNING: undefined reference to function: lzma_code
+KLEE: WARNING: undefined reference to function: lzma_crc32
+KLEE: WARNING: undefined reference to function: lzma_end
+KLEE: WARNING: undefined reference to function: lzma_properties_decode
+KLEE: WARNING: undefined reference to function: lzma_raw_decoder
+KLEE: WARNING: undefined reference to function: lzma_stream_decoder
+KLEE: WARNING: undefined reference to function: poll
+KLEE: WARNING ONCE: calling external: syscall(16, 0, 21505, 131186879889408) at runtime/POSIX/fd.c:997 10
+KLEE: WARNING ONCE: Alignment of memory from call "malloc" is not modelled. Using alignment of 8.
+KLEE: WARNING ONCE: Alignment of memory from call "calloc" is not modelled. Using alignment of 8.
+KLEE: WARNING ONCE: Alignment of memory from call "realloc" is not modelled. Using alignment of 8.
+KLEE: WARNING ONCE: Symbolic memory access will send the following array of 65536 bytes to the constraint solver -- large symbolic arrays may cause significant performance issues: MO32908[65536] allocated at file_open():  %114 = call noalias align 16 i8* @malloc(i64 %113) #28, !dbg !6875
+KLEE: WARNING ONCE: calling external: lzma_alone_decoder(131700128481280, 18446744073709551615) at libarchive/archive_read_support_filter_xz.c:517 7
+KLEE: WARNING ONCE: calling external: lzma_code(131700128481280, 0) at libarchive/archive_read_support_filter_xz.c:690 7
+KLEE: WARNING: killing 694 states (over memory cap: 5800MB)
+KLEE: WARNING ONCE: skipping fork (memory cap exceeded)
+KLEE: WARNING: killing 239 states (over memory cap: 5793MB)
+KLEE: WARNING: killing 97 states (over memory cap: 8536MB)
+KLEE: WARNING: killing 24 states (over memory cap: 11281MB)
+KLEE: WARNING ONCE: calling external: lzma_end(131700128481280) at libarchive/archive_read_support_filter_xz.c:747 7
+KLEE: WARNING ONCE: calling external: vprintf(132381163913216, 131177753083904) at libc/stdio/fprintf.c:35 14
+KLEE: WARNING ONCE: calling external: crc32(0, 0, 0) at libarchive/archive_read_support_filter_gzip.c:347 2
+KLEE: WARNING ONCE: silently concretizing (reason: external call) expression (Extract w8 0 (Or w32 (Or w32 (Or w32 (Shl w32 (ZExt w32 (Read w8 7 stdin))
+                                                24)
+                                       (Shl w32 (ZExt w32 (Read w8 6 stdin))
+                                                16))
+                               (Shl w32 (ZExt w32 (Read w8 5 stdin))
+                                        8))
+                       (ZExt w32 (Read w8 4 stdin)))) to value 24 (libarchive/archive_read_support_filter_gzip.c:353)
+KLEE: WARNING ONCE: calling external: inflateInit2_(131700128481280, 4294967281, 132381621092352, 112) at libarchive/archive_read_support_filter_gzip.c:353 6
+KLEE: WARNING ONCE: calling external: inflate(131700128481280, 0) at libarchive/archive_read_support_filter_gzip.c:469 7
+KLEE: WARNING: killing 4 states (over memory cap: 8530MB)

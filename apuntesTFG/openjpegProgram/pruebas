@@ -38,8 +38,8 @@ klee --warnings-only-to-file --only-output-states-covering-new --external-calls=
 8. -- -i prueba.png -o outputprueba3.jp2 -t 1024,1024
 9. -- -i prueba.png -o outputprueba4.jp2 -n 6   
 10. -- -i prueba.png -o outputprueba5.jp2 -q 40,60,80
-11. -- -i prueba.png -o outputprueba6.jp2 -r 40 -n 6 -t 1024,1024 -q 40,60,80
-12. -- -i prueba.png -o outputprueba7.jp2 -r 40 -n 6 -t 1024,1024 -q 40,60,80 --sym-args 0 13 8 --sym-files 1 64 --sym-stdout --sym-stdin 2048
+11. -- -i prueba.png -o outputprueba6.jp2 -q 30,40,50 -n 6 -t 2048,204
+12. -- -i prueba.png -o outputprueba7.jp2 -r 40 -n 6 -t 1024,1024 --sym-args 0 13 8 --sym-files 1 64 --sym-stdout --sym-stdin 2048
 
     
 Los tamaños (en bits) para el argumento -sym-files han sido elegidos en función de lo considerado respecto a las limitaciones de memoria del equipo actual. Al no tener suficientes recursos computacionales, el aumento de tamaño carece de sentido pues los resultados no son suficientementes eficientes y óptimos.
@@ -49,8 +49,7 @@ Los tamaños (en bits) para el argumento -sym-files han sido elegidos en funció
 
 
 ###gcc -o opj_compress opj_compress.c openjpeg.c openjpeg.h convert.c convert.h index.c index.h opj_apps_config.h opj_config.h ###opj_config_private.h opj_getopt.c opj_getopt.h format_defs.h opj_clock.c opj_clock.h opj_includes.c opj_malloc.c opj_malloc.h event.c event.h ###function_list.c function_list.h bio.c bio.h cio.c cio.h thread.c thread.h tls_keys.h image.c image.h invert.c invert.h j2k.c j2k.h jp2.c jp2.h ###mqc.c mqc.h pi.c pi.h tgt.c tgt.h tcd.c tcd.h t1.c t1.h dwt.c dwt.h t2.c t2.h opj_common.h mct.c mct.h opj_intmath.h sparse_array.c ###sparse_array.h opj_string.h mqc_inl.h opj_codec.h
+
       
     
-    
-    
-    
+
