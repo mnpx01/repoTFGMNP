@@ -30,26 +30,26 @@ echo "Automatización de Pruebas"
 
 
 #OPENJPEG
-diropenjpeg="/home/martin/Escritorio/openjpeg/build/bin/"
-gnome-terminal -- bash -c "cd $diropenjpeg;
-rm -r klee-* && rm -r Pruebas;
-mkdir Pruebas;
-klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libopenjp2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./opj_compress.bc --sym-args 0 13 8 2> Pruebas/openjpeg_prueba1.txt;
-klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libopenjp2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./opj_compress.bc --sym-args 0 13 8 --sym-files 1 64 2> Pruebas/openjpeg_prueba2.txt;
-klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libopenjp2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./opj_compress.bc --sym-args 0 13 8 --sym-files 1 64 --sym-stdout 2> Pruebas/openjpeg_prueba3.txt;
-klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libopenjp2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./opj_compress.bc --sym-args 0 13 8 --sym-files 1 64 --sym-stdout --sym-stdin 1024 2> Pruebas/openjpeg_prueba4.txt;
-klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libopenjp2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./opj_compress.bc --sym-args 0 13 8 --sym-files 1 64 --sym-stdout --sym-stdin 2048 2> Pruebas/openjpeg_prueba5.txt;
-klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libopenjp2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./opj_compress.bc -- -i prueba.png -o outputprueba1.jp2 2> Pruebas/openjpeg_prueba6.txt;
-klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libopenjp2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./opj_compress.bc -- -i prueba.png -o outputprueba2.jp2 -r 40 2> Pruebas/openjpeg_prueba7.txt;
-klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libopenjp2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./opj_compress.bc -- -i prueba.png -o outputprueba3.jp2 -t 1024,1024 2> Pruebas/openjpeg_prueba8.txt;
-klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libopenjp2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./opj_compress.bc -- -i prueba.png -o outputprueba4.jp2 -n 6 2> Pruebas/openjpeg_prueba9.txt;
-klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libopenjp2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./opj_compress.bc -- -i prueba.png -o outputprueba5.jp2 -q 40,60,80 2> Pruebas/openjpeg_prueba10.txt;
-klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libopenjp2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./opj_compress.bc -- -i prueba.png -o outputprueba6.jp2 -r 40 -n 6 -t 1024,1024 -q 40,60,80 2> Pruebas/openjpeg_prueba11.txt;
-klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libopenjp2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./opj_compress.bc -- -i prueba.png -o outputprueba7.jp2 -r 40 -n 6 -t 1024,1024 -q 40,60,80 --sym-args 0 13 8 --sym-files 1 64 --sym-stdout --sym-stdin 2048 2> Pruebas/openjpeg_prueba12.txt;
-cp -r klee-* Pruebas;
-cp -r Pruebas ../../repoTFGMNP/apuntesTFG/openjpegProgram/;
-exit;
-exec bash"
+#diropenjpeg="/home/martin/Escritorio/openjpeg/build/bin/"
+#gnome-terminal -- bash -c "cd $diropenjpeg;
+#rm -r klee-* && rm -r Pruebas;
+#mkdir Pruebas;
+#klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libopenjp2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./opj_compress.bc --sym-args 0 13 8 2> Pruebas/openjpeg_prueba1.txt;
+#klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libopenjp2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./opj_compress.bc --sym-args 0 13 8 --sym-files 1 64 2> Pruebas/openjpeg_prueba2.txt;
+#klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libopenjp2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./opj_compress.bc --sym-args 0 13 8 --sym-files 1 64 --sym-stdout 2> Pruebas/openjpeg_prueba3.txt;
+#klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libopenjp2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./opj_compress.bc --sym-args 0 13 8 --sym-files 1 64 --sym-stdout --sym-stdin 1024 2> Pruebas/openjpeg_prueba4.txt;
+#klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libopenjp2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./opj_compress.bc --sym-args 0 13 8 --sym-files 1 64 --sym-stdout --sym-stdin 2048 2> Pruebas/openjpeg_prueba5.txt;
+#klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libopenjp2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./opj_compress.bc -- -i prueba.png -o outputprueba1.jp2 2> Pruebas/openjpeg_prueba6.txt;
+#klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libopenjp2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./opj_compress.bc -- -i prueba.png -o outputprueba2.jp2 -r 40 2> Pruebas/openjpeg_prueba7.txt;
+#klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libopenjp2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./opj_compress.bc -- -i prueba.png -o outputprueba3.jp2 -t 1024,1024 2> Pruebas/openjpeg_prueba8.txt;
+#klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libopenjp2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./opj_compress.bc -- -i prueba.png -o outputprueba4.jp2 -n 6 2> Pruebas/openjpeg_prueba9.txt;
+#klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libopenjp2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./opj_compress.bc -- -i prueba.png -o outputprueba5.jp2 -q 40,60,80 2> Pruebas/openjpeg_prueba10.txt;
+#klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libopenjp2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./opj_compress.bc -- -i prueba.png -o outputprueba6.jp2 -q 30,40,50 -n 6 -t 2048,2048 2> Pruebas/openjpeg_prueba11.txt;
+#klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libopenjp2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./opj_compress.bc -- -i prueba.png -o outputprueba7.jp2 -r 40 -n 6 -t 1024,1024 --sym-args 0 13 8 --sym-files 1 64 --sym-stdout --sym-stdin 2048 2> Pruebas/openjpeg_prueba12.txt;
+#cp -r klee-* Pruebas;
+#cp -r Pruebas ../../../repoTFGMNP/apuntesTFG/openjpegProgram/;
+#exit;
+#exec bash"
 
 
 
@@ -77,3 +77,9 @@ exec bash"
 #cp -r Pruebas ../../../repoTFGMNP/apuntesTFG/libarchiveProgram/;
 #exit;
 #exec bash"
+
+
+
+
+
+

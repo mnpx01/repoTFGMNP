@@ -15,7 +15,6 @@ cd bin
 extract-bc libopenjp2.a
 extract-bc opj_compress
 
-PASAR A KEVIN, MIRAR DAEMON --max-solver-time=30s --max-time=60min
 -------------------------------------------------------------------------------------------------------------
 
 

@@ -1,0 +1,307 @@
+KLEE: KLEE: WATCHDOG: watching 7311
+
+KLEE: NOTE: Using POSIX model: /home/martin/klee/build/runtime/lib/libkleeRuntimePOSIX64_Debug+Asserts.bca
+KLEE: NOTE: Using klee-uclibc : /home/martin/klee/build/runtime/lib/klee-uclibc.bca
+KLEE: output directory is "/home/martin/Escritorio/tcpdump/build/./klee-out-2"
+KLEE: Using Z3 solver backend
+KLEE: Deterministic allocator: Using quarantine queue size 8
+KLEE: Deterministic allocator: globals (start-address=0x78829a600000 size=10 GiB)
+KLEE: Deterministic allocator: constants (start-address=0x78801a600000 size=10 GiB)
+KLEE: Deterministic allocator: heap (start-address=0x77801a600000 size=1024 GiB)
+KLEE: Deterministic allocator: stack (start-address=0x77601a600000 size=128 GiB)
+KLEE: ERROR: (location information missing) memory error: out of bound pointer
+KLEE: NOTE: now ignoring this error at this location
+invalid packet buffer size 
+invalid packet buffer size  
+invalid packet buffer size -
+invalid packet buffer size invalid packet buffer size invalid snaplen +
+
+ (must be >= 0 and <= invalid file size 262144)invalid packet buffer size 
+invalid snaplen invalid packet buffer size 0
+ÿinvalid packet buffer size  (must be >= 0 and <= invalid packet buffer size ÿinvalid packet buffer size invalid packet buffer size ÿ262144
+)
+O
+
+
+invalid snaplen ÿÿ (must be >= 0 and <=    262144)
+
+
+invalid snaplen ÿÿÿ (must be >= 0 and <= 262144)
+invalid snaplen invalid packet buffer size invalid packet buffer size ÿÿÿÿ (must be >= 0 and <= 262144)
+invalid snaplen invalid snaplen + +ÿÿÿÿÿÿÿÿÿÿÿ (must be >= 0 and <=  (must be >= 0 and <= 
+
+262144262144))
+
+invalid packet buffer size invalid packet buffer size invalid packet buffer size invalid packet buffer size  -invalid packet buffer size 
+invalid file size +0
+-invalid packet buffer size 
+invalid packet buffer size invalid packet buffer size  0
+ invalid packet buffer size invalid packet buffer size invalid packet buffer size invalid packet buffer size +ÿinvalid packet buffer size  ÿ
+
+
+
+ Q
++Q
+invalid packet buffer size -0
+
+invalid packet buffer size   
+0ÿinvalid packet buffer size 
+-ÿinvalid packet buffer size 
+
+invalid packet buffer size invalid packet buffer size invalid packet buffer size invalid packet buffer size invalid packet buffer size invalid packet buffer size ÿÿ
+-`
+-Q
+
+00invalid packet buffer size ÿ
+invalid packet buffer size 
+Oÿ
+-invalid packet buffer size invalid packet buffer size Q
+invalid packet buffer size 0ÿ
+0Q
+
+invalid snaplen invalid packet buffer size   - 
+invalid packet buffer size invalid packet buffer size 
+
+invalid packet buffer size invalid packet buffer size 
+invalid packet buffer size invalid packet buffer size +ÿÿ -0  + (must be >= 0 and <= 
+
+invalid snaplen 
+
+invalid packet buffer size 
+++00invalid packet buffer size  (must be >= 0 and <= 
+
+
+invalid packet buffer size invalid packet buffer size invalid packet buffer size 262144 -)invalid packet buffer size invalid packet buffer size 262144  0)
++Qÿunknown capture direction '
+invalid file size 
+
+
+invalid file size invalid packet buffer size invalid packet buffer size invalid snaplen invalid packet buffer size invalid packet buffer size invalid packet buffer size invalid packet buffer size  -ÿinvalid packet buffer size invalid packet buffer size   ÿÿinvalid packet buffer size 
+-
++0ÿ (must be >= 0 and <= 'invalid packet buffer size 
+  R
+
++0R
+
+invalid packet buffer size invalid snaplen invalid packet buffer size invalid file size invalid packet buffer size invalid packet buffer size 262144)invalid packet buffer size invalid packet buffer size  invalid packet buffer size -ÿÿ
+-00ÿÿÿÿ -` -Rinvalid snaplen  +
+ (must be >= 0 and <= 
+
+
+invalid packet buffer size 
+
+
+0-ÿÿÿ +0ÿÿ  
+ 
+ÿ (must be >= 0 and <= 262144
+)invalid snaplen 
+invalid packet buffer size 
+
+invalid packet buffer size invalid packet buffer size +invalid packet buffer size invalid packet buffer size 
+262144invalid packet buffer size invalid packet buffer size +) +ÿ
+
++0
+invalid packet buffer size  +Rinvalid packet buffer size invalid snaplen invalid snaplen ÿ
+
+invalid packet buffer size  Qÿinvalid packet buffer size 
+ (must be >= 0 and <= -QÿÿOÿÿ
+ 00ÿÿÿ-0ÿ
+invalid packet buffer size invalid packet buffer size 
+ 0R (must be >= 0 and <= 
+
+invalid packet buffer size 
+
+invalid packet buffer size 
++invalid packet buffer size 
+invalid packet buffer size invalid packet buffer size  (must be >= 0 and <= invalid packet buffer size 
+invalid packet buffer size invalid packet buffer size 262144invalid packet buffer size invalid packet buffer size  
+)invalid packet buffer size 
+262144
+ 0ÿ0000ÿÿ)invalid snaplen -`0 
++R
+-0R-0`
+
+
+
+invalid packet buffer size 
+
+
+
+invalid packet buffer size 0Qÿÿÿÿÿunknown capture direction '
+
+invalid packet buffer size 2621440invalid packet buffer size invalid packet buffer size  (must be >= 0 and <= -`ÿinvalid packet buffer size invalid packet buffer size invalid packet buffer size )
+invalid snaplen invalid data link type 00ÿ
+invalid packet buffer size 
+
+00Rinvalid packet buffer size invalid packet buffer size 
+
+-`R-``
+
+
+invalid packet buffer size 262144invalid packet buffer size invalid packet buffer size invalid packet buffer size )invalid packet buffer size invalid packet buffer size invalid packet buffer size invalid packet buffer size invalid packet buffer size   
++-Qÿÿ
+invalid packet buffer size unknown capture direction 'invalid packet buffer size -invalid snaplen invalid snaplen 
+ ÿinvalid packet buffer size 
+invalid packet buffer size 
+ÿ
+ÿÿÿÿÿinvalid snaplen 
+ÿÿÿÿÿÿ R (must be >= 0 and <= invalid packet buffer size 
+ (must be >= 0 and <= Iinvalid packet buffer size -0: SIOCETHTOOL(ETHTOOL_GET_TS_INFO) ioctl failed: (null)'invalid packet buffer size invalid packet buffer size : SIOCETHTOOL(ETHTOOL_GET_TS_INFO) ioctl failed: (null)
+262144
+
+)262144invalid snaplen 
+
+)invalid packet buffer size 
+-000+ÿÿÿ -ÿÿ
+invalid packet buffer size ÿÿÿÿ+ÿÿÿÿÿinvalid packet buffer size  -00-ÿÿÿÿ
+-0ÿÿ (must be >= 0 and <= 
+  
+-invalid packet buffer size OU +
+
+
+invalid packet buffer size 
+'invalid packet buffer size 
+
+
+
+ÿÿ
+crypto code not compiled in
+
+  (must be >= 0 and <= invalid packet buffer size invalid packet buffer size 
+2621440)
+ 
+ -ÿ  +0
+invalid packet count 
+- 
+ unknown capture direction 'unknown capture direction 'invalid packet buffer size invalid data link type ÿÿ-R262144
+
+)invalid packet buffer size 
+
+invalid packet buffer size 
+invalid packet buffer size   +ÿinvalid packet buffer size invalid packet buffer size invalid packet buffer size invalid packet buffer size invalid packet buffer size invalid packet buffer size 
+
+invalid packet buffer size invalid packet buffer size invalid packet buffer size 
+invalid packet buffer size invalid packet buffer size invalid packet buffer size invalid packet buffer size 
+
+invalid packet buffer size 
+  
+0invalid packet buffer size invalid packet buffer size invalid packet buffer size invalid packet buffer size invalid snaplen invalid packet buffer size invalid packet buffer size ÿ0ÿ
+0R
+invalid packet buffer size 
++Rÿinvalid packet buffer size 
+invalid packet buffer size invalid packet buffer size invalid packet buffer size Rinvalid packet buffer size ÿOinvalid packet buffer size 
+ÿÿÿinvalid packet buffer size invalid packet buffer size  0''invalid packet buffer size invalid packet buffer size  (must be >= 0 and <= invalid packet buffer size +QÿÿOÿÿÿ+0-Qÿÿÿ-00ÿinvalid packet buffer size invalid packet buffer size -0Rÿ
+ -Rÿinvalid packet buffer size invalid packet buffer size -`ÿÿunknown capture direction ' -0ÿ-`00
+
++unknown capture direction '+ÿinvalid packet buffer size 
+
+  
+ÿinvalid file size 
+
+
+
+
+
+ 
+invalid packet buffer size 
+invalid file size 
+
+
+  
+Qinvalid packet buffer size 262144invalid packet buffer size 
+
+-: SIOCETHTOOL(ETHTOOL_GET_TS_INFO) ioctl failed: (null)  -0)
+ÿÿÿÿÿ
+invalid packet buffer size invalid packet buffer size 'InOu
+invalid packet buffer size invalid packet buffer size 
+'invalid packet buffer size 
+
+ ÿ
+invalid packet buffer size invalid packet buffer size 
+-invalid snaplen invalid snaplen -
+
+invalid file size invalid packet buffer size  Rinvalid packet buffer size invalid packet buffer size 
+ÿÿÿÿÿÿÿÿÿinvalid packet buffer size invalid packet buffer size /ÿ/N/: SIOCETHTOOL(ETHTOOL_GET_TS_INFO) ioctl failed: (null)invalid packet buffer size 
+invalid file size /ÿ/ÿ/: SIOCETHTOOL(ETHTOOL_GET_TS_INFO) ioctl failed: (null)invalid packet buffer size invalid packet buffer size  (must be >= 0 and <=  (must be >= 0 and <= invalid packet buffer size 
+
+invalid packet buffer size invalid packet buffer size invalid packet buffer size 
+
+invalid packet buffer size invalid packet buffer size  
++
+invalid packet buffer size +ÿ
+invalid packet buffer size   Rÿ-262144+262144invalid packet buffer size invalid packet buffer size 0) ÿÿÿ)
+ÿÿÿÿÿÿ-ÿÿ  -ÿ+
+
+
+ +ÿÿ+0ÿÿ++Rinvalid packet buffer size 
+
++ÿ
+invalid packet buffer size 
+ -ÿÿÿÿ-0ÿÿÿr/: SIOCETHTOOL(ETHTOOL_GET_TS_INFO) ioctl failed: (null)
+  +J
++000
+invalid packet buffer size  -ÿÿÿ
+invalid packet buffer size invalid packet buffer size ÿÿÿÿÿ  
+ 
+  +Jÿ
+invalid packet buffer size invalid packet buffer size -0`0
+
+-00Q-ÿ-`0ÿ-`Rÿinvalid packet buffer size invalid packet buffer size -00`invalid packet buffer size 
+invalid packet buffer size  -0Q -`00ÿÿÿinvalid packet buffer size invalid packet buffer size 
+
+ -0`
+
+invalid packet buffer size +-0  00
+invalid packet buffer size 
++0Rÿ
+invalid data link type 
+
+
+
+
+
+
+
+ÿ
+
+
+
+
+ -invalid packet buffer size invalid packet buffer size invalid packet buffer size   -`  -Q
+invalid data link type invalid packet buffer size 
++invalid packet buffer size ÿÿinvalid packet buffer size invalid packet buffer size +R
++
+
+ÿinvalid packet buffer size invalid packet buffer size 
+
+invalid packet buffer size invalid packet buffer size n
+
+invalid packet buffer size invalid packet buffer size invalid packet buffer size 
+invalid data link type -ÿÿ
+-invalid packet buffer size +ÿÿinvalid packet buffer size -ÿÿ
+invalid packet buffer size invalid packet buffer size 
+
+invalid packet buffer size E  0ÿ+
+
++-R  0Q-`
++0ÿÿÿÿ
+ 
+ 
++00ÿngÿÿinvalid packet buffer size  +00
+
+
+invalid packet buffer size invalid packet buffer size invalid packet buffer size  -`ÿinvalid packet buffer size +00Q-0`ÿ +Rÿinvalid packet buffer size  -`Q-0`Q
+
+
+invalid packet buffer size 
+
+
+ 
+-
+KLEE: HaltTimer invoked
+KLEE: halting execution, dumping remaining states
+
+KLEE: done: total instructions = 30395584
+KLEE: done: completed paths = 1993
+KLEE: done: partially completed paths = 60577
+KLEE: done: generated tests = 63

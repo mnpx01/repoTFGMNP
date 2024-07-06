@@ -23,6 +23,12 @@ MATRIX_TCL_RENDIMIENTO (/home/martin/matrix_tcl_rendimiento) ADAPTACION GCOV PEN
 
 
 PRUEBAS Klee: 
+#Compilacion y vinculacion para KLEE (xmltest_klee.cpp incluye las llamadas a KLEE) PARA MATRIX
+clang++-13 -fPIC -I/home/kevus/klee-3/include/ -I libtinyxml2.a -c -g -O0 -Xclang -disable-O0-optnone -emit-llvm  xmltest_klee.cpp  -o xmltest_klee.bc
+
+clang++ -fPIC -emit-llvm -c matrix.cc -o matrix.bc
+
+clang++ -I/home/martin/klee/include/ -emit-llvm -c main.cpp -o main.bc
 
 
 Los tamaños (en bits) para el argumento -sym-files han sido elegidos en función de lo considerado respecto a las limitaciones de memoria del equipo actual. Al no tener suficientes recursos computacionales, el aumento de tamaño carece de sentido pues los resultados no son suficientementes eficientes y óptimos.
