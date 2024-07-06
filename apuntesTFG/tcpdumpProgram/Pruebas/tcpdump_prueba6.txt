@@ -1,617 +1,18 @@
-KLEE: KLEE: WATCHDOG: watching 7982
+KLEE: KLEE: WATCHDOG: watching 10777
 
 KLEE: NOTE: Using POSIX model: /home/martin/klee/build/runtime/lib/libkleeRuntimePOSIX64_Debug+Asserts.bca
 KLEE: NOTE: Using klee-uclibc : /home/martin/klee/build/runtime/lib/klee-uclibc.bca
 KLEE: output directory is "/home/martin/Escritorio/tcpdump/build/./klee-out-5"
 KLEE: Using Z3 solver backend
 KLEE: Deterministic allocator: Using quarantine queue size 8
-KLEE: Deterministic allocator: globals (start-address=0x76d924e00000 size=10 GiB)
-KLEE: Deterministic allocator: constants (start-address=0x76d6a4e00000 size=10 GiB)
-KLEE: Deterministic allocator: heap (start-address=0x75d6a4e00000 size=1024 GiB)
-KLEE: Deterministic allocator: stack (start-address=0x75b6a4e00000 size=128 GiB)
+KLEE: Deterministic allocator: globals (start-address=0x7e2f18200000 size=10 GiB)
+KLEE: Deterministic allocator: constants (start-address=0x7e2c98200000 size=10 GiB)
+KLEE: Deterministic allocator: heap (start-address=0x7d2c98200000 size=1024 GiB)
+KLEE: Deterministic allocator: stack (start-address=0x7d0c98200000 size=128 GiB)
 KLEE: ERROR: (location information missing) memory error: out of bound pointer
 KLEE: NOTE: now ignoring this error at this location
-invalid packet buffer size 
-invalid packet buffer size  
-invalid packet buffer size +
-invalid packet buffer size invalid packet buffer size invalid file size -
 
-invalid packet buffer size ÿ0
-invalid packet buffer size 
-invalid packet buffer size invalid packet buffer size invalid packet buffer size ÿ
-Q
-
- 
-
-
-invalid packet buffer size invalid packet buffer size invalid packet buffer size 
-+invalid packet buffer size  +
-
-invalid file size invalid packet buffer size invalid packet buffer size invalid packet buffer size -0- -
-
-
-invalid snaplen 
- (must be >= 0 and <= invalid packet buffer size 262144)
-invalid packet buffer size invalid packet buffer size invalid packet buffer size  0
-ÿ-ÿinvalid packet buffer size invalid packet buffer size 0
-invalid packet buffer size  ÿ
-
-
- Q
-
-invalid packet buffer size invalid packet buffer size invalid packet buffer size invalid packet buffer size invalid packet buffer size 
--Q-`
-
- 
-+0ÿ
-invalid packet buffer size invalid packet buffer size invalid packet buffer size 
-invalid packet buffer size 
-invalid packet buffer size invalid packet buffer size Q+ÿ
-
-+Q
-+invalid packet buffer size ÿÿ
-invalid packet buffer size 
-invalid packet buffer size 00
-Qÿ
-
-invalid packet buffer size 0Q
-invalid packet buffer size 
-
-invalid packet buffer size invalid packet buffer size invalid packet buffer size invalid packet buffer size  
-+invalid packet buffer size -
-
-
-unknown capture direction 'invalid packet buffer size invalid packet buffer size +ÿÿ -0'
-invalid packet buffer size invalid packet buffer size  
--
-
-
-
-invalid snaplen invalid packet buffer size 0invalid packet buffer size invalid file size  (must be >= 0 and <= 
--
-invalid packet buffer size invalid packet buffer size invalid packet buffer size 262144invalid packet buffer size )
-
-invalid packet buffer size invalid packet buffer size invalid packet buffer size invalid packet buffer size +Qÿ
-+invalid packet buffer size  
-ÿ+0ÿÿinvalid data link type 
-
- 
-B
-
-+0B
-Q
-
-
-invalid packet buffer size invalid file size  -ÿinvalid packet buffer size invalid packet buffer size invalid packet buffer size 
-
-
- -`
-invalid packet buffer size invalid packet buffer size -0invalid packet buffer size ÿÿÿ-00 +0
-
-invalid packet buffer size 
-
-invalid snaplen invalid packet buffer size 
-+-invalid packet buffer size invalid packet buffer size invalid packet buffer size invalid packet buffer size 
-invalid packet buffer size 
--ÿ 00 +ÿinvalid packet buffer size  +B-ÿÿÿ
-
-000invalid packet buffer size 
-0invalid packet buffer size ÿ
-invalid packet buffer size invalid packet buffer size invalid packet buffer size invalid packet buffer size invalid packet buffer size invalid packet buffer size -`ÿ
- (must be >= 0 and <= 
- 0ÿQÿÿ 0B
-
-
-invalid packet buffer size 
-invalid packet buffer size invalid packet buffer size 
--0ÿ0ÿ0
-invalid packet buffer size invalid packet buffer size 
-
-invalid packet buffer size invalid packet buffer size 
-invalid packet buffer size -`B-``
-
-invalid packet buffer size 
-
--0B-0`
-
-ÿ262144+
-- 
-+invalid packet buffer size )invalid packet buffer size invalid packet buffer size invalid packet buffer size 
-
-invalid packet buffer size 
-
-invalid packet buffer size invalid packet buffer size invalid packet buffer size 
-ÿ: SIOCETHTOOL(ETHTOOL_GET_TS_INFO) ioctl failed: (null)
-: SIOCETHTOOL(ETHTOOL_GET_TS_INFO) ioctl failed: (null)
-
--0
-invalid packet buffer size invalid packet buffer size 
-Binvalid packet buffer size invalid packet buffer size  +ÿÿinvalid packet buffer size invalid packet buffer size 
-
--Qÿÿinvalid packet buffer size -ÿinvalid packet buffer size ÿ+invalid packet buffer size invalid packet buffer size 
-invalid packet buffer size 
-
-invalid packet buffer size 
--`
-
-invalid packet buffer size 
-Q 
-invalid packet buffer size ÿ+0ÿ
-
-0
-
-ÿ
-invalid packet buffer size  
--Qinvalid packet buffer size 
-
-
- +00
-
--ÿÿÿÿÿÿÿÿinvalid packet buffer size invalid packet buffer size 
--000-0ÿÿinvalid packet buffer size invalid packet buffer size invalid packet buffer size invalid packet buffer size +0invalid packet buffer size -0invalid packet buffer size invalid packet buffer size invalid packet buffer size 
-
-: SIOCETHTOOL(ETHTOOL_GET_TS_INFO) ioctl failed: (null)
-invalid packet buffer size invalid packet buffer size 
-
-+Qÿÿ
-invalid packet buffer size invalid packet buffer size r: SIOCETHTOOL(ETHTOOL_GET_TS_INFO) ioctl failed: (null)-`
-
--J
-invalid packet buffer size 00invalid packet buffer size invalid packet buffer size 
- 
-0
-crypto code not compiled ininvalid packet buffer size -Qÿÿ-ÿÿÿÿ-00`invalid packet buffer size 
-+invalid packet buffer size 
-invalid packet buffer size invalid packet buffer size 
-
- 
-+Q
-invalid packet buffer size Bÿ-0`0r: SIOCETHTOOL(ETHTOOL_GET_TS_INFO) ioctl failed: (null)invalid packet buffer size 
-
- +0ÿinvalid packet buffer size 
-
-invalid packet buffer size invalid packet buffer size invalid packet buffer size invalid packet buffer size r: SIOCETHTOOL(ETHTOOL_GET_TS_INFO) ioctl failed: (null)
-invalid packet buffer size invalid packet buffer size 
-invalid packet buffer size 0ÿ
--00
-invalid packet buffer size invalid packet buffer size 
-+invalid packet buffer size invalid packet buffer size 
- +0Q0Binvalid packet buffer size 
-+Qinvalid packet buffer size invalid packet buffer size +ÿ
- -0ÿinvalid packet buffer size 
-invalid packet buffer size 
-invalid packet buffer size invalid packet buffer size 
-
-
-+0ÿÿ 
-Q 
-ÿ
-+ÿinvalid packet buffer size invalid packet buffer size invalid packet buffer size 
--`Bÿ
-
-00invalid packet buffer size -`00
-invalid packet buffer size 
-invalid packet buffer size +-+00Qÿÿinvalid packet buffer size +Jinvalid packet buffer size 
-
-
-
-
-
-
--invalid packet buffer size invalid packet buffer size invalid packet buffer size Qÿÿÿinvalid packet buffer size -Qÿÿÿÿinvalid packet buffer size invalid packet buffer size  
-0ÿ
-+
-invalid packet buffer size 
-invalid packet buffer size  
-Bÿ
-
-invalid packet buffer size 
-
-0 -ÿÿÿÿ-Qÿÿÿ
-
-invalid file size invalid packet buffer size 
--invalid packet buffer size 
-invalid packet buffer size invalid packet buffer size 
--`0Qÿinvalid packet buffer size 
-ÿÿÿÿÿinvalid packet buffer size +0invalid packet buffer size  ÿÿÿ
-ÿÿÿÿÿÿ
-
-+Qinvalid packet buffer size 
-
-
-
-invalid packet buffer size 
-
-
-
-invalid file size  -Bÿ+ÿÿÿÿÿinvalid packet buffer size : SIOCETHTOOL(ETHTOOL_GET_TS_INFO) ioctl failed: (null)invalid packet buffer size 
-invalid packet buffer size invalid packet buffer size 0ÿÿÿinvalid packet buffer size 
--`0ÿ
-+ÿinvalid packet buffer size 
-
-invalid packet buffer size invalid packet buffer size  Qÿÿ
-
-
-invalid packet buffer size -``ÿ
-invalid packet buffer size invalid packet buffer size +
-invalid packet buffer size 
-
-+invalid packet buffer size 
-+Jÿinvalid packet buffer size invalid packet buffer size  -`ÿrp: SIOCETHTOOL(ETHTOOL_GET_TS_INFO) ioctl failed: (null)-`ÿÿÿ//: SIOCETHTOOL(ETHTOOL_GET_TS_INFO) ioctl failed: (null)invalid packet buffer size invalid packet buffer size 
-
- 0Bÿ
-invalid packet buffer size invalid packet buffer size invalid packet buffer size invalid packet buffer size 
-
-invalid packet buffer size invalid packet buffer size 
-invalid packet buffer size invalid packet buffer size invalid packet buffer size invalid packet buffer size 
--invalid packet buffer size invalid packet buffer size 
-invalid file size +Qÿÿÿinvalid packet buffer size invalid packet buffer size ÿÿÿÿÿinvalid packet buffer size invalid file size invalid packet buffer size 
-invalid packet buffer size -0invalid packet buffer size 0Qÿÿ 000invalid packet buffer size +ÿÿÿÿ
--`0-invalid packet buffer size 
-
--`
--ÿÿ-ÿ
-
- -``invalid packet buffer size  -`Q
-ÿÿinvalid packet buffer size -`0Q
--0rNo ÿÿ: SIOCETHTOOL(ETHTOOL_GET_TS_INFO) ioctl failed: (null)
-invalid packet buffer size invalid packet buffer size invalid packet buffer size 
-+Jinvalid packet buffer size 
-+ÿÿinvalid packet buffer size 
-
-ÿÿ: SIOCETHTOOL(ETHTOOL_GET_TS_INFO) ioctl failed: (null)
-ÿNo/ÿN/: SIOCETHTOOL(ETHTOOL_GET_TS_INFO) ioctl failed: (null)invalid packet buffer size 
--`0`
-
-
--0ÿÿÿ
-ÿÿinvalid packet buffer size invalid packet buffer size 
-
-invalid packet buffer size 
-
-invalid file size 
-+
-
-
-
-
- 00ÿinvalid data link type 
- 00Q-```-``Q
-invalid packet buffer size invalid packet buffer size invalid packet buffer size 
-
-invalid packet buffer size 
-
-invalid packet buffer size  +ÿÿ000ÿinvalid packet buffer size 00ÿÿ
-
-0
--invalid packet buffer size 
-Bÿÿÿinvalid packet buffer size 000Q
-
-
-00Bÿ
-+Qÿÿinvalid packet buffer size 
-+00ÿ-`0ÿinvalid packet buffer size +00ÿÿ
-
-
-invalid packet buffer size invalid packet buffer size invalid packet buffer size 000Rÿÿinvalid packet buffer size 
-
-
-
-
-
--0invalid packet buffer size invalid packet buffer size -ÿÿinvalid packet buffer size invalid packet buffer size invalid packet buffer size 
-
--ÿinvalid packet buffer size 
-invalid packet buffer size 
-invalid packet buffer size -00invalid packet buffer size invalid packet buffer size  
--invalid packet buffer size invalid packet buffer size +0R+0ÿinvalid packet buffer size invalid packet count invalid packet buffer size 0Qÿÿÿ
-
-	+
-
-ÿÿÿ
-0invalid packet buffer size invalid file size invalid packet buffer size invalid packet buffer size 
--00ÿÿ+0invalid packet buffer size 
-
-
-invalid packet count Qÿÿ
--ÿ
--0
-
-invalid packet buffer size invalid packet buffer size invalid packet buffer size 
-
-invalid packet buffer size invalid packet buffer size invalid packet buffer size +ÿÿinvalid packet buffer size invalid packet buffer size invalid packet buffer size invalid packet buffer size  +0ÿÿinvalid packet buffer size invalid packet buffer size invalid packet buffer size ÿ
-invalid packet buffer size -00000Rinvalid packet buffer size invalid packet buffer size ///: SIOCETHTOOL(ETHTOOL_GET_TS_INFO) ioctl failed: (null)invalid packet buffer size +ÿ+R
--Jÿ-00invalid packet buffer size 
-
--`Q
-invalid packet buffer size 
--ÿ-0ÿ +000
-
-
-invalid packet buffer size 
-invalid packet buffer size 
- 00Bÿÿinvalid packet buffer size 
-invalid packet buffer size 
-
--Qinvalid packet buffer size invalid packet buffer size 
-crypto code not compiled ininvalid packet buffer size invalid packet buffer size 
-invalid packet buffer size invalid packet buffer size -Qÿÿ+0Bÿÿÿinvalid packet buffer size -`00`0+Jÿÿÿinvalid packet count 
-invalid packet buffer size 
-
-+ÿÿÿ
--ÿÿ
-invalid packet buffer size 
-
-invalid packet buffer size 
-
-ÿ+0Binvalid packet buffer size 
- +00Rinvalid packet buffer size invalid packet buffer size -ÿÿÿÿ-0Bÿÿ +0Qÿ+00J
-invalid packet buffer size invalid packet buffer size invalid packet buffer size 
-ÿÿinvalid packet buffer size 
-ÿ
-
-  -00 
-invalid packet buffer size invalid file size 
- 
-
-
-ÿÿ
-
-
-invalid packet buffer size 
-invalid packet buffer size 
-Q-`00R
-invalid packet buffer size invalid packet buffer size invalid packet count invalid packet buffer size 
-invalid packet buffer size 
-invalid packet buffer size 
-invalid packet buffer size 
-
-invalid packet buffer size invalid packet buffer size invalid packet buffer size invalid packet count 
--00Binvalid packet buffer size 
-00 +ÿÿÿÿ
-invalid packet buffer size ÿ
-
-invalid packet buffer size invalid packet buffer size -00`0invalid packet buffer size 
-invalid packet buffer size 000ÿR00Qinvalid packet buffer size invalid packet buffer size +Jinvalid packet buffer size 
-
-invalid packet buffer size invalid packet buffer size 
-
-invalid packet buffer size invalid packet count 
-00-0ÿinvalid packet buffer size invalid packet buffer size 
-invalid packet buffer size invalid packet buffer size 
-
-invalid packet buffer size 
-invalid packet count invalid packet buffer size +00Qÿÿÿ
-invalid packet buffer size invalid packet count invalid file size -`0invalid packet buffer size invalid packet buffer size invalid packet buffer size 
-invalid packet buffer size 
-
-invalid packet buffer size invalid packet buffer size invalid file size invalid packet buffer size invalid packet buffer size 0000invalid packet buffer size 
--000invalid packet buffer size invalid packet buffer size 
-ÿÿ+0000
-Q
-invalid packet buffer size invalid packet buffer size invalid packet buffer size invalid packet count invalid packet buffer size invalid packet buffer size 
-invalid packet buffer size invalid packet buffer size  `8790`00]invalid packet buffer size invalid packet count +ÿÿÿÿinvalid packet buffer size invalid packet buffer size invalid packet buffer size invalid packet buffer size 
-invalid packet buffer size invalid packet buffer size ÿ
-+
-invalid packet buffer size 
-
-Qÿÿÿÿÿinvalid packet buffer size invalid packet buffer size 
-Qÿÿÿinvalid packet buffer size  
-ÿinvalid packet buffer size +ÿÿ 
-Rinvalid file size invalid packet buffer size invalid packet buffer size 
-
- ÿÿÿÿ
-Qÿÿÿ 
--0`Jÿÿÿÿÿÿÿÿÿ -ÿÿÿ
--ÿÿÿÿ-`0`ÿ
-invalid packet buffer size invalid file size invalid packet buffer size -`ÿÿÿÿÿÿ-`0``invalid packet count 
-invalid packet count invalid packet buffer size invalid packet buffer size invalid packet buffer size 
-
-
-
-invalid packet buffer size invalid packet buffer size 
-
-invalid packet buffer size invalid packet buffer size invalid packet buffer size invalid packet buffer size invalid file size invalid packet buffer size invalid packet buffer size +Bÿinvalid packet buffer size 
-invalid packet buffer size invalid file size 
-
-
-
-invalid packet buffer size 
-invalid file size  0ÿÿÿ
-
-+0ÿ-00`Rinvalid packet buffer size +0Q
--00``
-
-invalid packet buffer size 
-Qÿÿ-ÿÿÿ
-+00invalid packet buffer size 
- -```invalid file size 
-
-
-
-invalid packet buffer size 
- -00-0Q
-
-invalid packet buffer size 
--0`	 +-Jÿÿÿ-0ÿÿÿÿÿÿ-`ÿinvalid packet buffer size -``00+000Rÿ
-+Jinvalid packet buffer size -``Qÿ
--
-
-ÿÿÿinvalid packet count -```ÿÿ
-+ÿÿinvalid packet buffer size -``0ÿ
-ÿ +00000R
--000ÿÿ+Qÿ
-+Qÿ
--`00ÿÿÿÿÿÿÿÿÿinvalid file size 	 +0000R
- 
--0invalid packet buffer size 
-+Jÿÿÿÿÿ
-+invalid packet buffer size 
-
-
-
- -ÿinvalid packet count 
-
-
--ÿÿÿ
-
-
-
-invalid packet buffer size invalid packet buffer size invalid packet buffer size 
-
--J 
-00ÿinvalid packet count invalid packet buffer size invalid packet buffer size +00ÿÿÿinvalid file size 0000ÿinvalid packet buffer size 
-
-
-
-
-invalid packet buffer size 
-
-invalid file size 
-: SIOCETHTOOL(ETHTOOL_GET_TS_INFO) ioctl failed: (null)-`Q-``
-+00
-0ÿÿÿÿ
-invalid packet buffer size invalid packet buffer size ÿ
-
-invalid packet buffer size invalid packet buffer size 
- 
--`0ÿÿÿÿinvalid packet buffer size invalid packet buffer size invalid packet buffer size -ÿÿÿÿÿÿ-0000Binvalid packet buffer size -0`ÿÿp 
--00 +0
-
--0`0`-0`0ÿ
--Qÿ
--0J-ÿÿÿÿÿinvalid packet buffer size 
-+invalid packet buffer size invalid packet buffer size 
- +
-ÿ
--0Rÿ-ÿÿ
-
- Qÿÿÿ
--ÿÿÿÿÿÿ
-ÿÿÿÿÿÿÿQÿÿ
-
-
-
-
-
-invalid packet buffer size invalid packet count 
-invalid packet buffer size invalid packet buffer size invalid packet buffer size 
-invalid file size 
-invalid packet count invalid packet buffer size 
-invalid packet buffer size 
-
-
-	
-invalid packet count +0000ÿ	 Q
-invalid packet buffer size +0invalid packet buffer size 	-
-
-
--0`Qÿinvalid packet buffer size +ÿinvalid packet count  
--0ÿ
-
-
-+
-	-00`ÿinvalid packet buffer size 
--00ÿinvalid packet buffer size invalid file size invalid packet buffer size invalid packet buffer size invalid packet buffer size 	+
-invalid packet buffer size  -ÿÿ-ÿÿÿ
-
-invalid packet count 
-
-invalid packet buffer size invalid packet buffer size 
-
-
--00`ÿÿ
--0``ÿinvalid packet buffer size invalid file size invalid packet buffer size 
-ÿ
-+ÿ+ÿÿÿ-0Q+0Q0ÿÿÿinvalid packet buffer size +00Qÿÿinvalid packet count invalid packet buffer size invalid packet buffer size 
--`ÿÿ
- 
--`ÿinvalid packet buffer size invalid packet buffer size invalid packet buffer size 
-+Binvalid packet buffer size  
-+ÿÿ
-
--`00 
--`R-000+```000``00invalid file size +ÿÿÿ
-
-
--ÿ
-
-ÿÿinvalid packet buffer size -0``Rÿ
--Q
-invalid packet count invalid packet buffer size -0```-`00ÿÿÿinvalid packet count 
-+ÿinvalid packet buffer size 
- +00Rÿ
---0invalid packet buffer size 
-invalid packet buffer size 
- -Bÿÿinvalid packet buffer size 
-invalid file size invalid packet buffer size 
-invalid packet count invalid packet buffer size invalid packet count 0invalid packet buffer size  	+0173899``0980``
--0invalid packet count 
-
-ÿinvalid packet buffer size 
-ÿJÿÿ
-invalid packet count invalid packet buffer size 
-
-
-
-
-
- 
-+Qÿ
-
- +0ÿÿÿinvalid packet buffer size 
-invalid file size invalid packet buffer size 
-invalid packet buffer size 
-invalid packet buffer size 
--ÿ
-invalid packet buffer size 
-invalid packet buffer size invalid packet buffer size 
-invalid packet buffer size 
-
- 0ÿÿÿ
-invalid packet count invalid packet buffer size 
- 
--ÿinvalid packet buffer size invalid packet buffer size invalid packet buffer size invalid packet buffer size ÿinvalid packet buffer size 0QÿÿÿÿQÿÿÿinvalid packet buffer size  
--R
-
-
-+Bÿÿ
-+0invalid packet buffer size invalid packet count 
-
-ÿinvalid packet buffer size 
-
-
-
--invalid packet buffer size 
-invalid packet count invalid packet buffer size 
-invalid packet buffer size invalid packet count invalid packet buffer size invalid packet buffer size invalid packet buffer size +
-invalid packet buffer size 
-invalid packet buffer size 
-invalid packet buffer size invalid packet buffer size 
- 
-+R 
-+ÿKLEE: ctrl-c detected, requesting interpreter to halt.
-klee: /home/martin/klee/lib/Core/Executor.cpp:2375: void klee::Executor::executeInstruction(klee::ExecutionState&, klee::KInstruction*): Assertion `success && "FIXME: Unhandled solver failure"' failed.
- #0 0x000076dba85e8ff1 llvm::sys::PrintStackTrace(llvm::raw_ostream&, int) (/usr/lib/llvm-13/lib/libLLVM-13.so.1+0xde8ff1)
- #1 0x000076dba85e7182 llvm::sys::RunSignalHandlers() (/usr/lib/llvm-13/lib/libLLVM-13.so.1+0xde7182)
- #2 0x000076dba85e94ed (/usr/lib/llvm-13/lib/libLLVM-13.so.1+0xde94ed)
- #3 0x000076dba7042990 (/lib/x86_64-linux-gnu/libc.so.6+0x42990)
- #4 0x000076dba7099a1b __pthread_kill_implementation ./nptl/./nptl/pthread_kill.c:44:76
- #5 0x000076dba7099a1b __pthread_kill_internal ./nptl/./nptl/pthread_kill.c:78:10
- #6 0x000076dba7099a1b pthread_kill ./nptl/./nptl/pthread_kill.c:89:10
- #7 0x000076dba70428e6 gsignal ./signal/../sysdeps/posix/raise.c:27:6
- #8 0x000076dba70268b7 abort ./stdlib/./stdlib/abort.c:81:7
- #9 0x000076dba70267db _nl_load_domain ./intl/./intl/loadmsgcat.c:1177:9
-#10 0x000076dba7039206 (/lib/x86_64-linux-gnu/libc.so.6+0x39206)
-#11 0x00005da50734b786 klee::ref<klee::Expr>::~ref() /home/martin/klee/include/klee/ADT/Ref.h:88:17
-#12 0x00005da50734b786 klee::Executor::executeInstruction(klee::ExecutionState&, klee::KInstruction*) /home/martin/klee/lib/Core/Executor.cpp:3267:3
-#13 0x00005da50734bff9 klee::Executor::run(klee::ExecutionState&) /home/martin/klee/lib/Core/Executor.cpp:3689:18
-#14 0x00005da50734cb42 std::__uniq_ptr_impl<klee::ExecutionTree, std::default_delete<klee::ExecutionTree> >::reset(klee::ExecutionTree*) /usr/include/c++/13/bits/unique_ptr.h:208:16
-#15 0x00005da50734cb42 std::unique_ptr<klee::ExecutionTree, std::default_delete<klee::ExecutionTree> >::reset(klee::ExecutionTree*) /usr/include/c++/13/bits/unique_ptr.h:509:12
-#16 0x00005da50734cb42 std::unique_ptr<klee::ExecutionTree, std::default_delete<klee::ExecutionTree> >::operator=(std::nullptr_t) /usr/include/c++/13/bits/unique_ptr.h:442:7
-#17 0x00005da50734cb42 klee::Executor::runFunctionAsMain(llvm::Function*, int, char**, char**) /home/martin/klee/lib/Core/Executor.cpp:4768:19
-#18 0x00005da5072face1 main /home/martin/klee/tools/klee/main.cpp:1525:5
-#19 0x000076dba7028150 __libc_start_call_main ./csu/../sysdeps/nptl/libc_start_call_main.h:74:3
-#20 0x000076dba7028209 call_init ./csu/../csu/libc-start.c:128:20
-#21 0x000076dba7028209 __libc_start_main ./csu/../csu/libc-start.c:347:5
-#22 0x00005da50730baa5 _start (/home/martin/klee/build/bin/klee+0x40aa5)
+KLEE: done: total instructions = 43963
+KLEE: done: completed paths = 0
+KLEE: done: partially completed paths = 2
+KLEE: done: generated tests = 1

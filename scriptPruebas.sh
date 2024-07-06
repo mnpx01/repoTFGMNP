@@ -83,3 +83,25 @@ echo "Automatización de Pruebas"
 
 
 
+#TCPDUMP
+dirtcpdump="/home/martin/Escritorio/tcpdump/build"
+gnome-terminal -- bash -c "cd $dirtcpdump;
+rm -r klee-* && rm -r Pruebas;
+mkdir Pruebas;
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --watchdog -link-llvm-lib=/home/martin/Escritorio/libpcap/build/libpcap.bca -link-llvm-lib=libnetdissect.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./tcpdump.bc --sym-args 0 6 10 2> Pruebas/tcpdump_prueba1.txt; 
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --watchdog -link-llvm-lib=/home/martin/Escritorio/libpcap/build/libpcap.bca -link-llvm-lib=libnetdissect.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./tcpdump.bc --sym-args 0 6 50 2> Pruebas/tcpdump_prueba2.txt; 
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --watchdog -link-llvm-lib=/home/martin/Escritorio/libpcap/build/libpcap.bca -link-llvm-lib=libnetdissect.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./tcpdump.bc --sym-args 0 6 10 --sym-stdout 2> Pruebas/tcpdump_prueba3.txt; 
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --watchdog -link-llvm-lib=/home/martin/Escritorio/libpcap/build/libpcap.bca -link-llvm-lib=libnetdissect.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./tcpdump.bc --sym-args 0 6 50 --sym-stdout 2> Pruebas/tcpdump_prueba4.txt;
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --watchdog -link-llvm-lib=/home/martin/Escritorio/libpcap/build/libpcap.bca -link-llvm-lib=libnetdissect.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./tcpdump.bc --sym-stdout --sym-stdin 1024 2> Pruebas/tcpdump_prueba5.txt; 
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --watchdog -link-llvm-lib=/home/martin/Escritorio/libpcap/build/libpcap.bca -link-llvm-lib=libnetdissect.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./tcpdump.bc --sym-stdout --sym-stdin 1024 2> Pruebas/tcpdump_prueba6.txt; 
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --watchdog -link-llvm-lib=/home/martin/Escritorio/libpcap/build/libpcap.bca -link-llvm-lib=libnetdissect.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./tcpdump.bc -- -i wlp2s0 2> Pruebas/tcpdump_prueba7.txt; 
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --watchdog -link-llvm-lib=/home/martin/Escritorio/libpcap/build/libpcap.bca -link-llvm-lib=libnetdissect.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./tcpdump.bc -- -i wlp2s0 host 192.168.1.165 2> Pruebas/tcpdump_prueba8.txt; 
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --watchdog -link-llvm-lib=/home/martin/Escritorio/libpcap/build/libpcap.bca -link-llvm-lib=libnetdissect.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./tcpdump.bc -- -i wlp2s0 port 443 2> Pruebas/tcpdump_prueba9.txt; 
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --watchdog -link-llvm-lib=/home/martin/Escritorio/libpcap/build/libpcap.bca -link-llvm-lib=libnetdissect.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./tcpdump.bc -- -i wlp2s0 host 192.168.1.165 port 80 and not port 443  2> Pruebas/tcpdump_prueba10.txt; 
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --watchdog -link-llvm-lib=/home/martin/Escritorio/libpcap/build/libpcap.bca -link-llvm-lib=libnetdissect.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./tcpdump.bc -- -i wlp2s0 host 192.168.1.165 -c 200 -nn port 80 and not port 443 2> Pruebas/tcpdump_prueba11.txt; 
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --watchdog -link-llvm-lib=/home/martin/Escritorio/libpcap/build/libpcap.bca -link-llvm-lib=libnetdissect.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./tcpdump.bc -- -i wlp2s0 host 192.168.1.165 -c 200 -tttt -nn port 80 and not port 443 --sym-stdout --sym-stdin 1024 2> Pruebas/tcpdump_prueba12.txt; 
+cp -r klee-* Pruebas;
+cp -r Pruebas ../../repoTFGMNP/apuntesTFG/tcpdumpProgram/;
+exit;
+exec bash"
+
