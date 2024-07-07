@@ -15,18 +15,24 @@ extract-bc ../libarchive/libarchive.a
 -------------------------------------------------------------------------------------------------------------
 
 
-LIBARCHIVE (/home/martin/libarchive),  ADAPTACION GCOV   PENDIENTE
+LIBARCHIVE (/home/martin/libarchive),  ADAPTACION GCOV
 
 git clone https://github.com/libarchive/libarchive.git
 
-mkdir gcovbuild && cp -R ./!(gcovbuild|build) ./gcovbuild/ && cd gcovbuild
+cd libarchive && cp -R build gcovbuild && cp -R ./!(gcovbuild|build) ./gcovbuild/ && cd gcovbuild
+rm -f $(find . -type f \( -name "*.gcda" -o -name "*.gcno" \))
 
-rm -f *.gcda && rm -f *.gcno && rm -f *.gcov
-g++ --coverage -o xmltest xmltest.cpp tinyxml2.cpp tinyxml2.h
---coverage = MIRAR EN IMAGEN MOVIL
-./xmltest
-mv xmltest-xmltest.gcno xmltest.gcno && mv xmltest-xmltest.gcda xmltest.gcda
-gcov -abcfHlm xmltest.cpp
+cmake .. -DCMAKE_C_FLAGS="-fprofile-arcs -ftest-coverage -O0" -DCMAKE_EXE_LINKER_FLAGS="-fprofile-arcs -ftest-coverage -O0"
+make
+
+cd bin
+./bsdcat prueba.zip
+
+cd ../cat/CMakeFiles/bsdcat.dir
+mv bsdcat.c.gcno bsdcat.gcno && mv bsdcat.c.gcda bsdcat.gcda
+
+cd ../../../cat
+gcov -abcfHlm -o ./CMakeFiles/bsdcat.dir bsdcat.c <- EJECUTAR PARA PASAR INFO A MEMORIA
 
 GCOV considera solo las líneas de los archivos usados, no de la aplicación entera, OPCIONES: abcfHlm, para Latex excluimos la f,
 redactar con info de la página oficial

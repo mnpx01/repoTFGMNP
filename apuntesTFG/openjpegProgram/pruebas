@@ -5,6 +5,7 @@ git clone https://github.com/uclouvain/openjpeg.git
 cd openjpeg && mkdir build && cd build
 
 pip install --break-system-packages --upgrade wllvm && export CC=wllvm && export CXX=wllvm++ && export LLVM_COMPILER=clang && export CMAKE_C_FLAGS="-emit-llvm" && export CMAKE_CXX_FLAGS="-emit-llvm"
+sudo apt-get install liblcms2-dev  libtiff-dev libpng-dev libz-dev
 cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_THIRDPARTY:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON
 make
 sudo make install
@@ -18,9 +19,27 @@ extract-bc opj_compress
 -------------------------------------------------------------------------------------------------------------
 
 
-OPENJPEG (/home/martin/openjpeg),  ADAPTACION GCOV   PENDIENTE
+OPENJPEG (/home/martin/openjpeg),  ADAPTACION GCOV
 
+git clone https://github.com/uclouvain/openjpeg.git
 
+cd openjpeg && mkdir gcovbuild && cp -R ./!(gcovbuild|build) ./gcovbuild/ && cd gcovbuild
+rm -f $(find . -type f \( -name "*.gcda" -o -name "*.gcno" \))
+
+cmake . -DCMAKE_C_FLAGS="-fprofile-arcs -ftest-coverage -O0" -DCMAKE_EXE_LINKER_FLAGS="-fprofile-arcs -ftest-coverage -O0"
+make
+
+cd bin
+./opj_compress -i prueba.png -o outputprueba1.jp2 <- el comando elegido interfiere en el resultado de la cobertura
+
+cd ../src/bin/jp2/CMakeFiles/opj_compress.dir
+mv opj_compress.c.gcno opj_compress.gcno && mv opj_compress.c.gcda opj_compress.gcda
+
+cd ../../
+gcov -abcfHlm -o ./CMakeFiles/opj_compress.dir opj_compress.c <- EJECUTAR PARA PASAR INFO A MEMORIA
+
+GCOV considera solo las líneas de los archivos usados, no de la aplicación entera, OPCIONES: abcfHlm, para Latex excluimos la f,
+redactar con info de la página oficial
 -------------------------------------------------------------------------------------------------------------
 
 PENDIENTES DE EJECUCION

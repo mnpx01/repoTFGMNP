@@ -22,13 +22,33 @@ extract-bc libnetdissect.a
 
 TCPDUMP (/home/martin/tcpdump),  ADAPTACION GCOV   PENDIENTE
 
+git clone https://github.com/uclouvain/openjpeg.git
+
+cd openjpeg && mkdir gcovbuild && cp -R ./!(gcovbuild|build) ./gcovbuild/ && cd gcovbuild
+rm -f $(find . -type f \( -name "*.gcda" -o -name "*.gcno" \))
+
+cmake . -DCMAKE_C_FLAGS="-fprofile-arcs -ftest-coverage -O0" -DCMAKE_EXE_LINKER_FLAGS="-fprofile-arcs -ftest-coverage -O0"
+make
+
+cd bin
+./opj_compress -i prueba.png -o outputprueba1.jp2 <- el comando elegido interfiere en el resultado de la cobertura
+
+cd ../src/bin/jp2/CMakeFiles/opj_compress.dir
+mv opj_compress.c.gcno opj_compress.gcno && mv opj_compress.c.gcda opj_compress.gcda
+
+cd ../../
+gcov -abcfHlm -o ./CMakeFiles/opj_compress.dir opj_compress.c <- EJECUTAR PARA PASAR INFO A MEMORIA
+
+GCOV considera solo las líneas de los archivos usados, no de la aplicación entera, OPCIONES: abcfHlm, para Latex excluimos la f,
+redactar con info de la página oficial
+
 
 -------------------------------------------------------------------------------------------------------------
 
 PRUEBAS Klee: tests de 0 a 6 prametros, no posibilidad de archivos, si stdin, si stdout
 klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --watchdog -link-llvm-lib=/home/martin/Escritorio/libpcap/build/libpcap.bca -link-llvm-lib=libnetdissect.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./tcpdump.bc
 
-MENCIONAR USO DE VALGRIND?!!  REPETIR 1, 4 y 5
+MENCIONAR USO DE VALGRIND?!!  
 
 1. --sym-args 0 6 10 
 2. --sym-args 0 6 50 

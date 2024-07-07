@@ -17,14 +17,19 @@ TINIXML2 (/home/martin/tinyxml2) ADAPTACION GCOV
 
 git clone https://github.com/leethomason/tinyxml2.git
 
-mkdir gcovbuild && cp -R ./!(gcovbuild|build) ./gcovbuild/ && cd gcovbuild
+cd tinyxml2 && mkdir gcovbuild && cp -R ./!(gcovbuild|build) ./gcovbuild/ && cd gcovbuild
+rm -f $(find . -type f \( -name "*.gcda" -o -name "*.gcno" \))
 
-rm -f *.gcda && rm -f *.gcno && rm -f *.gcov
-g++ --coverage -o xmltest xmltest.cpp tinyxml2.cpp tinyxml2.h
---coverage = MIRAR EN IMAGEN MOVIL
+cmake . -DCMAKE_C_FLAGS="-fprofile-arcs -ftest-coverage -O0" -DCMAKE_CXX_FLAGS="-fprofile-arcs -ftest-coverage -O0" -DCMAKE_EXE_LINKER_FLAGS="-fprofile-arcs -ftest-coverage -O0"
+make
+
 ./xmltest
-mv xmltest-xmltest.gcno xmltest.gcno && mv xmltest-xmltest.gcda xmltest.gcda
+cd CMakeFiles/xmltest.dir
+mv xmltest.cpp.gcno xmltest.gcno && mv xmltest.cpp.gcda xmltest.gcda
 gcov -abcfHlm xmltest.cpp
+
+cd ../../
+gcov -abcfHlm -o ./CMakeFiles/xmltest.dir xmltest.cpp <- EJECUTAR PARA PASAR INFO A MEMORIA
 
 GCOV considera solo las líneas de los archivos usados, no de la aplicación entera, OPCIONES: abcfHlm, para Latex excluimos la f,
 redactar con info de la página oficial
@@ -51,6 +56,7 @@ klee --warnings-only-to-file --only-output-states-covering-new --external-calls=
 
 
 klee-stats klee-out-0 klee-out-1 klee-out-2 klee-out-3 klee-out-4 klee-out-5 klee-out-6 klee-out-7 klee-out-8 klee-out-9 klee-out-10 klee-out-11
+
 Los tamaños (en bits) para el argumento -sym-files han sido elegidos en función de lo considerado respecto a las limitaciones de memoria del equipo actual. Al no tener suficientes recursos computacionales, el aumento de tamaño carece de sentido pues los resultados no son suficientementes eficientes y óptimos.
       
     
