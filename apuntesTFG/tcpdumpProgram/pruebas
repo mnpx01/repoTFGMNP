@@ -20,30 +20,41 @@ extract-bc libnetdissect.a
 -------------------------------------------------------------------------------------------------------------
 
 
-TCPDUMP (/home/martin/tcpdump),  ADAPTACION GCOV   PENDIENTE
+TCPDUMP (/home/martin/tcpdump),  ADAPTACION GCOV
 
-git clone https://github.com/uclouvain/openjpeg.git
+git clone https://github.com/the-tcpdump-group/libpcap.git
+cd libpcap && mkdir gcovbuild && cp -R ./!(gcovbuild|build) ./gcovbuild/ && cd gcovbuild
+rm -f $(find . -type f \( -name "*.gcda" -o -name "*.gcno" \))
 
-cd openjpeg && mkdir gcovbuild && cp -R ./!(gcovbuild|build) ./gcovbuild/ && cd gcovbuild
+sudo apt-get install flex
+cmake . -DCMAKE_C_FLAGS="-fprofile-arcs -ftest-coverage -O0" -DCMAKE_EXE_LINKER_FLAGS="-fprofile-arcs -ftest-coverage -O0"
+make
+sudo make install
+cd ../../
+
+
+
+git clone https://github.com/the-tcpdump-group/tcpdump.git
+
+cd tcpdump && mkdir gcovbuild && cp -R ./!(gcovbuild|build) ./gcovbuild/ && cd gcovbuild
 rm -f $(find . -type f \( -name "*.gcda" -o -name "*.gcno" \))
 
 cmake . -DCMAKE_C_FLAGS="-fprofile-arcs -ftest-coverage -O0" -DCMAKE_EXE_LINKER_FLAGS="-fprofile-arcs -ftest-coverage -O0"
 make
 
-cd bin
-./opj_compress -i prueba.png -o outputprueba1.jp2 <- el comando elegido interfiere en el resultado de la cobertura
+./tcpdump -i wlp2s0 -c 50
 
-cd ../src/bin/jp2/CMakeFiles/opj_compress.dir
-mv opj_compress.c.gcno opj_compress.gcno && mv opj_compress.c.gcda opj_compress.gcda
+
+cd CMakeFiles/tcpdump.dir
+mv tcpdump.c.gcno tcpdump.gcno && mv tcpdump.c.gcda tcpdump.gcda
 
 cd ../../
-gcov -abcfHlm -o ./CMakeFiles/opj_compress.dir opj_compress.c <- EJECUTAR PARA PASAR INFO A MEMORIA
+gcov -abcfHlm -o ./CMakeFiles/tcpdump.dir tcpdump.c <- EJECUTAR PARA PASAR INFO A MEMORIA
 
 GCOV considera solo las líneas de los archivos usados, no de la aplicación entera, OPCIONES: abcfHlm, para Latex excluimos la f,
 redactar con info de la página oficial
-
-
 -------------------------------------------------------------------------------------------------------------
+
 
 PRUEBAS Klee: tests de 0 a 6 prametros, no posibilidad de archivos, si stdin, si stdout
 klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --watchdog -link-llvm-lib=/home/martin/Escritorio/libpcap/build/libpcap.bca -link-llvm-lib=libnetdissect.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./tcpdump.bc
