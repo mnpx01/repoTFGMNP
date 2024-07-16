@@ -21,6 +21,7 @@ git clone https://github.com/libarchive/libarchive.git
 
 cd libarchive && cp -R build gcovbuild && cp -R ./!(gcovbuild|build) ./gcovbuild/ && cd gcovbuild
 rm -f $(find . -type f \( -name "*.gcda" -o -name "*.gcno" \))
+rm CMakeCache.txt
 
 cmake .. -DCMAKE_C_FLAGS="-fprofile-arcs -ftest-coverage -O0" -DCMAKE_EXE_LINKER_FLAGS="-fprofile-arcs -ftest-coverage -O0"
 make

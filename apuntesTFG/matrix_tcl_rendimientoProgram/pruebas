@@ -1,8 +1,10 @@
 MATRIX_TCL_RENDIMIENTO (/home/martin/matrix_tcl_rendimiento), ADAPTACION LLVM
 
-git clone https://github.com/leethomason/tinyxml2.git
+comando descomprimir.zip, aclara que solo se tiene zip no es por git clone!!!!!!
 
-cd tinyxml2
+matrix_tcl_rendimiento
+
+
 mkdir build
 cd build
 

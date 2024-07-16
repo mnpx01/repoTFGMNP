@@ -10,6 +10,7 @@ make
 
 cp -r ../resources/ ./resources
 extract-bc xmltest
+extract-bc libtinyxml2.a
 -------------------------------------------------------------------------------------------------------------
 
 
@@ -26,7 +27,6 @@ make
 ./xmltest
 cd CMakeFiles/xmltest.dir
 mv xmltest.cpp.gcno xmltest.gcno && mv xmltest.cpp.gcda xmltest.gcda
-gcov -abcfHlm xmltest.cpp
 
 cd ../../
 gcov -abcfHlm -o ./CMakeFiles/xmltest.dir xmltest.cpp <- EJECUTAR PARA PASAR INFO A MEMORIA
@@ -58,5 +58,113 @@ klee --warnings-only-to-file --only-output-states-covering-new --external-calls=
 klee-stats klee-out-0 klee-out-1 klee-out-2 klee-out-3 klee-out-4 klee-out-5 klee-out-6 klee-out-7 klee-out-8 klee-out-9 klee-out-10 klee-out-11
 
 Los tamaños (en bits) para el argumento -sym-files han sido elegidos en función de lo considerado respecto a las limitaciones de memoria del equipo actual. Al no tener suficientes recursos computacionales, el aumento de tamaño carece de sentido pues los resultados no son suficientementes eficientes y óptimos.
-      
+
+--------------------------------------------------
+
+GRAFANA
+
+
+ENLACES-> donde se encuentra el tutorial original de Grafana, https://grafana.com/docs/plugins/yesoreyeram-infinity-datasource/latest/json/, 
+https://grafana.com/docs/grafana/latest/dashboards/variables/add-template-variables/
+
+
+1. https://grafana.com/grafana/download
+    1.1. Instalación:
+	* sudo apt-get install -y adduser libfontconfig1 musl
+	* wget https://dl.grafana.com/enterprise/release/grafana-enterprise_11.1.0_amd64.deb
+	* sudo dpkg -i grafana-enterprise_11.1.0_amd64.deb
+    1.2. Si queremos que Grafana se inicie automáticamente:
+ 	* sudo /bin/systemctl daemon-reload
+ 	* sudo /bin/systemctl enable grafana-server
+    1.3. Inicio de grafana manual:
+        * sudo /bin/systemctl start grafana-server
+        * Credenciales inicio -> Usuario: admin, Contraseña: admin
+        * En mi caso, credenciales actuales -> Usuario: admin, Contraseña: 1234
+
+
+2. pip install --break-system-packages flask
+
+3. klee-stats --grafana klee-out-0
+
+
+GRAFANA INFINITY PLUGIN 
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libtinyxml2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./xmltest.bc --sym-args 0 5 40 --sym-files 1 8 --sym-stdout
+
+klee-stats --grafana klee-out-0
+
+docker run -d --net=host --name=grafana klee/grafana (sin -d para ver como empieza Grafana)
+
+http://localhost:3000/
+
+
+Content-Type	application/json
+
+
+ORIGINAL
+{
+  "app": ${__dashboard},
+  "requestId": "Q115",
+  "timezone": "",
+  "panelId": 2,
+  "dashboardId": 1,
+  "range": {
+    "from": ${__from:date},
+    "to": ${__to:date},
+    "raw": {
+      "from": "now-15m",
+      "to": "now"
+    }
+  },
+  "interval": "10s",
+  "intervalMs": 10000,
+  "targets": [
+    {
+      "target": "Instructions",
+      "refId": "A",
+      "type": "timeserie"
+    }
+  ],
+  "maxDataPoints": 1000,
+  "scopedVars": {
+    "__interval": {
+      "text": "10s",
+      "value": "10s"
+    },
+    "__interval_ms": {
+      "text": "10000",
+      "value": 10000
+    }
+  },
+  "startTime": 1721138127321,
+  "rangeRaw": {
+    "from": "now-15m",
+    "to": "now"
+  },
+  "adhocFilters": []
+}
+
+
+PERSONALIZABLE
+{
+  "range": {
+    "from": "${__from:date}",
+    "to": "${__to:date}"
+  },
+  "interval": "10s",
+  "intervalMs": 10000,
+  "targets": [
+    {
+      "target": "FullBranches",
+      "refId": "A",
+      "type": "timeserie"
+    }
+  ],
+  "maxDataPoints": 1000,
+  "adhocFilters": []
+}
+
+
+--data-raw '{"range":{"from":${__from:date},"to": ${__to:date},},"interval": "10s","intervalMs": 10000,"targets":[{"target":"Instructions","refId": "A",      "type": "timeserie"}],"maxDataPoints": 1000,"adhocFilters": []}
+
+
     

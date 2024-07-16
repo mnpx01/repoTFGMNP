@@ -42,7 +42,7 @@ rm -f $(find . -type f \( -name "*.gcda" -o -name "*.gcno" \))
 cmake . -DCMAKE_C_FLAGS="-fprofile-arcs -ftest-coverage -O0" -DCMAKE_EXE_LINKER_FLAGS="-fprofile-arcs -ftest-coverage -O0"
 make
 
-./tcpdump -i wlp2s0 -c 50
+sudo ./tcpdump -i wlp2s0 -c 50
 
 
 cd CMakeFiles/tcpdump.dir
