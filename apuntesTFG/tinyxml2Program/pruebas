@@ -86,6 +86,9 @@ https://grafana.com/docs/grafana/latest/dashboards/variables/add-template-variab
 
 3. klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libtinyxml2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./xmltest.bc --sym-args 0 5 40 --sym-files 1 8 --sym-stdout
 
+exec -a Prueba klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libtinyxml2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./xmltest.bc --sym-args 0 5 40 --sym-files 1 8 --sym-stdout
+
+
 4. klee-stats --grafana klee-out-0
 
 5. http://localhost:3000/  (GRAFANA)
@@ -192,14 +195,14 @@ GRAFANA RESOURCES
   		# Determines whether user authentication is enabled over HTTP/HTTPS.
   		auth-enabled = false
   		
-3. Verificar funcionamiento curl -i http://localhost:8000/ping
+3. Verificar funcionamiento curl -i http://localhost:8000/ping (La conf de influxdb va fuera del script).
 
 
 4. Mirar bases de datos -> influx -host 127.0.0.1 -port 8000
 5. Crear, create database InfluxSysResources
 
 
-6. COnfigurar en telegraf.conf los datos de la bd y restart, sudo systemctl restart telegraf
+6. COnfigurar en telegraf.conf los datos de la bd y restart, sudo systemctl restart telegraf (La conf de telegraf siempre se hace por cada proceso y a dentro del script), lanzamos telegraf con el comando que da la opción de elegir el archivo de conf
 	[[outputs.influxdb]]
 	urls = ["http://localhost:8000"]
 	database = "InfluxSysResources"
