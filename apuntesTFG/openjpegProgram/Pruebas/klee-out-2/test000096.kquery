@@ -1,0 +1,79 @@
+array A_data_stat[144] : w32 -> w8 = symbolic
+array arg00[9] : w32 -> w8 = symbolic
+array arg01[9] : w32 -> w8 = symbolic
+array arg02[9] : w32 -> w8 = symbolic
+array arg03[9] : w32 -> w8 = symbolic
+array arg04[9] : w32 -> w8 = symbolic
+array arg05[9] : w32 -> w8 = symbolic
+array arg06[9] : w32 -> w8 = symbolic
+array arg07[9] : w32 -> w8 = symbolic
+array arg08[9] : w32 -> w8 = symbolic
+array arg09[9] : w32 -> w8 = symbolic
+array arg10[9] : w32 -> w8 = symbolic
+array arg11[9] : w32 -> w8 = symbolic
+array n_args[4] : w32 -> w8 = symbolic
+array stdout_stat[144] : w32 -> w8 = symbolic
+(query [(Eq 12
+             (ReadLSB w32 0 n_args))
+         (Eq false
+             (Eq 0
+                 (And w64 (ReadLSB w64 8 A_data_stat)
+                          2147483647)))
+         (Ult (ReadLSB w64 56 A_data_stat)
+              65536)
+         (Eq false
+             (Eq 0
+                 (And w64 (ReadLSB w64 8 stdout_stat)
+                          2147483647)))
+         (Ult (ReadLSB w64 56 stdout_stat)
+              65536)
+         (Eq 45 (Read w8 0 arg00))
+         (Eq 0 (Read w8 1 arg00))
+         (Eq 45 (Read w8 0 arg01))
+         (Eq 0 (Read w8 1 arg01))
+         (Eq 45 (Read w8 0 arg02))
+         (Eq 0 (Read w8 1 arg02))
+         (Eq 0 (Read w8 0 arg03))
+         (Eq 114
+             (Extract w8 0 (SExt w32 (Read w8 1 arg03))))
+         (Eq 0 (Read w8 2 arg03))
+         (Eq 45 (Read w8 0 arg04))
+         (Eq 0 (Read w8 1 arg04))
+         (Eq 0 (Read w8 4 arg05))
+         (Eq 73 (Read w8 0 arg05))
+         (Eq 109 (Read w8 1 arg05))
+         (Eq 103 (Read w8 2 arg05))
+         (Eq 68 (Read w8 3 arg05))
+         (Eq 45 (Read w8 0 arg06))
+         (Eq false
+             (Eq 0 N0:(Read w8 2 arg06)))
+         (Eq false
+             (Eq 0 (Read w8 3 arg06)))
+         (Eq 0 (Read w8 4 arg06))
+         (Eq 99 (Read w8 1 arg06))
+         (Eq false (Eq 105 N0))
+         (Eq 45 (Read w8 0 arg07))
+         (Eq 0 (Read w8 1 arg07))
+         (Eq 0 (Read w8 0 arg08))
+         (Eq 105
+             (Extract w8 0 (SExt w32 (Read w8 1 arg08))))
+         (Eq 46 (Read w8 2 arg08))
+         (Eq 46 (Read w8 3 arg08))
+         (Eq 46 (Read w8 4 arg08))
+         (Eq 45 (Read w8 0 arg09))
+         (Eq 0 (Read w8 1 arg09))
+         (Eq 45 (Read w8 0 arg10))
+         (Eq false
+             (Eq 0 N1:(Read w8 1 arg10)))
+         (Eq 0 (Read w8 2 arg10))
+         (Eq 111
+             (Extract w8 0 (SExt w32 N1)))
+         (Eq 46 (Read w8 0 arg11))
+         (Eq 0 (Read w8 4 arg11))
+         (Eq 80 (Read w8 5 arg08))
+         (Eq 77 (Read w8 7 arg08))
+         (Eq 65 (Read w8 6 arg08))
+         (Eq 74 (Read w8 1 arg11))
+         (Eq 50 (Read w8 2 arg11))
+         (Eq 75 (Read w8 3 arg11))]
+        false)

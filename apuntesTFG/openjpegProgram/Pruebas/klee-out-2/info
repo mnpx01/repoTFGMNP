@@ -1,0 +1,23 @@
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libopenjp2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./opj_compress.bc --sym-args 0 13 8 --sym-files 1 64 --sym-stdout
+PID: 7525
+Using monotonic steady clock with 1/1000000000s resolution
+Started: 2024-07-01 20:51:22
+BEGIN searcher description
+<InterleavedSearcher> containing 2 searchers:
+RandomPathSearcher
+WeightedRandomSearcher::CoveringNew
+</InterleavedSearcher>
+END searcher description
+Finished: 2024-07-01 21:51:24
+Elapsed: 01:00:02
+KLEE: done: explored paths = 132598
+KLEE: done: avg. constructs per query = 21
+KLEE: done: total queries = 5172
+KLEE: done: valid queries = 495
+KLEE: done: invalid queries = 4677
+KLEE: done: query cex = 5172
+
+KLEE: done: total instructions = 774732955
+KLEE: done: completed paths = 103343
+KLEE: done: partially completed paths = 29255
+KLEE: done: generated tests = 98

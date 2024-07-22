@@ -1,0 +1,23 @@
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libtinyxml2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./xmltest.bc --sym-args 0 5 20
+PID: 13176
+Using monotonic steady clock with 1/1000000000s resolution
+Started: 2024-06-28 18:38:14
+BEGIN searcher description
+<InterleavedSearcher> containing 2 searchers:
+RandomPathSearcher
+WeightedRandomSearcher::CoveringNew
+</InterleavedSearcher>
+END searcher description
+Finished: 2024-06-28 18:53:37
+Elapsed: 00:15:23
+KLEE: done: explored paths = 211
+KLEE: done: avg. constructs per query = 9
+KLEE: done: total queries = 51
+KLEE: done: valid queries = 1
+KLEE: done: invalid queries = 50
+KLEE: done: query cex = 51
+
+KLEE: done: total instructions = 542496501
+KLEE: done: completed paths = 211
+KLEE: done: partially completed paths = 0
+KLEE: done: generated tests = 8

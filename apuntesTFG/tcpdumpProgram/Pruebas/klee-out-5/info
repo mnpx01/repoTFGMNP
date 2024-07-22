@@ -1,0 +1,23 @@
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --watchdog -link-llvm-lib=/home/martin/Escritorio/libpcap/build/libpcap.bca -link-llvm-lib=libnetdissect.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./tcpdump.bc --sym-stdout --sym-stdin 2048
+PID: 11709
+Using monotonic steady clock with 1/1000000000s resolution
+Started: 2024-07-06 23:53:00
+BEGIN searcher description
+<InterleavedSearcher> containing 2 searchers:
+RandomPathSearcher
+WeightedRandomSearcher::CoveringNew
+</InterleavedSearcher>
+END searcher description
+Finished: 2024-07-06 23:53:01
+Elapsed: 00:00:01
+KLEE: done: explored paths = 2
+KLEE: done: avg. constructs per query = 24
+KLEE: done: total queries = 34
+KLEE: done: valid queries = 0
+KLEE: done: invalid queries = 34
+KLEE: done: query cex = 34
+
+KLEE: done: total instructions = 44091
+KLEE: done: completed paths = 0
+KLEE: done: partially completed paths = 2
+KLEE: done: generated tests = 1

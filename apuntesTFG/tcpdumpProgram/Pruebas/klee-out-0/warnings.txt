@@ -1,0 +1,47 @@
+KLEE: WARNING: undefined reference to function: __isoc23_fscanf
+KLEE: WARNING: undefined reference to function: __isoc23_sscanf
+KLEE: WARNING: undefined reference to function: __isoc23_strtol
+KLEE: WARNING: undefined reference to function: __isoc23_strtoll
+KLEE: WARNING: undefined reference to function: __isoc99_sscanf
+KLEE: WARNING: undefined reference to function: ether_hostton
+KLEE: WARNING: undefined reference to function: ether_ntohost
+KLEE: WARNING: undefined reference to function: eventfd
+KLEE: WARNING: undefined reference to function: freeifaddrs
+KLEE: WARNING: undefined reference to function: getifaddrs
+KLEE: WARNING: undefined reference to function: getnetbyname_r
+KLEE: WARNING: undefined reference to function: poll
+KLEE: WARNING: undefined reference to function: setitimer
+KLEE: WARNING ONCE: calling external: syscall(16, 0, 21505, 123022042202112) at runtime/POSIX/fd.c:997 10
+KLEE: WARNING ONCE: Alignment of memory from call "malloc" is not modelled. Using alignment of 8.
+KLEE: WARNING ONCE: calling external: gettimeofday(123004862332928, 0) at runtime/POSIX/stubs.c:171 0
+KLEE: WARNING ONCE: calling external: getifaddrs(123000164712448) at [no debug info]
+KLEE: WARNING ONCE: calling external: vprintf(124220275687424, 123018820976640) at libc/stdio/fprintf.c:35 14
+KLEE: WARNING ONCE: silently concretizing (reason: external call) expression (Read w8 1 arg00) to value 67 (:0)
+KLEE: WARNING ONCE: calling external: __isoc23_strtoll((Add w64 123354902167554
+          (SExt w64 (ZExt w32 (Eq 45 (Read w8 1 arg00))))), 122997077704704, 10) at [no debug info]
+KLEE: WARNING ONCE: calling external: printf(124216945672192, 4666656044275990528) at [no debug info]
+KLEE: WARNING ONCE: calling external: __isoc23_strtol((Add w64 123354902167555
+          (SExt w64 (ZExt w32 (Eq 45 (Read w8 1 arg00))))), 122994527567872, 0) at [no debug info]
+KLEE: WARNING ONCE: silently concretizing (reason: external call) expression (Read w8 4 arg00) to value 13 (runtime/POSIX/fd.c:415)
+KLEE: WARNING ONCE: Alignment of memory from call "calloc" is not modelled. Using alignment of 8.
+KLEE: WARNING ONCE: calling external: __asm__0(41, 16, 3, 16) at libc/inet/socketcalls.c:362 1
+KLEE: WARNING ONCE: skipping fork (memory cap exceeded)
+KLEE: WARNING: killing 2859 states (over memory cap: 2103MB)
+KLEE: WARNING: killing 2706 states (over memory cap: 2103MB)
+KLEE: WARNING: killing 2514 states (over memory cap: 2101MB)
+KLEE: WARNING ONCE: _setjmp: ignoring
+KLEE: WARNING ONCE: calling external: getgid() at [no debug info]
+KLEE: WARNING: setgid: silently ignoring (returning 0)
+KLEE: WARNING ONCE: calling external: getuid() at [no debug info]
+KLEE: WARNING: setuid: silently ignoring (returning 0)
+KLEE: WARNING ONCE: Symbolic memory access will send the following array of 15582 bytes to the constraint solver -- large symbolic arrays may cause significant performance issues: MO16009[15582] allocated at global:yy_chk
+KLEE: WARNING: killing 2405 states (over memory cap: 2122MB)
+KLEE: WARNING: killing 3419 states (over memory cap: 2190MB)
+KLEE: WARNING: killing 1730 states (over memory cap: 2101MB)
+KLEE: WARNING: killing 8133 states (over memory cap: 2622MB)
+KLEE: WARNING: killing 4211 states (over memory cap: 2384MB)
+KLEE: WARNING: killing 1453 states (over memory cap: 2142MB)
+KLEE: WARNING: killing 992 states (over memory cap: 2102MB)
+KLEE: WARNING: killing 1365 states (over memory cap: 2167MB)
+KLEE: WARNING: killing 1161 states (over memory cap: 2153MB)
+KLEE: WARNING: killing 885 states (over memory cap: 2124MB)

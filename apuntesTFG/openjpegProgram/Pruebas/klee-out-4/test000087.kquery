@@ -1,0 +1,67 @@
+array A_data_stat[144] : w32 -> w8 = symbolic
+array arg00[9] : w32 -> w8 = symbolic
+array arg01[9] : w32 -> w8 = symbolic
+array arg02[9] : w32 -> w8 = symbolic
+array arg03[9] : w32 -> w8 = symbolic
+array arg04[9] : w32 -> w8 = symbolic
+array arg05[9] : w32 -> w8 = symbolic
+array arg06[9] : w32 -> w8 = symbolic
+array n_args[4] : w32 -> w8 = symbolic
+array stdin_stat[144] : w32 -> w8 = symbolic
+array stdout_stat[144] : w32 -> w8 = symbolic
+(query [(Eq 7
+             (ReadLSB w32 0 n_args))
+         (Eq false
+             (Eq 0
+                 (And w64 (ReadLSB w64 8 A_data_stat)
+                          2147483647)))
+         (Ult (ReadLSB w64 56 A_data_stat)
+              65536)
+         (Eq false
+             (Eq 0
+                 (And w64 (ReadLSB w64 8 stdin_stat)
+                          2147483647)))
+         (Ult (ReadLSB w64 56 stdin_stat)
+              65536)
+         (Eq false
+             (Eq 0
+                 (And w64 (ReadLSB w64 8 stdout_stat)
+                          2147483647)))
+         (Ult (ReadLSB w64 56 stdout_stat)
+              65536)
+         (Eq 45 (Read w8 0 arg00))
+         (Eq 0 (Read w8 1 arg00))
+         (Eq 45 (Read w8 0 arg01))
+         (Eq 0 (Read w8 1 arg01))
+         (Eq false
+             (Eq 45 N0:(Read w8 0 arg02)))
+         (Eq false (Eq 0 N0))
+         (Eq 0 (Read w8 1 arg02))
+         (Eq 45 (Read w8 0 arg03))
+         (Eq false
+             (Eq 0 (Read w8 1 arg03)))
+         (Eq 0 (Read w8 0 arg04))
+         (Eq 113 (Read w8 1 arg04))
+         (Eq 255 (Read w8 2 arg04))
+         (Eq 0 (Read w8 3 arg04))
+         (Eq 0 (Read w8 4 arg04))
+         (Eq 0 (Read w8 5 arg04))
+         (Eq 0 (Read w8 6 arg04))
+         (Eq 0 (Read w8 7 arg04))
+         (Eq 45 (Read w8 0 arg05))
+         (Eq 116 (Read w8 1 arg05))
+         (Eq 104 (Read w8 2 arg05))
+         (Eq 114 (Read w8 3 arg05))
+         (Eq 101 (Read w8 4 arg05))
+         (Eq 97 (Read w8 5 arg05))
+         (Eq 100 (Read w8 6 arg05))
+         (Eq 115 (Read w8 7 arg05))
+         (Eq 0 (Read w8 0 arg06))
+         (Eq 0 (Read w8 1 arg06))
+         (Eq 0 (Read w8 2 arg06))
+         (Eq 0 (Read w8 3 arg06))
+         (Eq 0 (Read w8 4 arg06))
+         (Eq 0 (Read w8 5 arg06))
+         (Eq 0 (Read w8 6 arg06))
+         (Eq 0 (Read w8 7 arg06))]
+        false)
