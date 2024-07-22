@@ -5,16 +5,8 @@ comando descomprimir.zip, aclara que solo se tiene zip no es por git clone!!!!!!
 matrix_tcl_rendimiento
 
 
-mkdir build
-cd build
-
-pip install --break-system-packages --upgrade wllvm
-export CC=wllvm && export CXX=wllvm++ && export LLVM_COMPILER=clang
-cmake ..
-make
-
-cp -r ../resources/ ./resources
-extract-bc xmltest
+en el dir matclpro: g++ -o matrixtcl test/testmat.cpp -I./include
+                    clang++ -o matrixtcl test/testmat.cpp -I./include
 -------------------------------------------------------------------------------------------------------------
 
 
