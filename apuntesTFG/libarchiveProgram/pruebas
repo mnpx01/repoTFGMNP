@@ -1,0 +1,69 @@
+LIBARCHIVE (/home/martin/libarchive) ADAPTACION LLVM
+
+git clone https://github.com/libarchive/libarchive.git
+
+cd libarchive && cd build
+
+pip install --break-system-packages --upgrade wllvm && export CC=wllvm && export CXX=wllvm++ && export LLVM_COMPILER=clang && export CMAKE_C_FLAGS="-emit-llvm" && export CMAKE_CXX_FLAGS="-emit-llvm"
+cmake ..
+make
+sudo make install
+
+cd bin
+extract-bc bsdcat
+extract-bc ../libarchive/libarchive.a
+-------------------------------------------------------------------------------------------------------------
+
+
+LIBARCHIVE (/home/martin/libarchive),  ADAPTACION GCOV
+
+git clone https://github.com/libarchive/libarchive.git
+
+cd libarchive && cp -R build gcovbuild && cp -R ./!(gcovbuild|build) ./gcovbuild/ && cd gcovbuild
+rm -f $(find . -type f \( -name "*.gcda" -o -name "*.gcno" \))
+rm CMakeCache.txt
+
+cmake .. -DCMAKE_C_FLAGS="-fprofile-arcs -ftest-coverage -O0" -DCMAKE_EXE_LINKER_FLAGS="-fprofile-arcs -ftest-coverage -O0"
+make
+
+cd bin
+./bsdcat prueba.zip
+
+cd ../cat/CMakeFiles/bsdcat.dir
+mv bsdcat.c.gcno bsdcat.gcno && mv bsdcat.c.gcda bsdcat.gcda
+
+cd ../../../cat
+gcov -abcfHlm -o ./CMakeFiles/bsdcat.dir bsdcat.c <- EJECUTAR PARA PASAR INFO A MEMORIA
+
+GCOV considera solo las líneas de los archivos usados, no de la aplicación entera, OPCIONES: abcfHlm, para Latex excluimos la f,
+redactar con info de la página oficial
+-------------------------------------------------------------------------------------------------------------
+
+PRUEBAS Klee:  tests de 0 a 3 prametros, posibilidad de archivos nooo, no stdin, si stdout 
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=../libarchive/libarchive.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./bsdcat.bc
+
+bsdcat.bc
+1. --sym-stdin 1024
+2. --sym-stdin 2048
+3. --sym-stdin 4096
+4. --sym-stdin 8192
+5. -- noexiste
+6. -- prueba.zip
+7. -- prueba.sh
+8. -- prueba.png
+9. -- noexiste --sym-stdin 2048 
+10. -- prueba.zip --sym-stdin 2048
+11. -- prueba.sh --sym-stdin 2048
+12. -- prueba.png --sym-stdin 2048
+
+
+MIRAR ARCHIVOS SOLVER.ERR MODEL.ERR .EARLY .OVERSHIFT.ERR
+
+
+Los tamaños (en bits) para el argumento -sym-files han sido elegidos en función de lo considerado respecto a las limitaciones de memoria del equipo actual. Al no tener suficientes recursos computacionales, el aumento de tamaño carece de sentido pues los resultados no son suficientementes eficientes y óptimos.
+
+
+klee-stats klee-out-0 klee-out-1 klee-out-2 klee-out-3 klee-out-4 klee-out-5 klee-out-6 klee-out-7 klee-out-8 klee-out-9 klee-out-10 klee-out-11
+ 
+    
+    

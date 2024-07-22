@@ -1,0 +1,25 @@
+Error: concretized symbolic size
+File: libarchive/archive_read.c
+Line: 1454
+assembly.ll line: 11005
+State: 185
+Stack: 
+	#000011005 in __archive_read_filter_ahead(134658046033920, symbolic, 134115672195072) at libarchive/archive_read.c:1454
+	#100021672 in peek_at_header(134658046033920, 134105874300928, 0) at libarchive/archive_read_support_filter_gzip.c:184
+	#200020809 in gzip_bidder_bid(135053183025448, 134658046033920) at libarchive/archive_read_support_filter_gzip.c:242
+	#300009302 in choose_filters(135053183025152) at libarchive/archive_read.c:566
+	#400009047 in archive_read_open1(135053183025152) at libarchive/archive_read.c:505
+	#500007990 in archive_read_open_filenames(135053183025152, 134121175121920, 10240) at libarchive/archive_read_open_filename.c:151
+	#600005592 in archive_read_open_filename(135053183025152, 0) at libarchive/archive_read_open_filename.c:108
+	#700005458 in bsdcat_read_to_stdout(0) at cat/bsdcat.c:100
+	#800004758 in __klee_posix_wrapped_main(1, 134469067472896) at cat/bsdcat.c:151
+	#900003058 in __user_main(3, 135346851414016, 135346851414048) at runtime/POSIX/klee_init_env.c:245
+	#1000000792 in __uClibc_main(3, 135346851414016) at libc/misc/internals/__uClibc_main.c:401
+	#1100000958 in main(3, 135346851414016)
+Info: 
+  size expr: (Add w64 13
+                       (SExt w64 (Or w32 (Shl w32 (ZExt w32 (Read w8 11 stdin))
+                                                  8)
+                                         (ZExt w32 (Read w8 10 stdin)))))
+  concretization : 4096
+  unbound example: 32768

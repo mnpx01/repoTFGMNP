@@ -1,0 +1,83 @@
+TCPDUMP (/home/martin/tcpdump) ADAPTACION LLVM
+
+git clone https://github.com/the-tcpdump-group/libpcap.git
+cd libpcap && mkdir build && cd build
+pip install --break-system-packages --upgrade wllvm && export CC=wllvm && export CXX=wllvm++ && export LLVM_COMPILER=clang && export CMAKE_C_FLAGS="-emit-llvm" && export CMAKE_CXX_FLAGS="-emit-llvm"
+sudo apt-get install flex
+cmake ..
+make
+sudo make install
+extract-bc libpcap.a
+cd ../..
+
+git clone https://github.com/the-tcpdump-group/tcpdump.git
+cd tcpdump && mkdir build && cd build
+pip install --break-system-packages --upgrade wllvm && export CC=wllvm && export CXX=wllvm++ && export LLVM_COMPILER=clang && export CMAKE_C_FLAGS="-emit-llvm" && export CMAKE_CXX_FLAGS="-emit-llvm"
+cmake .. && make && sudo make install
+
+extract-bc tcpdump
+extract-bc libnetdissect.a
+-------------------------------------------------------------------------------------------------------------
+
+
+TCPDUMP (/home/martin/tcpdump),  ADAPTACION GCOV
+
+git clone https://github.com/the-tcpdump-group/libpcap.git
+cd libpcap && mkdir gcovbuild && cp -R ./!(gcovbuild|build) ./gcovbuild/ && cd gcovbuild
+rm -f $(find . -type f \( -name "*.gcda" -o -name "*.gcno" \))
+
+sudo apt-get install flex
+cmake . -DCMAKE_C_FLAGS="-fprofile-arcs -ftest-coverage -O0" -DCMAKE_EXE_LINKER_FLAGS="-fprofile-arcs -ftest-coverage -O0"
+make
+sudo make install
+cd ../../
+
+
+
+git clone https://github.com/the-tcpdump-group/tcpdump.git
+
+cd tcpdump && mkdir gcovbuild && cp -R ./!(gcovbuild|build) ./gcovbuild/ && cd gcovbuild
+rm -f $(find . -type f \( -name "*.gcda" -o -name "*.gcno" \))
+
+cmake . -DCMAKE_C_FLAGS="-fprofile-arcs -ftest-coverage -O0" -DCMAKE_EXE_LINKER_FLAGS="-fprofile-arcs -ftest-coverage -O0"
+make
+
+sudo ./tcpdump -i wlp2s0 -c 50
+
+
+cd CMakeFiles/tcpdump.dir
+mv tcpdump.c.gcno tcpdump.gcno && mv tcpdump.c.gcda tcpdump.gcda
+
+cd ../../
+gcov -abcfHlm -o ./CMakeFiles/tcpdump.dir tcpdump.c <- EJECUTAR PARA PASAR INFO A MEMORIA
+
+GCOV considera solo las líneas de los archivos usados, no de la aplicación entera, OPCIONES: abcfHlm, para Latex excluimos la f,
+redactar con info de la página oficial
+-------------------------------------------------------------------------------------------------------------
+
+
+PRUEBAS Klee: tests de 0 a 6 prametros, no posibilidad de archivos, si stdin, si stdout
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --watchdog -link-llvm-lib=/home/martin/Escritorio/libpcap/build/libpcap.bca -link-llvm-lib=libnetdissect.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./tcpdump.bc
+
+MENCIONAR USO DE VALGRIND?!!  
+
+1. --sym-args 0 6 10 
+2. --sym-args 0 6 50 
+3. --sym-args 0 6 10 --sym-stdout 
+4. --sym-args 0 6 50 --sym-stdout
+5. --sym-stdout --sym-stdin 1024 
+6. --sym-stdout --sym-stdin 2048 
+7. -- -i wlp2s0 
+8. -- -i wlp2s0 host 192.168.1.165
+9. -- -i wlp2s0 port 443
+10. -- -i wlp2s0 host 192.168.1.165 port 80 and not port 443 
+11. -- -i wlp2s0 host 192.168.1.165 -c 200 -nn port 80 and not port 443
+12. -- -i wlp2s0 host 192.168.1.165 -c 200 -tttt -nn port 80 and not port 443 --sym-stdout --sym-stdin 2048
+
+
+
+klee-stats klee-out-0 klee-out-1 klee-out-2 klee-out-3 klee-out-4 klee-out-5 klee-out-6 klee-out-7 klee-out-8 klee-out-9 klee-out-10 klee-out-11  
+ 
+Los tamaños (en bits) para el argumento -sym-files han sido elegidos en función de lo considerado respecto a las limitaciones de memoria del equipo actual. Al no tener suficientes recursos computacionales, el aumento de tamaño carece de sentido pues los resultados no son suficientementes eficientes y óptimos.
+     
+    

@@ -1,0 +1,250 @@
+TINIXML2 (/home/martin/tinyxml2), ADAPTACION LLVM
+
+git clone https://github.com/leethomason/tinyxml2.git
+
+cd tinyxml2 && mkdir build && cd build
+
+pip install --break-system-packages --upgrade wllvm && export CC=wllvm && export CXX=wllvm++ && export LLVM_COMPILER=clang && export CMAKE_C_FLAGS="-emit-llvm" && export CMAKE_CXX_FLAGS="-emit-llvm"
+cmake ..
+make
+
+cp -r ../resources/ ./resources
+extract-bc xmltest
+extract-bc libtinyxml2.a
+-------------------------------------------------------------------------------------------------------------
+
+
+TINIXML2 (/home/martin/tinyxml2) ADAPTACION GCOV
+
+git clone https://github.com/leethomason/tinyxml2.git
+
+cd tinyxml2 && mkdir gcovbuild && cp -R ./!(gcovbuild|build) ./gcovbuild/ && cd gcovbuild
+rm -f $(find . -type f \( -name "*.gcda" -o -name "*.gcno" \))
+
+cmake . -DCMAKE_C_FLAGS="-fprofile-arcs -ftest-coverage -O0" -DCMAKE_CXX_FLAGS="-fprofile-arcs -ftest-coverage -O0" -DCMAKE_EXE_LINKER_FLAGS="-fprofile-arcs -ftest-coverage -O0"
+make
+
+./xmltest
+cd CMakeFiles/xmltest.dir
+mv xmltest.cpp.gcno xmltest.gcno && mv xmltest.cpp.gcda xmltest.gcda
+
+cd ../../
+gcov -abcfHlm -o ./CMakeFiles/xmltest.dir xmltest.cpp <- EJECUTAR PARA PASAR INFO A MEMORIA
+
+GCOV considera solo las líneas de los archivos usados, no de la aplicación entera, OPCIONES: abcfHlm, para Latex excluimos la f,
+redactar con info de la página oficial
+-------------------------------------------------------------------------------------------------------------
+
+HACIENDO USO DE --max-solver-time=30, se ve una mínima mejora en los resultados!!!
+
+
+PRUEBAS Klee:  tests de 0 a 5 prametros, posibilidad de archivos, no stdin, si stdout 
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libtinyxml2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./xmltest.bc
+
+1. --sym-args 0 5 5
+2. --sym-args 0 5 10
+3. --sym-args 0 5 20
+4. --sym-args 0 5 40
+5. --sym-args 0 5 5 --sym-files 1 8
+6. --sym-args 0 5 10 --sym-files 1 8
+7. --sym-args 0 5 20 --sym-files 1 8
+8. --sym-args 0 5 40 --sym-files 1 8
+9. --sym-args 0 5 5 --sym-files 1 8 --sym-stdout
+10. --sym-args 0 5 10 --sym-files 1 8 --sym-stdout
+11. --sym-args 0 5 20 --sym-files 1 8 --sym-stdout
+12. --sym-args 0 5 40 --sym-files 1 8 --sym-stdout
+
+
+klee-stats klee-out-0 klee-out-1 klee-out-2 klee-out-3 klee-out-4 klee-out-5 klee-out-6 klee-out-7 klee-out-8 klee-out-9 klee-out-10 klee-out-11
+
+Los tamaños (en bits) para el argumento -sym-files han sido elegidos en función de lo considerado respecto a las limitaciones de memoria del equipo actual. Al no tener suficientes recursos computacionales, el aumento de tamaño carece de sentido pues los resultados no son suficientementes eficientes y óptimos.
+
+--------------------------------------------------
+
+GRAFANA STATS (GRAFANA INFINITY PLUGIN)
+
+
+ENLACES-> donde se encuentra el tutorial original de Grafana, https://grafana.com/docs/plugins/yesoreyeram-infinity-datasource/latest/json/, 
+https://grafana.com/docs/grafana/latest/dashboards/variables/add-template-variables/
+
+
+1. https://grafana.com/grafana/download
+    1.1. Instalación:
+	* sudo apt-get install -y adduser libfontconfig1 musl
+	* wget https://dl.grafana.com/enterprise/release/grafana-enterprise_11.1.0_amd64.deb
+	* sudo dpkg -i grafana-enterprise_11.1.0_amd64.deb
+    1.2. Si queremos que Grafana se inicie automáticamente:
+ 	* sudo systemctl daemon-reload
+ 	* sudo systemctl enable grafana-server
+    1.3. Inicio de grafana manual:
+        * sudo systemctl start grafana-server
+        * Credenciales inicio -> Usuario: admin, Contraseña: admin
+        * En mi caso, credenciales actuales -> Usuario: admin, Contraseña: 1234
+
+
+2. pip install --break-system-packages flask
+
+3. klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libtinyxml2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./xmltest.bc --sym-args 0 5 40 --sym-files 1 8 --sym-stdout
+exec -a Prueba 
+
+./monitoresKLEE.sh Prueba "klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libtinyxml2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./xmltest.bc --sym-args 0 5 5" klee-out-0 (SIN SUDO)
+NOTA: sudo chmod 744 monitoresKLEE.sh, ejecución ./monitoresKLEE.sh param1 param2 param3
+NOTA: Reconfigurar nombre de la fuente de base de datos en Grafana cada vez que se vaya a ejecutar el script!!! Cambiar InfluxSysReosurces o la que haya por la nueva (que suele ser ele nombre del proceso)
+
+
+
+4. klee-stats --grafana klee-out-0
+
+5. http://localhost:3000/  (GRAFANA)
+
+
+HEADER -> Content-Type application/json
+
+
+ORIGINAL
+{
+  "app": ${__dashboard},
+  "requestId": "Q115",
+  "timezone": "",
+  "panelId": 2,
+  "dashboardId": 1,
+  "range": {
+    "from": ${__from:date},
+    "to": ${__to:date},
+    "raw": {
+      "from": "now-15m",
+      "to": "now"
+    }
+  },
+  "interval": "10s",
+  "intervalMs": 10000,
+  "targets": [
+    {
+      "target": "Instructions",
+      "refId": "A",
+      "type": "timeserie"
+    }
+  ],
+  "maxDataPoints": 1000,
+  "scopedVars": {
+    "__interval": {
+      "text": "10s",
+      "value": "10s"
+    },
+    "__interval_ms": {
+      "text": "10000",
+      "value": 10000
+    }
+  },
+  "startTime": 1721138127321,
+  "rangeRaw": {
+    "from": "now-15m",
+    "to": "now"
+  },
+  "adhocFilters": []
+}
+
+
+PERSONALIZABLE <- LATEX
+{
+  "range": {
+    "from": "${__from:date}",
+    "to": "${__to:date}"
+  },
+  "interval": "10s",
+  "intervalMs": 10000,
+  "targets": [
+    {
+      "target": "FullBranches",
+      "refId": "A",
+      "type": "timeserie"
+    }
+  ],
+  "maxDataPoints": 1000,
+  "adhocFilters": []
+}
+
+Para los paneles nos quedaremos con las características:
+"Instructions", OK
+  "FullBranches", OK
+  "PartialBranches", OK
+  "NumBranches", OK
+  "UserTime", OK
+  "CoveredInstructions", OK
+  "UncoveredInstructions", OK
+  "ExternalCalls", OK
+
+
+
+
+----------------------------------------------------------------------
+
+GRAFANA RESOURCES
+
+1. Instalción -> sudo apt-get install influxdb && sudo apt-get install influxdb-client
+
+2. Si es necesario modificamos el puerto donde se lanza el servidor influx, en el archvo /etc/influxdb/influxdb.conf
+   Desp recargamos con sudo systemctl restart influxdb
+   omprobamos estado -> sudo systemctl status influxdb
+   Modificación: 
+	* # Bind address to use for the RPC service for backup and restore.
+	  bind-address = "127.0.0.1:8001"
+	* [http]
+		# Determines whether HTTP endpoint is enabled.
+  		enabled = true
+
+ 		# The bind address used by the HTTP service.
+  		bind-address = ":8000"
+
+  		# Determines whether user authentication is enabled over HTTP/HTTPS.
+  		auth-enabled = false
+  		
+3. Verificar funcionamiento curl -i http://localhost:8000/ping (La conf de influxdb va fuera del script).
+
+
+4. Mirar bases de datos -> influx -host 127.0.0.1 -port 8000
+5. Crear, create database InfluxSysResources
+
+
+6. COnfigurar en telegraf.conf los datos de la bd y restart, sudo systemctl restart telegraf (La conf de telegraf siempre se hace por cada proceso y a dentro del script), lanzamos telegraf con el comando que da la opción de elegir el archivo de conf
+	[[outputs.influxdb]]
+	urls = ["http://localhost:8000"]
+	database = "InfluxSysResources"
+	COMENTAR TODOS LOS DATOS DE PROMETHEUS!!!!!
+	sudo systemctl restart telegraf
+	Comprobamos estado -> sudo systemctl status telegraf
+	
+	[[inputs.procstat]]
+  	pid = 1234
+7. Configurar intervalos de análisis y envío de datos desde tlegraf a influx (telegraf.cofm)
+
+
+GENERAL-----------------------------------------
+CPU_Usage (%)-> SELECT "usage_system" + "usage_user" AS "Uso total de CPU's" FROM "cpu" WHERE ("cpu"::tag = 'cpu-total') 
+MEM_Usage -> SELECT "used" AS "Uso de RAM mem" FROM "mem"
+Number of CPUS -> SELECT "n_cpus" FROM "system"
+Total Memory -> SELECT "total" FROM "mem"
+Number of CPUS en uso -> SELECT COUNT(usage_system) - 1  FROM "cpu" WHERE ("time"::tag >= now() - 5s)
+Total Memory en uso -> SELECT "used" FROM "mem" WHERE ("time"::tag >= now() - 5s)                               
+------------------------------------------------
+
+PROCESO CONCRETO--------------------------------
+CPU_Usage (%)-> SELECT "cpu_usage" AS "Uso total de CPU's por el proceso KLEE" FROM "procstat"
+MEM_Usage -> SELECT "memory_rss" AS "Uso de RAM mem en el proceso KLEE" FROM "procstat"
+Number of CPUS en uso -> SELECT CEIL((cpu_usage* 8)/800) FROM "procstat" WHERE ("time"::tag >= now() - 5s)
+Total Memory en uso -> SELECT "memory_rss" FROM "procstat" WHERE ("time"::tag >= now() - 5s)
+------------------------------------------------
+
+
+SHOW DATABASES -> ver bases de datos
+CREATE DATABASE nombreBD -> crear BD
+DROP DATABASE nombreBD -> eliminar BD
+SHOW MEASUREMENTS-> ver métricas
+SHOW SERIES -> ver series de todas las métricas
+SHOW SERIES FROM métrica -> ver series de una métrica concreta
+SHOW FIELD KEYS FROM métrica -> ver campos de una métrica concreta
+
+
+NOTA: Cuando un proceso superar el 100% de memoria es porque está cogiendo más de un núcleo, p.e., 250% serían 2 núcleos y medio.
+NOTA: sudo chmod 744 monitoresKLEE.sh, ejecución ./monitoresKLEE.sh param1 param2 param3
+NOTA: Reconfigurar nombre de la fuente de base de datos en Grafana cada vez que se vaya a ejecutar el script!!! Cambiar InfluxSysReosurces o la que haya por la nueva (que suele ser ele nombre del proceso)
