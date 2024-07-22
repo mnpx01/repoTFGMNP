@@ -1,18 +1,22 @@
 MEMORIA:
-    1. Caso de prueba: matrix_tcl_rendimiento
-    2. Pasar a la memoria toda la parte de monitorización.
+    1. Caso de prueba: matrix_tcl_rendimiento.
+    2. Monitorización de procesos KLEE con Grafana.
     3. En Antecedentes, añadir qué trabajos hay hasta ahora hechos sobre KLEE y Gcov y Monitorización, y qué diferencia hay con el nuestro. 
        Si queda muy corto, se podría unir al capítulo 3 de KLEE y llamarle "Antecedentes y conceptos básicos".
        Si no se incluye nada del trabajo relacionado, entonces es mejor que llames al capítulo "Conceptos básicos" y presentes todos los conceptos
        necesarios para poder llevar a cabo el TFG e incluyas el capítulo 3 de KLEE.
+       !!!Buscar en publications en klee.org y demás infor sobre trabajos en Gcov y de Grafana, que existía antes de esto??
     4. Del capítulo 3 de KLEE sacaría la sección de "Manual de instalación" y la llevaría a un anexo. 
        También debería incluir otro anexo que se llame "Manual de usuario", pensar que va aquí del capítulo 3.
-    5. Respecto a los capítulos correspondientes a los programas, los llamaría "Caso de estudio: nombre_programa".
+       Manual de instalación:
+       Instalación y preparación de KLEE -> Manual de instalación
+       Sección 3.4.2.1. -> Anexo
+       Instalación Grafana, InfluxDB y Telegraf -> Manual de instalación
+       Configuración paneles -> Manual de usuario
+       Uso del script (comprobación de que el nombre de la BD coincide con el pasado como param para nombre del proceso,
+       comprobación de que no existe un BD con mismo nombre ni un arch de conf con este mismo nombre)-> Manual de usuario
     6. El problema es que siguen sin tener texto que vaya explicando cada cosa paso a paso y que los miembros del tribunal entiendan qué se está
        haciendo y qué se consigue con cada paso. Intenta darle narrativa a todos esos capítulos del 4 al 8.
-    7. Por favor, echa un ojo al documento, en su momento te dejamos comentarios (activa la pestaña Review) que no están atendidos. Cuando
-       incorpores los cambios, coméntalos o dale clic a cerrarlos.
-    8. Sección 3.4.2.1 -> No se entiende nada, fíjate en esto. (Arreglar formato)
     9. En las herramientas, cuando hablas de KLEE (secciones X.2), breve explicación de lo que haces.  Por ejemplo: "El programa X, en su
        configuración por defecto, no es compatible con KLEE. Esto se debe a que no se generan los bytecode/no se usa el compilador Clang/no se 
        ha configurado tal cosa... A continuación, se muestran los pasos necesarios para que la herramienta sea compatible con KLEE, de manera que
@@ -24,25 +28,30 @@ MEMORIA:
         en la memoria. 
     11. Luego pasas a la compilación con GCC/C++, a GCov... falta texto, la verdad, sigue sin haber un hilo conductor donde el lector vea por 
         qué se hace cada cosa y qué lleva a qué.
-    12. BIBLIOGRAFIA GOOGLE SCHOLAR
+    12. BIBLIOGRAFIA -> GOOGLE SCHOLAR/SCOPUS
 
 
 
 
 DUDAS:
-    - En el punto 3, qué añadir en Antecedentes, lo que encuentre sobre Klee y Gcov y Monitorización? Y si hay cosas que no encuentro??
     - En el punto 4, que podría añadir en cada Manual, las instalaciones KLEE y Grafana (todo incluido con monitorización en el manual de
       instalación)??? Y en el manual de usuario no se que añadir. NARRATIVA
-    - En el punto 6, explicar todo paso a paso al igual que con el script de monitorización.
-    - Sección 3.4.2.1, solo es arreglar el formato o añadir algo más? Ya viene todo explicado abajo. ELIMINAR, ANEXO?
-    - Varios puntos, como creo un hilo conductor, con la narrativa.
-    SCOPUS
+    - Cómo creo un hilo conductor de todos los puntos necesarios? 
+	Imaginando que le cuento esto a alguien que entiende de informática pero no del tema en cuestión.
 
 
 
+-----"""PENDIENTE DE CONFIRMACION"""
+    - Pasar sección 3.4.2.1. a ANEXO.
 
 
--------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
+PRACTICA:
+
+    - Hacer caso de estudio matrix_tcl_pro.
+    - Modificar script monitorización para dar opción a eliminar base de datos usada y archivo telegraf.conf
+
+
 
 PRACTICA:
     1. Caso de prueba: matrix_tcl_rendimiento

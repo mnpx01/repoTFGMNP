@@ -1,9 +1,0 @@
-Error: overshift error
-Stack: 
-	#000184351 in klee_overshift_check(32, 4294967294) at runtime/Intrinsic/klee_overshift_check.c:27
-	#100143623 in opj_j2k_setup_encoder(136620497960960, 136027792461824, 136465879138304, 136560368418920)
-	#200155174 in opj_jp2_setup_encoder(136526008680448, 136027792461824, 136465879138304, 136560368418920)
-	#300040967 in __klee_posix_wrapped_main(8, 136534598615040)
-	#400004541 in __user_main(8, 137206224125952, 137206224126024) at runtime/POSIX/klee_init_env.c:245
-	#500001957 in __uClibc_main(8, 137206224125952) at libc/misc/internals/__uClibc_main.c:401
-	#600002123 in main(8, 137206224125952)
