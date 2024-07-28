@@ -9,18 +9,20 @@
 
 if [ $# -lt 3 ]
     then
-    echo "Entrada script: nombre_proceso comando_KLEE dir_procesoKLEE"
+    echo -e "\nEntrada script: nombre_proceso comando_KLEE dir_procesoKLEE"
 else
     archconf="/etc/telegraf/telegraf$1.conf"
-    if [ -e "$archconf" ]; then
-    	echo "Ya se ha registrado una recolección de métricas para el proceso $1"
+    if [ -e "$archconf" ]
+        then
+    	echo -e "\nYa se ha registrado una recolección de métricas para el proceso $1"
     else
-    	echo "Configuración y reinicio de los servicios Telegraf, InfluxDB y Grafana..."
+    	echo -e "\nConfiguración y reinicio de los servicios Telegraf, InfluxDB y Grafana..."
 	
     	### GRAFANA
     
     	#Reiniciamos el servicio
-    	sudo systemctl restart grafana-server
+    	sudo systemctl stop grafana-server &> /dev/null
+    	sudo systemctl start grafana-server &> /dev/null
     
     
     
@@ -29,11 +31,12 @@ else
     	### InfluxDB
     
     	# Reiniciamos el servicio
-    	sudo systemctl restart influxdb
-    
+    	sudo systemctl stop influxdb &> /dev/null
+    	sudo systemctl start influxdb &> /dev/null
+
     	#Creamos la base de datos con el nombre introducido como parámetro
-    	influx -host 127.0.0.1 -port 8000 -execute "CREATE DATABASE $1"
-    
+    	influx -host 127.0.0.1 -port 8000 -execute "CREATE DATABASE $1" &> /dev/null
+
     
     
     
@@ -67,7 +70,7 @@ else
     	sudo sed -i '1591s/.*/#   listen = ":9273"/' $archconf
     	sudo sed -i '1599s/.*/#   metric_version = 2/' $archconf
     
-    	#Habiltiamos la monitorización de procesos individuales según el nombre de los mismos
+    	#Habilitamos la monitorización de procesos individuales según el nombre de los mismos
     	#1. Descomentamos la etiqueta de procstat para que su configuración sea cargada
     	sudo sed -i '6306s/.*/[[inputs.procstat]]/' $archconf
     	#2. Configuramos el nombre principal del ejecutable del proceso que estará en ejecución, del cual se recolectarán métricas
@@ -82,7 +85,7 @@ else
    
    
         
-    
+        	
     	### KLEE
     
     	#Lanzamos, en segundo plano, el proceso KLEE con el nombre pasado como parámetro
@@ -90,7 +93,7 @@ else
     	exec -a $1 $2;
     	exit;
     	exec bash" &
-    
+    	
    	#Establecemos una espera de 5 segundos para que el siguiente comando no genere un "No KLEE output directory found"
     	sleep 5s
 
@@ -100,7 +103,7 @@ else
     	klee-stats --grafana $3;
     	exit;
     	exec bash" &
-    
+
     
     
     
@@ -108,11 +111,32 @@ else
     	### TELEGRAF
 
     	#Iniciamos el servicio
-    	sudo systemctl start telegraf
+    	sudo systemctl start telegraf &> /dev/null
     
     	#Lanzamos un proceso telegraf que use el archivo configuración que se especifica, el cual se encuentra en /etc/telegraf;
     	#si cambiamos el archivo de directorio, hay que especificar la ruta absoluta
-    	telegraf --config $archconf
+    	echo -e "\nMonitorización lista, ya puede consultar los paneles..."
+    	echo "Cuando tenga cerrada la terminal del proceso KLEE y del proceso klee-stats, CTRL + C para continuar..."
+    	telegraf --config $archconf &> /dev/null
+   	
+    	
+    	
+    	
+    	
+    	### BORRADO DE BASE DE DATOS, ARCHIVO DE CONFIGURACIÓN Y DIRECTORIO DE EJECUCIÓN
+    	echo -e "\nTras comprobar en las otras terminales que el proceso ha acabado, puede borrar la base de datos, el archivo de configuración y\nel directorio de ejecución, introduciendo en la siguiente línea la palabra CONTINUAR..."
+    	read borrar
+    	
+    	if [ $borrar == "CONTINUAR" ]
+    	    then
+    	    influx -host 127.0.0.1 -port 8000 -execute "DROP DATABASE $1"
+    	    sudo rm $archconf
+    	    sudo rm -r $3
+    	    sudo rm -r klee-last
+    	    echo -e "\nBORRADO EJECUTADO ! ! !"
+    	else
+    	    echo -e "\nBORRADO NO EJECUTADO ! ! !"
+    	fi
     fi
 fi  
 

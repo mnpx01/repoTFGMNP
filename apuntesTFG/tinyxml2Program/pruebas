@@ -4,7 +4,7 @@ git clone https://github.com/leethomason/tinyxml2.git
 
 cd tinyxml2 && mkdir build && cd build
 
-pip install --break-system-packages --upgrade wllvm && export CC=wllvm && export CXX=wllvm++ && export LLVM_COMPILER=clang && export CMAKE_C_FLAGS="-emit-llvm" && export CMAKE_CXX_FLAGS="-emit-llvm"
+pip install --break-system-packages --upgrade wllvm && export CC=wllvm && export CXX=wllvm++ && export LLVM_COMPILER=clang
 cmake ..
 make
 
@@ -87,7 +87,7 @@ https://grafana.com/docs/grafana/latest/dashboards/variables/add-template-variab
 3. klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libtinyxml2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./xmltest.bc --sym-args 0 5 40 --sym-files 1 8 --sym-stdout
 exec -a Prueba 
 
-./monitoresKLEE.sh Prueba "klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libtinyxml2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./xmltest.bc --sym-args 0 5 5" klee-out-0 (SIN SUDO)
+./monitoresKLEE.sh Prueba "klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libtinyxml2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./xmltest.bc --sym-args 0 2 2" klee-out-0 (SIN SUDO)
 NOTA: sudo chmod 744 monitoresKLEE.sh, ejecución ./monitoresKLEE.sh param1 param2 param3
 NOTA: Reconfigurar nombre de la fuente de base de datos en Grafana cada vez que se vaya a ejecutar el script!!! Cambiar InfluxSysReosurces o la que haya por la nueva (que suele ser ele nombre del proceso)
 
@@ -248,3 +248,5 @@ SHOW FIELD KEYS FROM métrica -> ver campos de una métrica concreta
 NOTA: Cuando un proceso superar el 100% de memoria es porque está cogiendo más de un núcleo, p.e., 250% serían 2 núcleos y medio.
 NOTA: sudo chmod 744 monitoresKLEE.sh, ejecución ./monitoresKLEE.sh param1 param2 param3
 NOTA: Reconfigurar nombre de la fuente de base de datos en Grafana cada vez que se vaya a ejecutar el script!!! Cambiar InfluxSysReosurces o la que haya por la nueva (que suele ser ele nombre del proceso)
+
+

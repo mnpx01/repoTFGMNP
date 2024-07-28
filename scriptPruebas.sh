@@ -105,3 +105,31 @@ echo "Automatización de Pruebas"
 #exit;
 #exec bash"
 
+
+
+
+
+
+
+#MATCLPRO
+dirmatclpro="/home/martin/Escritorio/matclpro/build/"
+gnome-terminal -- bash -c "cd $dirmatclpro;
+rm -r klee-* && rm -r Pruebas;
+mkdir Pruebas;
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./testmat.bc --sym-args 0 6 10 2> Pruebas/matclpro_prueba1.txt;
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./testmat.bc --sym-args 0 6 50 2> Pruebas/matclpro_prueba2.txt;
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./testmat.bc --sym-args 0 6 100 2> Pruebas/matclpro_prueba3.txt;
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./testmat.bc --sym-args 0 6 500 2> Pruebas/matclpro_prueba4.txt;
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./testmat.bc --sym-args 0 6 10 --sym-files 1 8 2> Pruebas/matclpro_prueba5.txt;
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./testmat.bc --sym-args 0 6 50 --sym-files 1 8 2> Pruebas/matclpro_prueba6.txt;
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./testmat.bc --sym-args 0 6 100 --sym-files 1 8 2> Pruebas/matclpro_prueba7.txt;
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./testmat.bc --sym-args 0 6 500 --sym-files 1 8 2> Pruebas/matclpro_prueba8.txt;
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./testmat.bc --sym-args 0 6 10 --sym-files 1 8 --sym-stdout 2> Pruebas/matclpro_prueba9.txt;
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./testmat.bc --sym-args 0 6 50 --sym-files 1 8 --sym-stdout 2> Pruebas/matclpro_prueba10.txt;
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./testmat.bc --sym-args 0 6 100 --sym-files 1 8 --sym-stdout 2> Pruebas/matclpro_prueba11.txt;
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./testmat.bc --sym-args 0 6 500 --sym-files 1 8 --sym-stdout 2> Pruebas/matclpro_prueba12.txt;
+cp -r klee-* Pruebas;
+cp -r Pruebas ../../repoTFGMNP/apuntesTFG/matrix_tcl_proProgram/;
+exit;
+exec bash"
+

@@ -1,29 +1,51 @@
-MATRIX_TCL_RENDIMIENTO (/home/martin/matrix_tcl_rendimiento), ADAPTACION LLVM
-
-comando descomprimir.zip, aclara que solo se tiene zip no es por git clone!!!!!!
-
-matrix_tcl_rendimiento
+MATRIX_TCL_PRO (/home/martin/matrix_tcl_pro), ADAPTACION LLVM
 
 
-en el dir matclpro: g++ -o matrixtcl test/testmat.cpp -I./include
-                    clang++ -o matrixtcl test/testmat.cpp -I./include
+wget https://www.techsoftpl.com/download/matclpro.zip
+unzip matclpro.zip -d matclpro
+
+cd matclpro && mkdir build && cd build
+
+pip install --break-system-packages --upgrade wllvm && export LLVM_COMPILER=clang
+wllvm++ -o testmat ../test/testmat.cpp -I../include
+
+extrat-bc testmat
 -------------------------------------------------------------------------------------------------------------
 
 
-MATRIX_TCL_RENDIMIENTO (/home/martin/matrix_tcl_rendimiento) ADAPTACION GCOV PENDIENTE
+MATRIX_TCL_PRO (/home/martin/matrix_tcl_pro) ADAPTACION GCOV
 
+wget https://www.techsoftpl.com/download/matclpro.zip
+unzip matclpro.zip -d matclpro
 
+cd matclpro && mkdir gcovbuild && cp -R ./!(gcovbuild|build) ./gcovbuild/ && cd gcovbuild
+
+g++ -o testmat ./test/testmat.cpp -I./include -fprofile-arcs -ftest-coverage -O0
+
+./testmat
+
+gcov -abcfHlm -o . test/testmat.cpp
 -------------------------------------------------------------------------------------------------------------
 
 
 PRUEBAS Klee: 
-#Compilacion y vinculacion para KLEE (xmltest_klee.cpp incluye las llamadas a KLEE) PARA MATRIX
-clang++-13 -fPIC -I/home/kevus/klee-3/include/ -I libtinyxml2.a -c -g -O0 -Xclang -disable-O0-optnone -emit-llvm  xmltest_klee.cpp  -o xmltest_klee.bc
+tests de 0 a 6 prametros, posibilidad de archivos, no stdin, si stdout 
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./testmat.bc
 
-clang++ -fPIC -emit-llvm -c matrix.cc -o matrix.bc
+1. --sym-args 0 6 10
+2. --sym-args 0 6 50
+3. --sym-args 0 6 100
+4. --sym-args 0 6 500
+5. --sym-args 0 6 10 --sym-files 1 8
+6. --sym-args 0 6 50 --sym-files 1 8
+7. --sym-args 0 6 100 --sym-files 1 8
+8. --sym-args 0 6 500 --sym-files 1 8
+9. --sym-args 0 6 10 --sym-files 1 8 --sym-stdout
+10. --sym-args 0 6 50 --sym-files 1 8 --sym-stdout
+11. --sym-args 0 6 100 --sym-files 1 8 --sym-stdout
+12. --sym-args 0 6 500 --sym-files 1 8 --sym-stdout
 
-clang++ -I/home/martin/klee/include/ -emit-llvm -c main.cpp -o main.bc
-
+klee-stats klee-out-0 klee-out-1 klee-out-2 klee-out-3 klee-out-4 klee-out-5 klee-out-6 klee-out-7 klee-out-8 klee-out-9 klee-out-10 klee-out-11
 
 Los tamaños (en bits) para el argumento -sym-files han sido elegidos en función de lo considerado respecto a las limitaciones de memoria del equipo actual. Al no tener suficientes recursos computacionales, el aumento de tamaño carece de sentido pues los resultados no son suficientementes eficientes y óptimos.
       

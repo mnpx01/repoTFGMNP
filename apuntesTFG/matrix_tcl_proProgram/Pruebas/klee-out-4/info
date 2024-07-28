@@ -1,0 +1,23 @@
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./testmat.bc --sym-args 0 6 10 --sym-files 1 8
+PID: 5003
+Using monotonic steady clock with 1/1000000000s resolution
+Started: 2024-07-27 23:51:29
+BEGIN searcher description
+<InterleavedSearcher> containing 2 searchers:
+RandomPathSearcher
+WeightedRandomSearcher::CoveringNew
+</InterleavedSearcher>
+END searcher description
+Finished: 2024-07-27 23:51:41
+Elapsed: 00:00:12
+KLEE: done: explored paths = 7
+KLEE: done: avg. constructs per query = 25
+KLEE: done: total queries = 25
+KLEE: done: valid queries = 1
+KLEE: done: invalid queries = 24
+KLEE: done: query cex = 25
+
+KLEE: done: total instructions = 17526816
+KLEE: done: completed paths = 0
+KLEE: done: partially completed paths = 7
+KLEE: done: generated tests = 1
