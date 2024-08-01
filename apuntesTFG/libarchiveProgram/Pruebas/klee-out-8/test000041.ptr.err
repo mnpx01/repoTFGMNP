@@ -4,20 +4,20 @@ Line: 580
 assembly.ll line: 20172
 State: 135
 Stack: 
-	#000020172 in lzip_init(126102066429952) at libarchive/archive_read_support_filter_xz.c:580
-	#100019744 in xz_filter_read(126102066429952, 126102066430056) at libarchive/archive_read_support_filter_xz.c:674
-	#200010799 in __archive_read_filter_ahead(126102066429952, 14, 125568282525696) at libarchive/archive_read.c:1388
-	#300022851 in bzip2_reader_bid(126574512832760, 126102066429952) at libarchive/archive_read_support_filter_bzip2.c:122
-	#400009302 in choose_filters(126574512832512) at libarchive/archive_read.c:566
-	#500009047 in archive_read_open1(126574512832512) at libarchive/archive_read.c:505
-	#600007990 in archive_read_open_filenames(126574512832512, 125571637968896, 10240) at libarchive/archive_read_open_filename.c:151
-	#700005592 in archive_read_open_filename(126574512832512, 125921677803520) at libarchive/archive_read_open_filename.c:108
-	#800005458 in bsdcat_read_to_stdout(125921677803520) at cat/bsdcat.c:100
-	#900004781 in __klee_posix_wrapped_main(4, 126059116756992) at cat/bsdcat.c:155
-	#1000003058 in __user_main(9, 126799461744640, 126799461744720) at runtime/POSIX/klee_init_env.c:245
-	#1100000792 in __uClibc_main(9, 126799461744640) at libc/misc/internals/__uClibc_main.c:401
-	#1200000958 in main(9, 126799461744640)
+	#000020172 in lzip_init(123110000951296) at libarchive/archive_read_support_filter_xz.c:580
+	#100019744 in xz_filter_read(123110000951296, 123110000951400) at libarchive/archive_read_support_filter_xz.c:674
+	#200010799 in __archive_read_filter_ahead(123110000951296, 14, 122576217047040) at libarchive/archive_read.c:1388
+	#300022851 in bzip2_reader_bid(123582447354104, 123110000951296) at libarchive/archive_read_support_filter_bzip2.c:122
+	#400009302 in choose_filters(123582447353856) at libarchive/archive_read.c:566
+	#500009047 in archive_read_open1(123582447353856) at libarchive/archive_read.c:505
+	#600007990 in archive_read_open_filenames(123582447353856, 122579572490240, 10240) at libarchive/archive_read_open_filename.c:151
+	#700005592 in archive_read_open_filename(123582447353856, 122929612324864) at libarchive/archive_read_open_filename.c:108
+	#800005458 in bsdcat_read_to_stdout(122929612324864) at cat/bsdcat.c:100
+	#900004781 in __klee_posix_wrapped_main(4, 123067051278336) at cat/bsdcat.c:155
+	#1000003058 in __user_main(9, 123807396265984, 123807396266064) at runtime/POSIX/klee_init_env.c:245
+	#1100000792 in __uClibc_main(9, 123807396265984) at libc/misc/internals/__uClibc_main.c:401
+	#1200000958 in main(9, 123807396265984)
 Info: 
-	address: 101995106885280
-	next: object at 125552444833792 of size 4
+	address: 104397200360544
+	next: object at 122560379355136 of size 4
 		MO2073817[4] allocated at lzip_init():  %11 = alloca i32, align 4

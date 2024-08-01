@@ -58,12 +58,19 @@ array stdin_stat[144] : w32 -> w8 = symbolic
              (Eq 0 (Read w8 26 stdin)))
          (Eq false
              (Eq 0 (Read w8 27 stdin)))
-         (Eq 0 (Read w8 28 stdin))
+         (Eq false
+             (Eq 0 (Read w8 28 stdin)))
+         (Eq false
+             (Eq 0 (Read w8 29 stdin)))
+         (Eq 0 (Read w8 30 stdin))
          (Eq false
              (Eq 0 (And w32 N1 16)))
-         (Eq 0 (Read w8 29 stdin))
          (Eq false
-             (Eq 0 (And w32 N1 2)))
+             (Eq 0 (Read w8 31 stdin)))
+         (Eq false
+             (Eq 0 (Read w8 32 stdin)))
+         (Eq 0 (Read w8 33 stdin))
+         (Eq 0 (And w32 N1 2))
          (Eq 18446744073709551615
              (Or w64 (Shl w64 (ZExt w64 (Or w32 (Or w32 (Or w32 (Shl w32 (ZExt w32 N4) 24)
                                                                 (Shl w32 (ZExt w32 N3) 16))
@@ -100,8 +107,8 @@ array stdin_stat[144] : w32 -> w8 = symbolic
          (Eq false (Eq 67108864 N8))
          (Eq false (Eq 134217728 N8))
          (Ule N8 66060288)
-         (Eq false (Ule 3145728 N8))
-         (Eq 0
+         (Ule 3145728 N8)
+         (Eq 2
              (Extract w8 0 N10:(Or w32 (Or w32 (Or w32 (Shl w32 N5 24) (Shl w32 N6 16))
                                                (Shl w32 N7 8))
                                        N9)))

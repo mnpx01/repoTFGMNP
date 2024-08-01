@@ -4,14 +4,14 @@ Line: 208
 assembly.ll line: 21765
 State: 812
 Stack: 
-	#000021765 in peek_at_header(126717419061248, 126165247328256, 0) at libarchive/archive_read_support_filter_gzip.c:208
-	#100020809 in gzip_bidder_bid(127112556052776, 126717419061248) at libarchive/archive_read_support_filter_gzip.c:242
-	#200009302 in choose_filters(127112556052480) at libarchive/archive_read.c:566
-	#300009047 in archive_read_open1(127112556052480) at libarchive/archive_read.c:505
-	#400007990 in archive_read_open_filenames(127112556052480, 126180548149248, 10240) at libarchive/archive_read_open_filename.c:151
-	#500005592 in archive_read_open_filename(127112556052480, 0) at libarchive/archive_read_open_filename.c:108
+	#000021765 in peek_at_header(124751456501760, 124199284768768, 0) at libarchive/archive_read_support_filter_gzip.c:208
+	#100020809 in gzip_bidder_bid(125146593493288, 124751456501760) at libarchive/archive_read_support_filter_gzip.c:242
+	#200009302 in choose_filters(125146593492992) at libarchive/archive_read.c:566
+	#300009047 in archive_read_open1(125146593492992) at libarchive/archive_read.c:505
+	#400007990 in archive_read_open_filenames(125146593492992, 124214585589760, 10240) at libarchive/archive_read_open_filename.c:151
+	#500005592 in archive_read_open_filename(125146593492992, 0) at libarchive/archive_read_open_filename.c:108
 	#600005458 in bsdcat_read_to_stdout(0) at cat/bsdcat.c:100
-	#700004758 in __klee_posix_wrapped_main(1, 126528440500224) at cat/bsdcat.c:151
-	#800003058 in __user_main(7, 127406224441344, 127406224441408) at runtime/POSIX/klee_init_env.c:245
-	#900000792 in __uClibc_main(7, 127406224441344) at libc/misc/internals/__uClibc_main.c:401
-	#1000000958 in main(7, 127406224441344)
+	#700004758 in __klee_posix_wrapped_main(1, 124562477940736) at cat/bsdcat.c:151
+	#800003058 in __user_main(7, 125440261881856, 125440261881920) at runtime/POSIX/klee_init_env.c:245
+	#900000792 in __uClibc_main(7, 125440261881856) at libc/misc/internals/__uClibc_main.c:401
+	#1000000958 in main(7, 125440261881856)

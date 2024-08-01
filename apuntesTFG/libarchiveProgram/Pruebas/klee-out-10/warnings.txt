@@ -18,29 +18,24 @@ KLEE: WARNING: undefined reference to function: lzma_properties_decode
 KLEE: WARNING: undefined reference to function: lzma_raw_decoder
 KLEE: WARNING: undefined reference to function: lzma_stream_decoder
 KLEE: WARNING: undefined reference to function: poll
-KLEE: WARNING ONCE: calling external: syscall(16, 0, 21505, 125132301402112) at runtime/POSIX/fd.c:997 10
+KLEE: WARNING ONCE: calling external: syscall(16, 0, 21505, 129000320008192) at runtime/POSIX/fd.c:997 10
 KLEE: WARNING ONCE: Alignment of memory from call "malloc" is not modelled. Using alignment of 8.
 KLEE: WARNING ONCE: Alignment of memory from call "calloc" is not modelled. Using alignment of 8.
 KLEE: WARNING ONCE: Alignment of memory from call "realloc" is not modelled. Using alignment of 8.
 KLEE: WARNING ONCE: silently concretizing (reason: external call) expression (Read w8 0 arg00) to value 255 (runtime/POSIX/fd.c:180)
-KLEE: WARNING ONCE: calling external: vprintf(126326585425920, 125123174596608) at libc/stdio/fprintf.c:35 14
-KLEE: WARNING ONCE: Symbolic memory access will send the following array of 65536 bytes to the constraint solver -- large symbolic arrays may cause significant performance issues: MO1428542[65536] allocated at file_open():  %114 = call noalias align 16 i8* @malloc(i64 %113) #28, !dbg !6875
-KLEE: WARNING ONCE: calling external: lzma_alone_decoder(125697089601536, 18446744073709551615) at libarchive/archive_read_support_filter_xz.c:517 7
-KLEE: WARNING ONCE: calling external: lzma_code(125697089601536, 0) at libarchive/archive_read_support_filter_xz.c:690 7
-KLEE: WARNING: killing 1053 states (over memory cap: 5815MB)
+KLEE: WARNING ONCE: calling external: vprintf(130194604032000, 128991193202688) at libc/stdio/fprintf.c:35 14
+KLEE: WARNING ONCE: Symbolic memory access will send the following array of 65536 bytes to the constraint solver -- large symbolic arrays may cause significant performance issues: MO1428549[65536] allocated at file_open():  %114 = call noalias align 16 i8* @malloc(i64 %113) #28, !dbg !6875
+KLEE: WARNING ONCE: calling external: lzma_alone_decoder(129565108207616, 18446744073709551615) at libarchive/archive_read_support_filter_xz.c:517 7
+KLEE: WARNING ONCE: calling external: lzma_code(129565108207616, 0) at libarchive/archive_read_support_filter_xz.c:690 7
+KLEE: WARNING: killing 1047 states (over memory cap: 5818MB)
 KLEE: WARNING ONCE: skipping fork (memory cap exceeded)
-KLEE: WARNING: killing 362 states (over memory cap: 5799MB)
-KLEE: WARNING: killing 125 states (over memory cap: 5788MB)
-KLEE: WARNING: killing 43 states (over memory cap: 5788MB)
-KLEE: WARNING ONCE: calling external: lzma_properties_decode(125124785209344, 0, 125109081735168, 5) at libarchive/archive_read_support_filter_xz.c:574 6
-KLEE: WARNING ONCE: calling external: lzma_raw_decoder(125697089601536, 125124785209344) at libarchive/archive_read_support_filter_xz.c:579 6
+KLEE: WARNING: killing 359 states (over memory cap: 5796MB)
+KLEE: WARNING: killing 124 states (over memory cap: 5792MB)
+KLEE: WARNING: killing 42 states (over memory cap: 5789MB)
 KLEE: WARNING ONCE: calling external: crc32(0, 0, 0) at libarchive/archive_read_support_filter_gzip.c:347 2
-KLEE: WARNING ONCE: calling external: inflateInit2_(125697089601536, 4294967281, 126327042605056, 112) at libarchive/archive_read_support_filter_gzip.c:353 6
-KLEE: WARNING ONCE: calling external: inflate(125697089601536, 0) at libarchive/archive_read_support_filter_gzip.c:469 7
-KLEE: WARNING: pipe: ignoring (ENFILE)
-KLEE: WARNING: killing 14 states (over memory cap: 5789MB)
-KLEE: WARNING ONCE: calling external: lzma_end(125697089601536) at libarchive/archive_read_support_filter_xz.c:747 7
-KLEE: WARNING: killing 3 states (over memory cap: 3041MB)
-KLEE: WARNING: killing 2 states (over memory cap: 3031MB)
-KLEE: WARNING: killing 1 states (over memory cap: 3031MB)
-KLEE: WARNING: killing 1 states (over memory cap: 3031MB)
+KLEE: WARNING ONCE: calling external: inflateInit2_(129565108207616, 4294967281, 130195061211136, 112) at libarchive/archive_read_support_filter_gzip.c:353 6
+KLEE: WARNING ONCE: calling external: inflate(129565108207616, 0) at libarchive/archive_read_support_filter_gzip.c:469 7
+KLEE: WARNING ONCE: calling external: inflateEnd(129565108207616) at libarchive/archive_read_support_filter_gzip.c:516 3
+KLEE: WARNING: killing 17 states (over memory cap: 8530MB)
+KLEE: WARNING: killing 4 states (over memory cap: 8529MB)
+KLEE: WARNING: killing 1 states (over memory cap: 8522MB)

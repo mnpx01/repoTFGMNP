@@ -1,3 +1,4 @@
+array const_arr1[256] : w32 -> w8 = [0 0 0 0 0 0 0 0 0 0 10 0 0 13 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
 array n_args[4] : w32 -> w8 = symbolic
 array stdin[1024] : w32 -> w8 = symbolic
 array stdin_stat[144] : w32 -> w8 = symbolic
@@ -13,13 +14,9 @@ array stdin_stat[144] : w32 -> w8 = symbolic
          (Eq 32768
              (And w32 (ReadLSB w32 24 stdin_stat)
                       61440))
-         (Eq 76 (Read w8 0 stdin))
-         (Eq 90 (Read w8 1 stdin))
-         (Eq 73 (Read w8 2 stdin))
-         (Eq 80 (Read w8 3 stdin))
+         (Eq 66 (Read w8 0 stdin))
          (Eq false
-             (Eq 0 N1:(Read w8 4 stdin)))
-         (Eq false (Eq 1 N1))
+             (Eq 90 N1:(Read w8 1 stdin)))
          (Eq 18446744073709551615
              (Or w64 (Shl w64 (ZExt w64 (Or w32 (Or w32 (Or w32 (Shl w32 (ZExt w32 (Read w8 12 stdin))
                                                                          24)
@@ -38,10 +35,13 @@ array stdin_stat[144] : w32 -> w8 = symbolic
                                        (ZExt w32 (Read w8 5 stdin))))))
          (Eq false
              (Eq 4096
-                 N2:(Or w32 (Or w32 (Or w32 (Shl w32 (ZExt w32 N1) 24)
-                                            5242880)
-                                    18688)
-                            90)))
+                 N2:(Or w32 (Or w32 (Or w32 (Shl w32 (ZExt w32 (Read w8 4 stdin))
+                                                     24)
+                                            (Shl w32 (ZExt w32 (Read w8 3 stdin))
+                                                     16))
+                                    (Shl w32 (ZExt w32 N3:(Read w8 2 stdin))
+                                             8))
+                            (ZExt w32 N1))))
          (Eq false (Eq 8192 N2))
          (Eq false (Eq 16384 N2))
          (Eq false (Eq 32768 N2))
@@ -57,5 +57,11 @@ array stdin_stat[144] : w32 -> w8 = symbolic
          (Eq false (Eq 33554432 N2))
          (Eq false (Eq 67108864 N2))
          (Eq false (Eq 134217728 N2))
-         (Ule N2 66060288)]
+         (Eq false (Ule N2 66060288))
+         (Eq 10
+             (Read w8 (Extract w32 0 (ZExt w64 N1))
+                      const_arr1))
+         (Eq 0
+             (Read w8 (Extract w32 0 (ZExt w64 N3))
+                      const_arr1))]
         false)

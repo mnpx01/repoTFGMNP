@@ -18,28 +18,24 @@ KLEE: WARNING: undefined reference to function: lzma_properties_decode
 KLEE: WARNING: undefined reference to function: lzma_raw_decoder
 KLEE: WARNING: undefined reference to function: lzma_stream_decoder
 KLEE: WARNING: undefined reference to function: poll
-KLEE: WARNING ONCE: calling external: syscall(16, 0, 21505, 123750334857216) at runtime/POSIX/fd.c:997 10
+KLEE: WARNING ONCE: calling external: syscall(16, 0, 21505, 135080297103360) at runtime/POSIX/fd.c:997 10
 KLEE: WARNING ONCE: Alignment of memory from call "malloc" is not modelled. Using alignment of 8.
 KLEE: WARNING ONCE: Alignment of memory from call "calloc" is not modelled. Using alignment of 8.
 KLEE: WARNING ONCE: Alignment of memory from call "realloc" is not modelled. Using alignment of 8.
 KLEE: WARNING ONCE: silently concretizing (reason: external call) expression (Read w8 0 arg00) to value 255 (runtime/POSIX/fd.c:180)
-KLEE: WARNING ONCE: calling external: vprintf(124944618881024, 123741208051712) at libc/stdio/fprintf.c:35 14
+KLEE: WARNING ONCE: calling external: vprintf(136274581127168, 135071170297856) at libc/stdio/fprintf.c:35 14
 KLEE: WARNING ONCE: Symbolic memory access will send the following array of 65536 bytes to the constraint solver -- large symbolic arrays may cause significant performance issues: MO1428549[65536] allocated at file_open():  %114 = call noalias align 16 i8* @malloc(i64 %113) #28, !dbg !6875
-KLEE: WARNING ONCE: calling external: lzma_alone_decoder(124315123056640, 18446744073709551615) at libarchive/archive_read_support_filter_xz.c:517 7
-KLEE: WARNING ONCE: calling external: lzma_code(124315123056640, 0) at libarchive/archive_read_support_filter_xz.c:690 7
+KLEE: WARNING ONCE: calling external: lzma_alone_decoder(135645085302784, 18446744073709551615) at libarchive/archive_read_support_filter_xz.c:517 7
+KLEE: WARNING ONCE: calling external: lzma_code(135645085302784, 0) at libarchive/archive_read_support_filter_xz.c:690 7
 KLEE: WARNING: killing 1131 states (over memory cap: 5819MB)
 KLEE: WARNING ONCE: skipping fork (memory cap exceeded)
 KLEE: WARNING: killing 388 states (over memory cap: 5798MB)
-KLEE: WARNING: killing 133 states (over memory cap: 5787MB)
+KLEE: WARNING: killing 133 states (over memory cap: 5790MB)
 KLEE: WARNING ONCE: calling external: crc32(0, 0, 0) at libarchive/archive_read_support_filter_gzip.c:347 2
-KLEE: WARNING ONCE: calling external: inflateInit2_(124315123056640, 4294967281, 124945076060160, 112) at libarchive/archive_read_support_filter_gzip.c:353 6
-KLEE: WARNING ONCE: calling external: inflate(124315123056640, 0) at libarchive/archive_read_support_filter_gzip.c:469 7
+KLEE: WARNING ONCE: calling external: inflateInit2_(135645085302784, 4294967281, 136275038306304, 112) at libarchive/archive_read_support_filter_gzip.c:353 6
+KLEE: WARNING ONCE: calling external: inflate(135645085302784, 0) at libarchive/archive_read_support_filter_gzip.c:469 7
 KLEE: WARNING: killing 46 states (over memory cap: 5789MB)
-KLEE: WARNING ONCE: calling external: lzma_stream_decoder(124315123056640, 18446744073709551615, 8) at libarchive/archive_read_support_filter_xz.c:513 7
-KLEE: WARNING ONCE: calling external: inflateEnd(124315123056640) at libarchive/archive_read_support_filter_gzip.c:516 3
-KLEE: WARNING ONCE: calling external: lzma_properties_decode(123742818664448, 0, 123727115190272, 5) at libarchive/archive_read_support_filter_xz.c:574 6
-KLEE: WARNING ONCE: calling external: lzma_raw_decoder(124315123056640, 123742818664448) at libarchive/archive_read_support_filter_xz.c:579 6
-KLEE: WARNING: pipe: ignoring (ENFILE)
-KLEE: WARNING: killing 19 states (over memory cap: 11281MB)
-KLEE: WARNING ONCE: calling external: lzma_end(124315123056640) at libarchive/archive_read_support_filter_xz.c:747 7
-KLEE: WARNING: killing 4 states (over memory cap: 8533MB)
+KLEE: WARNING ONCE: calling external: lzma_stream_decoder(135645085302784, 18446744073709551615, 8) at libarchive/archive_read_support_filter_xz.c:513 7
+KLEE: WARNING: killing 18 states (over memory cap: 8534MB)
+KLEE: WARNING: killing 4 states (over memory cap: 8529MB)
+KLEE: WARNING: killing 1 states (over memory cap: 8522MB)

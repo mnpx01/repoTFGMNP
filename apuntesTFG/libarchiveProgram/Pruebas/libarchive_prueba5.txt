@@ -3,18 +3,18 @@ KLEE: NOTE: Using klee-uclibc : /home/martin/klee/build/runtime/lib/klee-uclibc.
 KLEE: output directory is "/home/martin/Escritorio/libarchive/build/bin/./klee-out-4"
 KLEE: Using Z3 solver backend
 KLEE: Deterministic allocator: Using quarantine queue size 8
-KLEE: Deterministic allocator: globals (start-address=0x759d99e00000 size=10 GiB)
-KLEE: Deterministic allocator: constants (start-address=0x759b19e00000 size=10 GiB)
-KLEE: Deterministic allocator: heap (start-address=0x749b19e00000 size=1024 GiB)
-KLEE: Deterministic allocator: stack (start-address=0x747b19e00000 size=128 GiB)
+KLEE: Deterministic allocator: globals (start-address=0x77286da00000 size=10 GiB)
+KLEE: Deterministic allocator: constants (start-address=0x7725eda00000 size=10 GiB)
+KLEE: Deterministic allocator: heap (start-address=0x7625eda00000 size=1024 GiB)
+KLEE: Deterministic allocator: stack (start-address=0x7605eda00000 size=128 GiB)
 Option KLEE: ERROR: libarchive/archive_read_support_filter_gzip.c:208: Query timed out (fork).
 KLEE: NOTE: now ignoring this error at this location
 KLEE: ERROR: libarchive/archive_read_support_filter_gzip.c:188: Query timed out (fork).
 KLEE: NOTE: now ignoring this error at this location
 KLEE: ERROR: libarchive/archive_read.c:1454: concretized symbolic size
 KLEE: NOTE: now ignoring this error at this location
---=Option Option /: Error reading '/'
-KLEE: done: total instructions = 1310720
-KLEE: done: completed paths = 34
-KLEE: done: partially completed paths = 1711
+--Option Option Option 
+KLEE: done: total instructions = 1319838
+KLEE: done: completed paths = 37
+KLEE: done: partially completed paths = 1735
 KLEE: done: generated tests = 65

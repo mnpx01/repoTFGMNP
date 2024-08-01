@@ -58,8 +58,7 @@ array stdin_stat[144] : w32 -> w8 = symbolic
          (Eq false (Eq 33554432 N2))
          (Eq false (Eq 67108864 N2))
          (Eq false (Eq 134217728 N2))
-         (Ule N2 66060288)
-         (Eq false (Ule 3145728 N2))
+         (Eq false (Ule N2 66060288))
          (Eq 0
              (Read w8 (Extract w32 0 (ZExt w64 N1))
                       const_arr1))]

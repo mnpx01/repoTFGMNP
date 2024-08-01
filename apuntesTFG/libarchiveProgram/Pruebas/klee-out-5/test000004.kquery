@@ -21,8 +21,9 @@ array stdin_stat[144] : w32 -> w8 = symbolic
                       224))
          (Eq false
              (Eq 0 (And w32 N1 4)))
+         (Eq 0 (And w32 N1 8))
          (Eq false
-             (Eq 0 (And w32 N1 8)))
+             (Eq 0 (And w32 N1 16)))
          (Eq false
              (Slt 4096
                   (Add w64 13

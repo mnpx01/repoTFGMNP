@@ -22,10 +22,9 @@ array stdin_stat[144] : w32 -> w8 = symbolic
          (Eq false
              (Eq 0 (And w32 N1 4)))
          (Eq 0 (And w32 N1 8))
-         (Eq 0 (And w32 N1 16))
          (Eq false
-             (Eq 0 (And w32 N1 2)))
-         (Eq 8178
+             (Eq 0 (And w32 N1 16)))
+         (Eq 8179
              (Or w32 (Shl w32 (ZExt w32 (Read w8 11 stdin))
                               8)
                      (ZExt w32 (Read w8 10 stdin))))]

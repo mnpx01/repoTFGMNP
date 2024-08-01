@@ -19,12 +19,81 @@ array stdin_stat[144] : w32 -> w8 = symbolic
          (Eq 0
              (And w32 N1:(ZExt w32 (Read w8 3 stdin))
                       224))
+         (Eq 0 (And w32 N1 4))
+         (Eq 0 (And w32 N1 8))
          (Eq false
-             (Eq 0 (And w32 N1 4)))
+             (Eq 0 (And w32 N1 16)))
          (Eq false
-             (Eq 0 (And w32 N1 8)))
-         (Eq 8179
-             (Or w32 (Shl w32 (ZExt w32 (Read w8 11 stdin))
-                              8)
-                     (ZExt w32 (Read w8 10 stdin))))]
+             (Eq 0 N2:(Read w8 10 stdin)))
+         (Eq false
+             (Eq 0 N3:(Read w8 11 stdin)))
+         (Eq false
+             (Eq 0 N4:(Read w8 12 stdin)))
+         (Eq false
+             (Eq 0 (Read w8 13 stdin)))
+         (Eq false
+             (Eq 0 (Read w8 14 stdin)))
+         (Eq false
+             (Eq 0 (Read w8 15 stdin)))
+         (Eq false
+             (Eq 0 (Read w8 16 stdin)))
+         (Eq false
+             (Eq 0 (Read w8 17 stdin)))
+         (Eq false
+             (Eq 0 (Read w8 18 stdin)))
+         (Eq false
+             (Eq 0 (Read w8 19 stdin)))
+         (Eq false
+             (Eq 0 (Read w8 20 stdin)))
+         (Eq false
+             (Eq 0 (Read w8 21 stdin)))
+         (Eq false
+             (Eq 0 (Read w8 22 stdin)))
+         (Eq false
+             (Eq 0 (Read w8 23 stdin)))
+         (Eq false
+             (Eq 0 (Read w8 24 stdin)))
+         (Eq false
+             (Eq 0 (Read w8 25 stdin)))
+         (Eq false
+             (Eq 0 (Read w8 26 stdin)))
+         (Eq 0 (Read w8 27 stdin))
+         (Eq false
+             (Eq 0 (And w32 N1 2)))
+         (Eq 18446744073709551615
+             (Or w64 (Shl w64 (ZExt w64 (Or w32 (Or w32 (Or w32 (Shl w32 (ZExt w32 N4) 24)
+                                                                (Shl w32 (ZExt w32 N3) 16))
+                                                        (Shl w32 (ZExt w32 N2) 8))
+                                                (ZExt w32 (Read w8 9 stdin))))
+                              32)
+                     (ZExt w64 (Or w32 (Or w32 (Or w32 (Shl w32 (ZExt w32 (Read w8 8 stdin))
+                                                                24)
+                                                       (Shl w32 (ZExt w32 (Read w8 7 stdin))
+                                                                16))
+                                               (Shl w32 (ZExt w32 (Read w8 6 stdin))
+                                                        8))
+                                       (ZExt w32 (Read w8 5 stdin))))))
+         (Eq false
+             (Eq 4096
+                 N5:(Or w32 (Or w32 (Or w32 (Shl w32 (ZExt w32 (Read w8 4 stdin))
+                                                     24)
+                                            (Shl w32 N1 16))
+                                    2048)
+                            139)))
+         (Eq false (Eq 8192 N5))
+         (Eq false (Eq 16384 N5))
+         (Eq false (Eq 32768 N5))
+         (Eq false (Eq 65536 N5))
+         (Eq false (Eq 131072 N5))
+         (Eq false (Eq 262144 N5))
+         (Eq false (Eq 524288 N5))
+         (Eq false (Eq 1048576 N5))
+         (Eq false (Eq 2097152 N5))
+         (Eq false (Eq 4194304 N5))
+         (Eq false (Eq 8388608 N5))
+         (Eq false (Eq 16777216 N5))
+         (Eq false (Eq 33554432 N5))
+         (Eq false (Eq 67108864 N5))
+         (Eq false (Eq 134217728 N5))
+         (Eq false (Ule N5 66060288))]
         false)
