@@ -4,7 +4,7 @@ git clone https://github.com/uclouvain/openjpeg.git
 
 cd openjpeg && mkdir build && cd build
 
-pip install --break-system-packages --upgrade wllvm && export CC=wllvm && export CXX=wllvm++ && export LLVM_COMPILER=clang && export CMAKE_C_FLAGS="-emit-llvm" && export CMAKE_CXX_FLAGS="-emit-llvm"
+pip install --break-system-packages --upgrade wllvm && export CC=wllvm && export CXX=wllvm++ && export LLVM_COMPILER=clang 
 sudo apt-get install liblcms2-dev  libtiff-dev libpng-dev libz-dev
 cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_THIRDPARTY:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON
 make
@@ -43,7 +43,7 @@ redactar con info de la página oficial
 -------------------------------------------------------------------------------------------------------------
 
 PENDIENTES DE EJECUCION
-PRUEBAS Klee: tests de 0 a 13 prametros, posibilidad de archivos, no stdin, si stdout
+PRUEBAS Klee: tests de 0 a 13 prametros, posibilidad de archivos, si stdin, si stdout
 klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libopenjp2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./opj_compress.bc
 
 1. --sym-args 0 13 8

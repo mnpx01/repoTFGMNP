@@ -1,0 +1,17 @@
+Error: Query timed out (fork).
+File: libarchive/archive_read_support_filter_gzip.c
+Line: 188
+assembly.ll line: 21696
+State: 453
+Stack: 
+	#000021696 in peek_at_header(138232016666624, 137645485195264, 0) at libarchive/archive_read_support_filter_gzip.c:188
+	#100020809 in gzip_bidder_bid(138524074443048, 138232016666624) at libarchive/archive_read_support_filter_gzip.c:242
+	#200009302 in choose_filters(138524074442752) at libarchive/archive_read.c:566
+	#300009047 in archive_read_open1(138524074442752) at libarchive/archive_read.c:505
+	#400007990 in archive_read_open_filenames(138524074442752, 137658638532608, 10240) at libarchive/archive_read_open_filename.c:151
+	#500005592 in archive_read_open_filename(138524074442752, 138077397843968) at libarchive/archive_read_open_filename.c:108
+	#600005458 in bsdcat_read_to_stdout(138077397843968) at cat/bsdcat.c:100
+	#700004781 in __klee_posix_wrapped_main(4, 138146117320704) at cat/bsdcat.c:155
+	#800003058 in __user_main(9, 138886462308352, 138886462308432) at runtime/POSIX/klee_init_env.c:245
+	#900000792 in __uClibc_main(9, 138886462308352) at libc/misc/internals/__uClibc_main.c:401
+	#1000000958 in main(9, 138886462308352)

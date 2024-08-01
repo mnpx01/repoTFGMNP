@@ -1,6 +1,10 @@
-array stdin[8192] : w32 -> w8 = symbolic
+array n_args[4] : w32 -> w8 = symbolic
+array stdin[2048] : w32 -> w8 = symbolic
 array stdin_stat[144] : w32 -> w8 = symbolic
-(query [(Eq false
+(query [(Ult N0:(ReadLSB w32 0 n_args)
+              4)
+         (Eq false (Slt 0 N0))
+         (Eq false
              (Eq 0
                  (And w64 (ReadLSB w64 8 stdin_stat)
                           2147483647)))

@@ -4,7 +4,7 @@ git clone https://github.com/libarchive/libarchive.git
 
 cd libarchive && cd build
 
-pip install --break-system-packages --upgrade wllvm && export CC=wllvm && export CXX=wllvm++ && export LLVM_COMPILER=clang && export CMAKE_C_FLAGS="-emit-llvm" && export CMAKE_CXX_FLAGS="-emit-llvm"
+pip install --break-system-packages --upgrade wllvm && export CC=wllvm && export CXX=wllvm++ && export LLVM_COMPILER=clang
 cmake ..
 make
 sudo make install
@@ -40,24 +40,24 @@ redactar con info de la página oficial
 -------------------------------------------------------------------------------------------------------------
 
 PRUEBAS Klee:  tests de 0 a 3 prametros, posibilidad de archivos nooo, no stdin, si stdout 
-klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=../libarchive/libarchive.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./bsdcat.bc
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=../libarchive/libarchive.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./bsdcat.bc -- prueba.zip --sym-args 0 3 20 --sym-stdin 2048
 
 bsdcat.bc
-1. --sym-stdin 1024
-2. --sym-stdin 2048
-3. --sym-stdin 4096
-4. --sym-stdin 8192
-5. -- noexiste
-6. -- prueba.zip
-7. -- prueba.sh
-8. -- prueba.png
-9. -- noexiste --sym-stdin 2048 
-10. -- prueba.zip --sym-stdin 2048
-11. -- prueba.sh --sym-stdin 2048
-12. -- prueba.png --sym-stdin 2048
+
+1. --sym-args 0 3 10 --sym-stdin 1024
+2. --sym-args 0 3 20 --sym-stdin 1024
+3. --sym-args 0 3 10 --sym-stdin 2048
+4. --sym-args 0 3 20 --sym-stdin 2048
+5. --sym-args 0 3 10 -sym-stdin 4096
+6. --sym-args 0 3 20 -sym-stdin 4096
+7. -- prueba.zip --sym-args 0 3 10 --sym-stdin 1024
+8. -- prueba.zip --sym-args 0 3 20 --sym-stdin 1024
+9. -- prueba.zip --sym-args 0 3 10 --sym-stdin 2048
+10. -- prueba.zip --sym-args 0 3 20 --sym-stdin 2048
+11. -- prueba.zip --sym-args 0 3 10 -sym-stdin 4096
+12. -- prueba.zip --sym-args 0 3 20 -sym-stdin 4096
 
 
-MIRAR ARCHIVOS SOLVER.ERR MODEL.ERR .EARLY .OVERSHIFT.ERR
 
 
 Los tamaños (en bits) para el argumento -sym-files han sido elegidos en función de lo considerado respecto a las limitaciones de memoria del equipo actual. Al no tener suficientes recursos computacionales, el aumento de tamaño carece de sentido pues los resultados no son suficientementes eficientes y óptimos.

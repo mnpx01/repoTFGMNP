@@ -3,18 +3,20 @@ KLEE: NOTE: Using klee-uclibc : /home/martin/klee/build/runtime/lib/klee-uclibc.
 KLEE: output directory is "/home/martin/Escritorio/libarchive/build/bin/./klee-out-1"
 KLEE: Using Z3 solver backend
 KLEE: Deterministic allocator: Using quarantine queue size 8
-KLEE: Deterministic allocator: globals (start-address=0x7b1705000000 size=10 GiB)
-KLEE: Deterministic allocator: constants (start-address=0x7b1485000000 size=10 GiB)
-KLEE: Deterministic allocator: heap (start-address=0x7a1485000000 size=1024 GiB)
-KLEE: Deterministic allocator: stack (start-address=0x79f485000000 size=128 GiB)
-KLEE: ERROR: libarchive/archive_read_support_filter_gzip.c:208: Query timed out (fork).
-KLEE: NOTE: now ignoring this error at this location
+KLEE: Deterministic allocator: globals (start-address=0x7bfa80e00000 size=10 GiB)
+KLEE: Deterministic allocator: constants (start-address=0x7bf800e00000 size=10 GiB)
+KLEE: Deterministic allocator: heap (start-address=0x7af800e00000 size=1024 GiB)
+KLEE: Deterministic allocator: stack (start-address=0x7ad800e00000 size=128 GiB)
 KLEE: ERROR: libarchive/archive_read_support_filter_gzip.c:188: Query timed out (fork).
+KLEE: NOTE: now ignoring this error at this location
+KLEE: ERROR: libarchive/archive_read_support_filter_gzip.c:208: Query timed out (fork).
 KLEE: NOTE: now ignoring this error at this location
 KLEE: ERROR: libarchive/archive_read.c:1454: concretized symbolic size
 KLEE: NOTE: now ignoring this error at this location
-<stdin>: Lzma library error: Corrupted input data
-KLEE: done: total instructions = 589824
-KLEE: done: completed paths = 0
-KLEE: done: partially completed paths = 1237
-KLEE: done: generated tests = 50
+Option --= is not supportedKLEE: ERROR: libarchive/archive_read_support_filter_rpm.c:252: Query timed out (fork).
+KLEE: NOTE: now ignoring this error at this location
+Option --Option ÿ-- is not supportedOption heÿÿÿ= is not supported--Option hÿÿ= is not supported<stdin>: truncated gzip input<stdin>: Lzma library error: Corrupted input data
+KLEE: done: total instructions = 1003290
+KLEE: done: completed paths = 25
+KLEE: done: partially completed paths = 1651
+KLEE: done: generated tests = 63

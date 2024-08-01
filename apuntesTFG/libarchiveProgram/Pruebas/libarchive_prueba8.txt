@@ -3,12 +3,20 @@ KLEE: NOTE: Using klee-uclibc : /home/martin/klee/build/runtime/lib/klee-uclibc.
 KLEE: output directory is "/home/martin/Escritorio/libarchive/build/bin/./klee-out-7"
 KLEE: Using Z3 solver backend
 KLEE: Deterministic allocator: Using quarantine queue size 8
-KLEE: Deterministic allocator: globals (start-address=0x77578b200000 size=10 GiB)
-KLEE: Deterministic allocator: constants (start-address=0x77550b200000 size=10 GiB)
-KLEE: Deterministic allocator: heap (start-address=0x76550b200000 size=1024 GiB)
-KLEE: Deterministic allocator: stack (start-address=0x76350b200000 size=128 GiB)
-
-KLEE: done: total instructions = 158333
+KLEE: Deterministic allocator: globals (start-address=0x78f5e7600000 size=10 GiB)
+KLEE: Deterministic allocator: constants (start-address=0x78f367600000 size=10 GiB)
+KLEE: Deterministic allocator: heap (start-address=0x77f367600000 size=1024 GiB)
+KLEE: Deterministic allocator: stack (start-address=0x77d367600000 size=128 GiB)
+ÿ: KLEE: ERROR: libarchive/archive_read_support_filter_gzip.c:188: Query timed out (fork).
+KLEE: NOTE: now ignoring this error at this location
+KLEE: ERROR: libarchive/archive_read_support_filter_gzip.c:208: Query timed out (fork).
+KLEE: NOTE: now ignoring this error at this location
+Failed to open 'ÿ'KLEE: ERROR: libarchive/archive_read.c:1454: concretized symbolic size
+KLEE: NOTE: now ignoring this error at this location
+/: Error reading '/'ÿ/: Failed to open 'ÿ/'ÿÿ/: KLEE: ERROR: libarchive/archive_read_support_filter_xz.c:580: memory error: invalid pointer: free
+KLEE: NOTE: now ignoring this error at this location
+Failed to open 'ÿÿ/': truncated gzip input: Lzma library error: Corrupted input data
+KLEE: done: total instructions = 4128768
 KLEE: done: completed paths = 1
-KLEE: done: partially completed paths = 0
-KLEE: done: generated tests = 1
+KLEE: done: partially completed paths = 1839
+KLEE: done: generated tests = 54

@@ -1,18 +1,32 @@
-array stdin[2048] : w32 -> w8 = symbolic
+array arg00[21] : w32 -> w8 = symbolic
+array n_args[4] : w32 -> w8 = symbolic
 array stdin_stat[144] : w32 -> w8 = symbolic
-(query [(Eq false
+(query [(Eq 1
+             (ReadLSB w32 0 n_args))
+         (Eq false
              (Eq 0
                  (And w64 (ReadLSB w64 8 stdin_stat)
                           2147483647)))
          (Ult (ReadLSB w64 56 stdin_stat)
               65536)
-         (Eq 32768
-             (And w32 (ReadLSB w32 24 stdin_stat)
-                      61440))
-         (Eq 253 (Read w8 0 stdin))
-         (Eq 55 (Read w8 1 stdin))
-         (Eq 122 (Read w8 2 stdin))
-         (Eq 88 (Read w8 3 stdin))
-         (Eq 90 (Read w8 4 stdin))
-         (Eq 0 (Read w8 5 stdin))]
+         (Eq 45 (Read w8 0 arg00))
+         (Eq 45 (Read w8 1 arg00))
+         (Eq 61 (Read w8 5 arg00))
+         (Eq 104 (Read w8 2 arg00))
+         (Eq 0 (Read w8 6 arg00))
+         (Eq 255 (Read w8 3 arg00))
+         (Eq 255 (Read w8 4 arg00))
+         (Eq 0 (Read w8 7 arg00))
+         (Eq 0 (Read w8 8 arg00))
+         (Eq 0 (Read w8 9 arg00))
+         (Eq 0 (Read w8 10 arg00))
+         (Eq 0 (Read w8 11 arg00))
+         (Eq 0 (Read w8 12 arg00))
+         (Eq 0 (Read w8 13 arg00))
+         (Eq 0 (Read w8 14 arg00))
+         (Eq 0 (Read w8 15 arg00))
+         (Eq 0 (Read w8 16 arg00))
+         (Eq 0 (Read w8 17 arg00))
+         (Eq 0 (Read w8 18 arg00))
+         (Eq 0 (Read w8 19 arg00))]
         false)

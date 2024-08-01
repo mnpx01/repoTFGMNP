@@ -3,12 +3,20 @@ KLEE: NOTE: Using klee-uclibc : /home/martin/klee/build/runtime/lib/klee-uclibc.
 KLEE: output directory is "/home/martin/Escritorio/libarchive/build/bin/./klee-out-5"
 KLEE: Using Z3 solver backend
 KLEE: Deterministic allocator: Using quarantine queue size 8
-KLEE: Deterministic allocator: globals (start-address=0x716894800000 size=10 GiB)
-KLEE: Deterministic allocator: constants (start-address=0x716614800000 size=10 GiB)
-KLEE: Deterministic allocator: heap (start-address=0x706614800000 size=1024 GiB)
-KLEE: Deterministic allocator: stack (start-address=0x704614800000 size=128 GiB)
-
-KLEE: done: total instructions = 843762
-KLEE: done: completed paths = 1
-KLEE: done: partially completed paths = 0
-KLEE: done: generated tests = 1
+KLEE: Deterministic allocator: globals (start-address=0x706c58c00000 size=10 GiB)
+KLEE: Deterministic allocator: constants (start-address=0x7069d8c00000 size=10 GiB)
+KLEE: Deterministic allocator: heap (start-address=0x6f69d8c00000 size=1024 GiB)
+KLEE: Deterministic allocator: stack (start-address=0x6f49d8c00000 size=128 GiB)
+Option KLEE: ERROR: libarchive/archive_read_support_filter_gzip.c:188: Query timed out (fork).
+KLEE: NOTE: now ignoring this error at this location
+KLEE: ERROR: libarchive/archive_read_support_filter_gzip.c:208: Query timed out (fork).
+KLEE: NOTE: now ignoring this error at this location
+KLEE: ERROR: libarchive/archive_read.c:1454: concretized symbolic size
+KLEE: NOTE: now ignoring this error at this location
+--= is not supportedKLEE: ERROR: libarchive/archive_read_support_filter_xz.c:580: memory error: invalid pointer: free
+KLEE: NOTE: now ignoring this error at this location
+Option --hÿÿÿÿÿÿ= is not supported<stdin>: <stdin>: truncated gzip inputLzma library error: format not recognized
+KLEE: done: total instructions = 1376256
+KLEE: done: completed paths = 25
+KLEE: done: partially completed paths = 2278
+KLEE: done: generated tests = 66

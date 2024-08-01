@@ -1,23 +1,23 @@
-klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=../libarchive/libarchive.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./bsdcat.bc --sym-stdin 1024
-PID: 3797
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=../libarchive/libarchive.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./bsdcat.bc --sym-args 0 3 10 --sym-stdin 1024
+PID: 4936
 Using monotonic steady clock with 1/1000000000s resolution
-Started: 2024-07-02 10:31:53
+Started: 2024-08-01 11:48:27
 BEGIN searcher description
 <InterleavedSearcher> containing 2 searchers:
 RandomPathSearcher
 WeightedRandomSearcher::CoveringNew
 </InterleavedSearcher>
 END searcher description
-Finished: 2024-07-02 10:34:04
-Elapsed: 00:02:11
-KLEE: done: explored paths = 1064
-KLEE: done: avg. constructs per query = 198
-KLEE: done: total queries = 1516
-KLEE: done: valid queries = 782
-KLEE: done: invalid queries = 732
-KLEE: done: query cex = 1516
+Finished: 2024-08-01 11:50:45
+Elapsed: 00:02:18
+KLEE: done: explored paths = 2068
+KLEE: done: avg. constructs per query = 166
+KLEE: done: total queries = 1932
+KLEE: done: valid queries = 888
+KLEE: done: invalid queries = 1042
+KLEE: done: query cex = 1932
 
-KLEE: done: total instructions = 547564
-KLEE: done: completed paths = 1
-KLEE: done: partially completed paths = 1063
-KLEE: done: generated tests = 51
+KLEE: done: total instructions = 983040
+KLEE: done: completed paths = 26
+KLEE: done: partially completed paths = 2042
+KLEE: done: generated tests = 62
