@@ -2,7 +2,7 @@ TCPDUMP (/home/martin/tcpdump) ADAPTACION LLVM
 
 git clone https://github.com/the-tcpdump-group/libpcap.git
 cd libpcap && mkdir build && cd build
-pip install --break-system-packages --upgrade wllvm && export CC=wllvm && export CXX=wllvm++ && export LLVM_COMPILER=clang && export CMAKE_C_FLAGS="-emit-llvm" && export CMAKE_CXX_FLAGS="-emit-llvm"
+pip install --break-system-packages --upgrade wllvm && export CC=wllvm && export CXX=wllvm++ && export LLVM_COMPILER=clang
 sudo apt-get install flex
 cmake ..
 make
@@ -12,8 +12,8 @@ cd ../..
 
 git clone https://github.com/the-tcpdump-group/tcpdump.git
 cd tcpdump && mkdir build && cd build
-pip install --break-system-packages --upgrade wllvm && export CC=wllvm && export CXX=wllvm++ && export LLVM_COMPILER=clang && export CMAKE_C_FLAGS="-emit-llvm" && export CMAKE_CXX_FLAGS="-emit-llvm"
-cmake .. && make && sudo make install
+pip install --break-system-packages --upgrade wllvm && export CC=wllvm && export CXX=wllvm++ && export LLVM_COMPILER=clang
+cmake .. && make
 
 extract-bc tcpdump
 extract-bc libnetdissect.a
@@ -57,7 +57,7 @@ redactar con info de la página oficial
 
 
 PRUEBAS Klee: tests de 0 a 6 prametros, no posibilidad de archivos, si stdin, si stdout
-klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --watchdog -link-llvm-lib=/home/martin/Escritorio/libpcap/build/libpcap.bca -link-llvm-lib=libnetdissect.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./tcpdump.bc
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --watchdog -link-llvm-lib=/home/martin/Escritorio/libpcap/build/libpcap.bca -link-llvm-lib=libnetdissect.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./tcpdump.bc --sym-args 0 6 10 
 
 MENCIONAR USO DE VALGRIND?!!  
 

@@ -39,8 +39,8 @@ GCOV considera solo las líneas de los archivos usados, no de la aplicación ent
 redactar con info de la página oficial
 -------------------------------------------------------------------------------------------------------------
 
-PRUEBAS Klee:  tests de 0 a 3 prametros, posibilidad de archivos nooo, no stdin, si stdout 
-klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=../libarchive/libarchive.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./bsdcat.bc -- prueba.zip --sym-args 0 3 20 --sym-stdin 2048
+PRUEBAS Klee:  tests de 0 a 3 prametros, posibilidad de archivos nooo, no stdin, NO stdout 
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=../libarchive/libarchive.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./bsdcat.bc -- prueba.zip --sym-args 0 3 20 --sym-stdin 2048 --sym-stdout
 
 bsdcat.bc
 
@@ -48,14 +48,14 @@ bsdcat.bc
 2. --sym-args 0 3 20 --sym-stdin 1024
 3. --sym-args 0 3 10 --sym-stdin 2048
 4. --sym-args 0 3 20 --sym-stdin 2048
-5. --sym-args 0 3 10 -sym-stdin 4096
-6. --sym-args 0 3 20 -sym-stdin 4096
+5. --sym-args 0 3 10 --sym-stdin 4096
+6. --sym-args 0 3 20 --sym-stdin 4096
 7. -- prueba.zip --sym-args 0 3 10 --sym-stdin 1024
 8. -- prueba.zip --sym-args 0 3 20 --sym-stdin 1024
 9. -- prueba.zip --sym-args 0 3 10 --sym-stdin 2048
 10. -- prueba.zip --sym-args 0 3 20 --sym-stdin 2048
-11. -- prueba.zip --sym-args 0 3 10 -sym-stdin 4096
-12. -- prueba.zip --sym-args 0 3 20 -sym-stdin 4096
+11. -- prueba.zip --sym-args 0 3 10 --sym-stdin 4096
+12. -- prueba.zip --sym-args 0 3 20 --sym-stdin 4096
 
 
 

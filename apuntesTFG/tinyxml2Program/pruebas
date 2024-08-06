@@ -82,7 +82,7 @@ https://grafana.com/docs/grafana/latest/dashboards/variables/add-template-variab
         * En mi caso, credenciales actuales -> Usuario: admin, Contraseña: 1234
 
 
-2. pip install --break-system-packages flask
+2. pip install --break-system-packages flask //Para poder ejecutar el web server de klee-stats
 
 3. klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libtinyxml2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./xmltest.bc --sym-args 0 5 40 --sym-files 1 8 --sym-stdout
 exec -a Prueba 
