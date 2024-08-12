@@ -11,39 +11,36 @@ KLEE: WARNING: undefined reference to function: getifaddrs
 KLEE: WARNING: undefined reference to function: getnetbyname_r
 KLEE: WARNING: undefined reference to function: poll
 KLEE: WARNING: undefined reference to function: setitimer
-KLEE: WARNING ONCE: calling external: syscall(16, 0, 21505, 134232777162752) at runtime/POSIX/fd.c:997 10
+KLEE: WARNING ONCE: calling external: syscall(16, 0, 21505, 130091828903936) at runtime/POSIX/fd.c:997 10
 KLEE: WARNING ONCE: Alignment of memory from call "malloc" is not modelled. Using alignment of 8.
-KLEE: WARNING ONCE: calling external: gettimeofday(134215597293568, 0) at runtime/POSIX/stubs.c:171 0
+KLEE: WARNING ONCE: calling external: gettimeofday(130074649034752, 0) at runtime/POSIX/stubs.c:171 0
 KLEE: WARNING ONCE: ioctl: (TCGETS) symbolic file, incomplete model
-KLEE: WARNING ONCE: calling external: getifaddrs(134210899673088) at [no debug info]
-KLEE: WARNING ONCE: calling external: vprintf(135431010648064, 134229555937280) at libc/stdio/fprintf.c:35 14
+KLEE: WARNING ONCE: calling external: getifaddrs(130069951414272) at [no debug info]
+KLEE: WARNING ONCE: calling external: vprintf(131288808554496, 130088607678464) at libc/stdio/fprintf.c:35 14
 KLEE: WARNING ONCE: silently concretizing (reason: external call) expression (Read w8 1 arg00) to value 67 (:0)
-KLEE: WARNING ONCE: calling external: __isoc23_strtoll((Add w64 134703076081666
-          (SExt w64 (ZExt w32 (Eq 45 (Read w8 1 arg00))))), 134207812665344, 10) at [no debug info]
-KLEE: WARNING ONCE: calling external: printf(135427680632832, 4666656044275990528) at [no debug info]
-KLEE: WARNING ONCE: silently concretizing (reason: external call) expression (Read w8 4 arg00) to value 32 (runtime/POSIX/fd.c:415)
-KLEE: WARNING ONCE: calling external: __isoc23_strtol((Add w64 134703076081667
-          (SExt w64 (ZExt w32 (Eq 45 (Read w8 1 arg00))))), 134205262528512, 0) at [no debug info]
+KLEE: WARNING ONCE: calling external: __isoc23_strtoll((Add w64 130562127822850
+          (SExt w64 (ZExt w32 (Eq 45 (Read w8 1 arg00))))), 130066864406528, 10) at [no debug info]
+KLEE: WARNING ONCE: calling external: printf(131286732374016, 4666656044275990528) at [no debug info]
+KLEE: WARNING ONCE: silently concretizing (reason: external call) expression (Read w8 4 arg00) to value 12 (runtime/POSIX/fd.c:415)
+KLEE: WARNING ONCE: calling external: __isoc23_strtol((Add w64 130562127822851
+          (SExt w64 (ZExt w32 (Eq 45 (Read w8 1 arg00))))), 130064314269696, 0) at [no debug info]
 KLEE: WARNING ONCE: skipping fork (memory cap exceeded)
 KLEE: WARNING ONCE: Alignment of memory from call "calloc" is not modelled. Using alignment of 8.
 KLEE: WARNING ONCE: calling external: __asm__0(41, 16, 3, 16) at libc/inet/socketcalls.c:362 1
-KLEE: WARNING: killing 3060 states (over memory cap: 2101MB)
-KLEE: WARNING: killing 2927 states (over memory cap: 2102MB)
-KLEE: WARNING: killing 2810 states (over memory cap: 2103MB)
-KLEE: WARNING: killing 2642 states (over memory cap: 2102MB)
-KLEE: WARNING: killing 2484 states (over memory cap: 2101MB)
-KLEE: WARNING: killing 2401 states (over memory cap: 2103MB)
-KLEE: WARNING: killing 2276 states (over memory cap: 2103MB)
-KLEE: WARNING: killing 2153 states (over memory cap: 2103MB)
-KLEE: WARNING: killing 2130 states (over memory cap: 2108MB)
-KLEE: WARNING: killing 2717 states (over memory cap: 2148MB)
-KLEE: WARNING: killing 1751 states (over memory cap: 2101MB)
-KLEE: WARNING ONCE: Symbolic memory access will send the following array of 15582 bytes to the constraint solver -- large symbolic arrays may cause significant performance issues: MO16010[15582] allocated at global:yy_chk
-KLEE: WARNING: killing 2640 states (over memory cap: 2200MB)
-KLEE: WARNING: killing 1586 states (over memory cap: 2128MB)
-KLEE: WARNING: killing 2505 states (over memory cap: 2225MB)
-KLEE: WARNING: killing 1543 states (over memory cap: 2149MB)
-KLEE: WARNING: killing 1040 states (over memory cap: 2106MB)
-KLEE: WARNING: killing 1451 states (over memory cap: 2166MB)
-KLEE: WARNING: killing 1043 states (over memory cap: 2131MB)
-KLEE: WARNING: killing 942 states (over memory cap: 2126MB)
+KLEE: WARNING: killing 3092 states (over memory cap: 2102MB)
+KLEE: WARNING: killing 4550 states (over memory cap: 2163MB)
+KLEE: WARNING: killing 2679 states (over memory cap: 2101MB)
+KLEE: WARNING: killing 2544 states (over memory cap: 2101MB)
+KLEE: WARNING: killing 2415 states (over memory cap: 2101MB)
+KLEE: WARNING: killing 2291 states (over memory cap: 2101MB)
+KLEE: WARNING: killing 2214 states (over memory cap: 2103MB)
+KLEE: WARNING: killing 2325 states (over memory cap: 2115MB)
+KLEE: WARNING: killing 2959 states (over memory cap: 2158MB)
+KLEE: WARNING: killing 1810 states (over memory cap: 2102MB)
+KLEE: WARNING ONCE: Symbolic memory access will send the following array of 15582 bytes to the constraint solver -- large symbolic arrays may cause significant performance issues: MO16011[15582] allocated at global:yy_chk
+KLEE: WARNING: killing 1977 states (over memory cap: 2131MB)
+KLEE: WARNING: killing 2730 states (over memory cap: 2199MB)
+KLEE: WARNING: killing 1800 states (over memory cap: 2142MB)
+KLEE: WARNING: killing 2858 states (over memory cap: 2250MB)
+KLEE: WARNING: killing 2912 states (over memory cap: 2292MB)
+KLEE: WARNING: killing 1927 states (over memory cap: 2214MB)

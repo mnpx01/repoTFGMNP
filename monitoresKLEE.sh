@@ -20,7 +20,7 @@ else
 	
     	### GRAFANA
     
-    	#Reiniciamos el servicio
+    	# Reiniciamos el servicio
     	sudo systemctl stop grafana-server &> /dev/null
     	sudo systemctl start grafana-server &> /dev/null
     
@@ -34,7 +34,7 @@ else
     	sudo systemctl stop influxdb &> /dev/null
     	sudo systemctl start influxdb &> /dev/null
 
-    	#Creamos la base de datos con el nombre introducido como parámetro
+    	# Creamos la base de datos con el nombre de proceso y base de datos introducido como parámetro
     	influx -host 127.0.0.1 -port 8000 -execute "CREATE DATABASE $1" &> /dev/null
 
     
@@ -43,43 +43,43 @@ else
     
     	### TELEGRAF
     
-    	#Paramos el servicio
+    	# Paramos el servicio
     	sudo systemctl stop telegraf
     
-    	#Creamos una copia del archivo original de configuración de telegraf
+    	# Creamos una copia del archivo original de configuración de telegraf
     	sudo cp /etc/telegraf/telegraf.conf $archconf
     
-    	#Modificamos el nuevo archivo de configuración
+    	# Modificamos el nuevo archivo de configuración
     
-    	#Cambiamos el intervalo de recolección de datos, pasando de 10 a 5 segundos
+    	# Cambiamos el intervalo de recolección de datos, pasando de 10 a 5 segundos
     	sudo sed -i '28s/.*/  interval = "5s"/' $archconf
     
-    	#Cambiamos el intervalo de envío de las métrica recopiladas a la/s salida/s configurada/s
+    	# Cambiamos el intervalo de envío de las métrica recopiladas a la/s salida/s configurada/s
     	sudo sed -i '56s/.*/  flush_interval = "5s"/' $archconf
     
-    	#Habilitamos la configuración de InfluxDB
-    	#1. Descomentamos la etiqueta de InfluxDB para que su configuración sea cargada
+    	# Habilitamos la configuración de InfluxDB
+    	# 1. Descomentamos la etiqueta de InfluxDB para que su configuración sea cargada
     	sudo sed -i '122s/.*/[[outputs.influxdb]]/' $archconf
-    	#2. Configuramos el puerto InfluxDB donde se enviarán todas las métricas recolectadas 
+    	# 2. Configuramos el puerto InfluxDB donde se enviarán todas las métricas recolectadas 
     	sudo sed -i "127s/.*/  urls = [\"http:\/\/localhost:8000\"]/" $archconf
-    	#3. Configuramos el nombre de la base de datos InfluxDB donde se almacenarán todas las métricas enviadas
+    	# 3. Configuramos el nombre de la base de datos InfluxDB donde se almacenarán todas las métricas enviadas
     	sudo sed -i "133s/.*/  database = \"$1\"/" $archconf
     
-    	#Deshabilitamos la configuración existente de Prometheus
+    	# Deshabilitamos la configuración existente de Prometheus
     	sudo sed -i '1589s/.*/# [[outputs.prometheus_client]]/' $archconf
     	sudo sed -i '1591s/.*/#   listen = ":9273"/' $archconf
     	sudo sed -i '1599s/.*/#   metric_version = 2/' $archconf
     
-    	#Habilitamos la monitorización de procesos individuales según el nombre de los mismos
-    	#1. Descomentamos la etiqueta de procstat para que su configuración sea cargada
+    	# Habilitamos la monitorización de procesos individuales según el nombre de los mismos
+    	# 1. Descomentamos la etiqueta de procstat para que su configuración sea cargada
     	sudo sed -i '6306s/.*/[[inputs.procstat]]/' $archconf
-    	#2. Configuramos el nombre principal del ejecutable del proceso que estará en ejecución, del cual se recolectarán métricas
+    	# 2. Configuramos el nombre principal del ejecutable del proceso que estará en ejecución, del cual se recolectarán métricas
     	sudo sed -i '6310s/.*/    exe = "klee"/' $archconf
-    	#3. Configuramos el patrón que usará 'pgrep' para buscar el proceso objetivo que está en ejecución, del cual se recolectarán métricas 
+    	# 3. Configuramos el patrón que usará 'pgrep' para buscar el proceso objetivo que está en ejecución, del cual se recolectarán métricas 
     	sudo sed -i "6312s/.*/    pattern = \"$1 --\"/" $archconf
-    	#4. Habilitamos la inclusión del PID en la recolección de las métricas 
+    	# 4. Habilitamos la inclusión del PID en la recolección de las métricas 
     	sudo sed -i '6343s/.*/    pid_tag = true/' $archconf
-    	#5. Habilitamos la herramienta que se encargaŕa de buscar el PID en función del 'exe' y 'pid' configurados
+    	# 5. Habilitamos la herramienta que se encargaŕa de buscar el PID en función del 'exe' configurado
     	sudo sed -i "6349s/.*/    pid_finder = \"pgrep\"/" $archconf
     
    
@@ -88,17 +88,17 @@ else
         	
     	### KLEE
     
-    	#Lanzamos, en segundo plano, el proceso KLEE con el nombre pasado como parámetro
+    	# Lanzamos, en segundo plano, el proceso KLEE con el nombre pasado como parámetro
     	gnome-terminal -- bash -c "
     	exec -a $1 $2;
     	exit;
     	exec bash" &
     	
-   	#Establecemos una espera de 5 segundos para que el siguiente comando no genere un "No KLEE output directory found"
+   	# Establecemos una espera de 5 segundos para que el siguiente comando no genere un "No KLEE output directory found"
     	sleep 5s
 
-    	#Lanzamos, en segundo plano, con klee-stats el web server que contendrá las estadísticas del proceso KLEE, las cuáles 
-    	#se monitorizarán con Grafana
+    	# Lanzamos, en segundo plano, con klee-stats el web server que contendrá las estadísticas del proceso KLEE, las cuáles 
+    	# se monitorizarán con Grafana
     	gnome-terminal -- bash -c "
     	klee-stats --grafana $3;
     	exit;
@@ -110,11 +110,11 @@ else
     
     	### TELEGRAF
 
-    	#Iniciamos el servicio
+    	# Iniciamos el servicio
     	sudo systemctl start telegraf &> /dev/null
     
-    	#Lanzamos un proceso telegraf que use el archivo configuración que se especifica, el cual se encuentra en /etc/telegraf;
-    	#si cambiamos el archivo de directorio, hay que especificar la ruta absoluta
+    	# Lanzamos un proceso telegraf que use el archivo configuración que se especifica, el cual se encuentra en /etc/telegraf;
+    	# si cambiamos el archivo de directorio, hay que especificar la ruta absoluta
     	echo -e "\nMonitorización lista, ya puede consultar los paneles..."
     	echo "Cuando tenga cerrada la terminal del proceso KLEE y del proceso klee-stats, CTRL + C para continuar..."
     	telegraf --config $archconf &> /dev/null

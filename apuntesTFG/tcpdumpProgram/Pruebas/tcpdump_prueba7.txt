@@ -1,18 +1,18 @@
-KLEE: KLEE: WATCHDOG: watching 10780
+KLEE: KLEE: WATCHDOG: watching 5369
 
 KLEE: NOTE: Using POSIX model: /home/martin/klee/build/runtime/lib/libkleeRuntimePOSIX64_Debug+Asserts.bca
 KLEE: NOTE: Using klee-uclibc : /home/martin/klee/build/runtime/lib/klee-uclibc.bca
 KLEE: output directory is "/home/martin/Escritorio/tcpdump/build/./klee-out-6"
 KLEE: Using Z3 solver backend
 KLEE: Deterministic allocator: Using quarantine queue size 8
-KLEE: Deterministic allocator: globals (start-address=0x7b7ea6e00000 size=10 GiB)
-KLEE: Deterministic allocator: constants (start-address=0x7b7c26e00000 size=10 GiB)
-KLEE: Deterministic allocator: heap (start-address=0x7a7c26e00000 size=1024 GiB)
-KLEE: Deterministic allocator: stack (start-address=0x7a5c26e00000 size=128 GiB)
+KLEE: Deterministic allocator: globals (start-address=0x7bdab7600000 size=10 GiB)
+KLEE: Deterministic allocator: constants (start-address=0x7bd837600000 size=10 GiB)
+KLEE: Deterministic allocator: heap (start-address=0x7ad837600000 size=1024 GiB)
+KLEE: Deterministic allocator: stack (start-address=0x7ab837600000 size=128 GiB)
 KLEE: ERROR: (location information missing) memory error: out of bound pointer
 KLEE: NOTE: now ignoring this error at this location
 
-KLEE: done: total instructions = 43065
+KLEE: done: total instructions = 43193
 KLEE: done: completed paths = 0
 KLEE: done: partially completed paths = 1
 KLEE: done: generated tests = 1

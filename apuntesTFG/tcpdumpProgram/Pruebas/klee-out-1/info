@@ -1,23 +1,23 @@
-klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --watchdog -link-llvm-lib=/home/martin/Escritorio/libpcap/build/libpcap.bca -link-llvm-lib=libnetdissect.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./tcpdump.bc --sym-args 0 6 50
-PID: 10000
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --watchdog --link-llvm-lib=/home/martin/Escritorio/libpcap/build/libpcap.bca --link-llvm-lib=libnetdissect.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./tcpdump.bc --sym-args 0 6 50
+PID: 4315
 Using monotonic steady clock with 1/1000000000s resolution
-Started: 2024-07-06 18:33:22
+Started: 2024-08-11 20:01:30
 BEGIN searcher description
 <InterleavedSearcher> containing 2 searchers:
 RandomPathSearcher
 WeightedRandomSearcher::CoveringNew
 </InterleavedSearcher>
 END searcher description
-Finished: 2024-07-06 19:33:29
-Elapsed: 01:00:07
-KLEE: done: explored paths = 66952
-KLEE: done: avg. constructs per query = 135
-KLEE: done: total queries = 47340
-KLEE: done: valid queries = 37456
-KLEE: done: invalid queries = 9884
-KLEE: done: query cex = 47340
+Finished: 2024-08-11 21:04:20
+Elapsed: 01:02:50
+KLEE: done: explored paths = 72833
+KLEE: done: avg. constructs per query = 138
+KLEE: done: total queries = 52328
+KLEE: done: valid queries = 41259
+KLEE: done: invalid queries = 11069
+KLEE: done: query cex = 52328
 
-KLEE: done: total instructions = 49486041
-KLEE: done: completed paths = 4547
-KLEE: done: partially completed paths = 62405
-KLEE: done: generated tests = 53
+KLEE: done: total instructions = 53092923
+KLEE: done: completed paths = 4874
+KLEE: done: partially completed paths = 67959
+KLEE: done: generated tests = 56

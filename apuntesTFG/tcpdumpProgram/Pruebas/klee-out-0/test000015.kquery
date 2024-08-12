@@ -6,10 +6,5 @@ array n_args[4] : w32 -> w8 = symbolic
          (Eq 45 (Read w8 1 arg00))
          (Eq 61 (Read w8 3 arg00))
          (Eq 98 (Read w8 2 arg00))
-         (Eq 0 (Read w8 5 arg00))
-         (Eq 13 (Read w8 4 arg00))
-         (Eq 0 (Read w8 6 arg00))
-         (Eq 0 (Read w8 7 arg00))
-         (Eq 0 (Read w8 8 arg00))
-         (Eq 0 (Read w8 9 arg00))]
+         (Eq 0 (Read w8 4 arg00))]
         false)
