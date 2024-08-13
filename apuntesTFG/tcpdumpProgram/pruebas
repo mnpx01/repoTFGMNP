@@ -63,8 +63,8 @@ MENCIONAR USO DE VALGRIND?!!
 
 1. --sym-args 0 6 10 
 2. --sym-args 0 6 50 
-3. --sym-args 0 6 10 --sym-stdout 
-4. --sym-args 0 6 50 --sym-stdout
+3. --sym-args 0 6 10 --sym-stdin 1024 --sym-stdout
+4. --sym-args 0 6 50 --sym-stdin 2048 --sym-stdout
 5. --sym-stdout --sym-stdin 1024 
 6. --sym-stdout --sym-stdin 2048 
 7. -- -i wlp2s0 
