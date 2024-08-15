@@ -1,35 +1,14 @@
 MEMORIA:
-    1. Caso de prueba: matrix_tcl_rendimiento.
-    2. Monitorización de procesos KLEE con Grafana.
-    3. En Antecedentes, añadir qué trabajos hay hasta ahora hechos sobre KLEE y Gcov y Monitorización, y qué diferencia hay con el nuestro. 
-       Si queda muy corto, se podría unir al capítulo 3 de KLEE y llamarle "Antecedentes y conceptos básicos".
-       Si no se incluye nada del trabajo relacionado, entonces es mejor que llames al capítulo "Conceptos básicos" y presentes todos los conceptos
-       necesarios para poder llevar a cabo el TFG e incluyas el capítulo 3 de KLEE.
-       !!!Buscar en publications en klee.org y demás infor sobre trabajos en Gcov y de Grafana, que existía antes de esto??
-    4. Del capítulo 3 de KLEE sacaría la sección de "Manual de instalación" y la llevaría a un anexo. 
-       También debería incluir otro anexo que se llame "Manual de usuario", pensar que va aquí del capítulo 3.
-       Manual de instalación:
-       Instalación y preparación de KLEE -> Manual de instalación
-       Sección 3.4.2.1. -> Anexo
-       Instalación Grafana, InfluxDB y Telegraf -> Manual de instalación
-       Configuración paneles -> Manual de usuario
-       Uso del script (comprobación de que el nombre de la BD coincide con el pasado como param para nombre del proceso,
-       comprobación de que no existe un BD con mismo nombre ni un arch de conf con este mismo nombre)-> Manual de usuario
-    6. El problema es que siguen sin tener texto que vaya explicando cada cosa paso a paso y que los miembros del tribunal entiendan qué se está
-       haciendo y qué se consigue con cada paso. Intenta darle narrativa a todos esos capítulos del 4 al 8.
-    9. En las herramientas, cuando hablas de KLEE (secciones X.2), breve explicación de lo que haces.  Por ejemplo: "El programa X, en su
-       configuración por defecto, no es compatible con KLEE. Esto se debe a que no se generan los bytecode/no se usa el compilador Clang/no se 
-       ha configurado tal cosa... A continuación, se muestran los pasos necesarios para que la herramienta sea compatible con KLEE, de manera que
-       tal cosa se hace simbólica...." Si necesitas ayuda con esto avísame.
-       Luego en los pasos me parece que está poco comentado, tienes que ir explicando por qué es necesario hacer cada cosa. 
-    10. Fíjate en este párrafo: "Tras estudiar el código de los archivos principales que se han tenido en cuenta para la construcción del
-        ejecutable xmltest, se ha elaborado el siguiente conjunto de casos de prueba:"
-        ¿Se han elaborado en base a qué? ¿Por qué esos y no otros? Ya te digo, es trabajo que has hecho, que no es fácil, pero no está reflejado
-        en la memoria. 
-    11. Luego pasas a la compilación con GCC/C++, a GCov... falta texto, la verdad, sigue sin haber un hilo conductor donde el lector vea por 
-        qué se hace cada cosa y qué lleva a qué.
-    12. BIBLIOGRAFIA -> GOOGLE SCHOLAR/SCOPUS
-
+    1. En Antecedentes, añadir qué trabajos hay hasta ahora hechos sobre KLEE y Gcov, 
+       y qué diferencia hay con el nuestro. 
+       Si queda muy corto, se podría unir al capítulo 3 de KLEE y llamarle "Antecedentes y 
+       conceptos básicos".
+       Si no se incluye nada del trabajo relacionado, entonces es mejor que llames al 
+       capítulo "Conceptos básicos" y presentes todos los conceptos necesarios para poder 
+       llevar a cabo el TFG e incluyas el capítulo 3 de KLEE.
+       !!!Buscar en publications en klee.org y demás infor sobre trabajos en Gcov y 
+       de Grafana, que existía antes de esto??    
+    3. Conclusiones.
 
 
 
@@ -37,16 +16,11 @@ DUDAS:
     - Cómo creo un hilo conductor de todos los puntos necesarios? 
 	Imaginando que le cuento esto a alguien que entiende de informática pero no del tema en cuestión.
 
+    - No es mejor meter análisis de resultados como un sección dentro de cada caso de estudio?
+        Capítulo para análisis de resultados(posible eliminación), además, secciones dentro de los casos de estudio 
+        para el análisis de los resultados individuales.
 
-
------"""PENDIENTE DE CONFIRMACION"""
-    - Pasar sección 3.4.2.1. a ANEXO.
-
+    - Parece ser que hay un bug que han arreglado en la instalación de libcxx, elimino el trozo de código donde 
+      doy solución o lo dejo por si acaso?
 
 ------------------------------------------------------------------------------------------------------
-PRACTICA:
-
-    1. Hacer caso de estudio matrix_tcl_pro.
-    2. Modificar script monitorización para dar opción a eliminar base de datos usada y archivo telegraf.conf
-
-
