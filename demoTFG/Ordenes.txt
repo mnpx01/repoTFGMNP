@@ -1,0 +1,12 @@
+KLEE (0:00 - 4:55):
+klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libtinyxml2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./xmltest.bc --sym-args 0 1 1
+
+
+
+Gcov (4:56 - 5:47):
+gcov -abcfHlm -o ./CMakeFiles/xmltest.dir xmltest.cpp
+
+
+
+Monitor (5:48 - 9:00):
+./monitoresKLEE.sh Prueba "klee --warnings-only-to-file --only-output-states-covering-new --external-calls=all --link-llvm-lib=libtinyxml2.bca --write-kqueries --max-solver-time=30 --max-time=3600 --optimize --libc=uclibc --posix-runtime ./xmltest.bc --sym-args 0 2 2" klee-out-1
